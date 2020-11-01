@@ -1,0 +1,77 @@
+{
+  "name": "@shapla/react-button",
+  "description": "A simple button, in different colors, sizes, and states",
+  "version": "1.0.0-alpha1",
+  "author": {
+    "name": "Sayful Islam",
+    "email": "sayful.islam001@gmail.com",
+    "url": "https://sayfulislam.com"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "button"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sayful1/shapla-react-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sayful1/shapla-react-components/issues"
+  },
+  "main": "dist/button.common.js",
+  "unpkg": "dist/button.umd.js",
+  "module": "src/index.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "scripts": {
+    "dev": "webpack --mode=development --progress --watch",
+    "build": "webpack --mode=production --env common --entry ./src/index.js",
+    "build:umd": "webpack --mode=production --env umd --entry ./src/index.js"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/plugin-transform-modules-umd": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.2.1",
+    "mini-svg-data-uri": "^1.2.3",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "path": "^0.12.7",
+    "postcss": "^8.1.4",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-loader": "^4.0.4",
+    "postcss-preset-env": "^6.7.0",
+    "react-dom": "^17.0.1",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

@@ -119,8 +119,12 @@ module.exports = (env, argv) => {
       ]
     },
     externals: {
-      'react': 'React',
-      'react-dom': 'ReactDOM',
+      react: {
+        commonjs: 'react',
+        commonjs2: 'react',
+        amd: 'react',
+        root: 'React'
+      },
     },
     resolve: {
       modules: [

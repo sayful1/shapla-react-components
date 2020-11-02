@@ -7,7 +7,7 @@ class App extends React.Component {
       <div className="stackonet-admin-app">
         First Testing page using React
 
-        <Button>Click Me</Button>
+        <Button theme='primary'>Click Me</Button>
       </div>
     )
   }

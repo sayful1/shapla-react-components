@@ -31,7 +31,7 @@
     "*.js"
   ],
   "scripts": {
-    "dev": "webpack --mode=development --progress --watch --entry ./example/main.js",
+    "dev": "webpack serve --mode=development --progress --watch --entry ./example/main.js --output-path ./dist",
     "build:common": "webpack --mode=production --env common --entry ./src/index.js",
     "build:umd": "webpack --mode=production --env umd --entry ./src/index.js",
     "build": "npm run build:common && npm run build:umd"
@@ -63,11 +63,11 @@
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
     "react-dom": "^17.0.1",
-    "sass-loader": "^10.0.4",
+    "sass-loader": "^10.0.5",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.3.2",
+    "webpack": "^5.4.0",
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
   },

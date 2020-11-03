@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from "../dist/button.umd.js";
+import Button from "../src";
 
 class App extends React.Component {
   render() {
@@ -7,9 +7,13 @@ class App extends React.Component {
       <div className="stackonet-admin-app">
         First Testing page using React
 
-        <Button theme='primary'>Click Me</Button>
+        <Button theme='primary' onClick={this.handleClick}>Click Me</Button>
       </div>
     )
+  }
+
+  handleClick() {
+    console.log('Button clicked!');
   }
 }
 

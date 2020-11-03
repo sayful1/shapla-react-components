@@ -4,6 +4,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const combineMediaQuery = require('postcss-combine-media-query');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let plugins = [];
 
@@ -16,10 +17,17 @@ module.exports = (env, argv) => {
     outputCommonjs = {filename: 'button.common.js', libraryTarget: 'commonjs'},
     outputUmd = {filename: 'button.umd.js', libraryTarget: 'umd'};
 
-  return {
+  if (isDev) {
+    plugins.push(new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public', 'index.html')
+    }));
+  }
+
+  const config = {
+    entry: path.join(__dirname, 'example', 'main.js'),
     "output": Object.assign(
       {"path": path.resolve(__dirname, 'dist')},
-      (env && env.umd) ? outputUmd : outputCommonjs
+      (env && env.common) ? outputCommonjs : outputUmd
     ),
     "devtool": isDev ? 'eval-source-map' : false,
     "module": {
@@ -118,14 +126,6 @@ module.exports = (env, argv) => {
         new OptimizeCSSAssetsPlugin()
       ]
     },
-    externals: {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'react',
-        root: 'React'
-      },
-    },
     resolve: {
       modules: [
         path.resolve('./node_modules'),
@@ -134,4 +134,12 @@ module.exports = (env, argv) => {
     },
     "plugins": plugins
   }
+
+  if (!isDev) {
+    config.externals = {
+      react: {commonjs: 'react', commonjs2: 'react', amd: 'react', root: 'React'},
+    };
+  }
+
+  return config;
 };

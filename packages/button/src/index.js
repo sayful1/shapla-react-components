@@ -4,6 +4,7 @@
  * Released under the MIT License.
  */
 import Button from "./Button";
+import '../src/_button.scss';
 
 export {Button}
 export default Button;

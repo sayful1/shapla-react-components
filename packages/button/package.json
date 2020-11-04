@@ -31,7 +31,7 @@
     "*.js"
   ],
   "scripts": {
-    "dev": "webpack serve --mode=development --progress --watch --entry ./example/main.js --output-path ./dist",
+    "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
     "build:common": "webpack --mode=production --env common --entry ./src/index.js",
     "build:umd": "webpack --mode=production --env umd --entry ./src/index.js",
     "build": "npm run build:common && npm run build:umd"
@@ -47,7 +47,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@babel/plugin-transform-modules-umd": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
     "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^5.0.0",

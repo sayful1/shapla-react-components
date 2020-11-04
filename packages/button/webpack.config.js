@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 let plugins = [];
 
 plugins.push(new MiniCssExtractPlugin({
-  filename: "../css/[name].css"
+  filename: "./button.css"
 }));
 
 module.exports = (env, argv) => {

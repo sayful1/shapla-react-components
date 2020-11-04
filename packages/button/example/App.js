@@ -1,11 +1,12 @@
 import React from 'react'
 import Button from "../src";
+import '../src/_button.scss'
 
 class App extends React.Component {
   render() {
     return (
       <div className="stackonet-admin-app">
-        First Testing page using React
+        <p>First Testing page using React.</p>
 
         <Button theme='primary' onClick={this.handleClick}>Click Me</Button>
       </div>

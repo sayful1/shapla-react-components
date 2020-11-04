@@ -1,7 +1,7 @@
 {
-  "name": "@shapla/react-button",
+  "name": "shapla-react-button",
   "description": "A simple button, in different colors, sizes, and states",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-beta.2",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",

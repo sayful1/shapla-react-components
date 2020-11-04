@@ -9,7 +9,7 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/react-button
+npm install --save shapla-react-button
 ```
 
 # Usage
@@ -18,19 +18,19 @@ npm install --save @shapla/react-button
 
 with Sass:
 ```js
-import '@shapla/react-button/src/button.scss';
+import 'shapla-react-button/src/button.scss';
 ```
 
 with CSS:
 ```js
-import '@shapla/react-button/dist/button.css';
+import 'shapla-react-button/dist/button.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Button from '@shapla/react-button';
+import Button from 'shapla-react-button';
  
 class MyApp extends React.Component {
   render() {

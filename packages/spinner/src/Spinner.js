@@ -6,7 +6,12 @@ class Spinner extends React.Component {
    * Specifies the default values for props:
    */
   static defaultProps = {
-    active: true, single: false, showText: false, loadingText: 'Loading...', position: 'fixed', size: 'default'
+    active: true,
+    single: false,
+    showText: false,
+    loadingText: 'Loading...',
+    position: 'fixed',
+    size: 'default'
   };
 
   /**
@@ -31,12 +36,16 @@ class Spinner extends React.Component {
   }
 
   /**
-   * Called immediately after a component is mounted. Setting state here will trigger re-rendering.
+   * Called immediately after a component is mounted.
+   * Setting state here will trigger re-rendering.
    */
   componentDidMount() {
     this.refreshBodyClass(this.props.active);
   }
 
+  /**
+   * @param prevProps
+   */
   componentDidUpdate(prevProps) {
     if (this.props.active !== prevProps.active) {
       this.refreshBodyClass(this.props.active);
@@ -89,6 +98,11 @@ class Spinner extends React.Component {
     return classes.join(' ');
   }
 
+  /**
+   * Spinner inner classes
+   *
+   * @returns {string}
+   */
   innerClass() {
     let classes = ['shapla-spinner-inner'];
     if (this.props.showText) {
@@ -98,6 +112,11 @@ class Spinner extends React.Component {
     return classes.join(' ');
   }
 
+  /**
+   * Spinner classes
+   *
+   * @returns {string}
+   */
   spinnerClass() {
     let classes = ['shapla-spinner'];
     classes.push(`is-${this.props.size}`);
@@ -107,10 +126,21 @@ class Spinner extends React.Component {
     return classes.join(' ')
   }
 
+  /**
+   * Item class
+   *
+   * @param {number} index
+   * @returns {string}
+   */
   itemClass(index) {
     return ['shapla-spinner__layer', 'shapla-spinner__layer-' + index].join(' ');
   }
 
+  /**
+   * Refresh body class
+   *
+   * @param {boolean} active
+   */
   refreshBodyClass(active) {
     if (active) {
       document.querySelector('body').classList.add('has-shapla-spinner');

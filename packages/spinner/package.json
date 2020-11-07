@@ -1,6 +1,6 @@
 {
-  "name": "shapla-react-button",
-  "description": "A simple button, in different colors, sizes, and states",
+  "name": "shapla-react-spinner",
+  "description": "A loading spinner component based on Material Design Lite Spinner for React",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -10,7 +10,7 @@
   "keywords": [
     "react",
     "react-component",
-    "button"
+    "spinner"
   ],
   "license": "MIT",
   "repository": {
@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-react-components/issues"
   },
-  "main": "dist/button.common.js",
-  "unpkg": "dist/button.umd.js",
+  "main": "dist/spinner.common.js",
+  "unpkg": "dist/spinner.umd.js",
   "module": "src/index.js",
   "files": [
     "dist/*",

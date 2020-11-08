@@ -1,14 +1,31 @@
 import React from 'react'
-import Button from "../src";
-import '../src/_button.scss'
+import Modal from "../src";
+import '../src/index.scss'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: true,
+    }
+
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  closeModal() {
+    this.setState({
+      active: false
+    });
+  }
+
   render() {
     return (
       <div className="stackonet-admin-app">
         <p>First Testing page using React.</p>
 
-        <Button theme='primary' onClick={this.handleClick}>Click Me</Button>
+        <Modal active={this.state.active} closeOnBackgroundClick={false} type='box' onClose={this.closeModal}>
+          Some Modal Content
+        </Modal>
       </div>
     )
   }

@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-react-components/issues"
   },
-  "main": "dist/button.common.js",
-  "unpkg": "dist/button.umd.js",
+  "main": "dist/button.js",
+  "unpkg": "dist/button.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -32,9 +32,9 @@
   ],
   "scripts": {
     "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
-    "build:common": "webpack --mode=production --env common --entry ./src/index.js",
-    "build:umd": "webpack --mode=production --env umd --entry ./src/index.js",
-    "build": "npm run build:common && npm run build:umd"
+    "dev-build:umd": "webpack --mode=development --name=button --env umd --entry ./src/index.js",
+    "build:umd": "webpack --mode=production --name=button --env umd --entry ./src/index.js",
+    "build": "npm run dev-build:umd && npm run build:umd"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

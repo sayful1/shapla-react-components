@@ -1,5 +1,5 @@
 /*!
- * Shapla Modal v1.0.0
+ * Shapla React Modal v1.0.0
  * (c) 2019 Sayful Islam
  * Released under the MIT License.
  */
@@ -20,6 +20,8 @@ class Modal extends React.Component {
     closeOnBackgroundClick: true,
     showCloseIcon: true,
     contentSize: 'medium',
+    children: '',
+    footer: '',
     onClose: () => {
     },
   };
@@ -44,11 +46,30 @@ class Modal extends React.Component {
    */
   constructor(props) {
     super(props);
-
-    this.close = this.close.bind(this);
-    this.backgroundClick = this.backgroundClick.bind(this);
   }
 
+  /**
+   * Called immediately after a component is mounted.
+   * Setting state here will trigger re-rendering.
+   */
+  componentDidMount() {
+    this.refreshBodyClass(this.props.active);
+  }
+
+  /**
+   * @param prevProps
+   */
+  componentDidUpdate(prevProps) {
+    if (this.props.active !== prevProps.active) {
+      this.refreshBodyClass(this.props.active);
+    }
+  }
+
+  /**
+   * Render content
+   *
+   * @returns {JSX.Element|null}
+   */
   render() {
     if (!this.props.active) {
       return null;
@@ -57,7 +78,11 @@ class Modal extends React.Component {
     if (!this.is_card()) {
       return (
         <div className='shapla-modal is-active'>
-          <div className="shapla-modal-background" onClick={this.backgroundClick()}/>
+          {
+            this.props.closeOnBackgroundClick ?
+              <div className="shapla-modal-background" onClick={this.props.onClose}/> :
+              <div className="shapla-modal-background"/>
+          }
           <div className={this.contentClass()}>{this.props.children}</div>
           {this.props.showCloseIcon && <DeleteIcon size='large' fixed={true} onClick={this.props.onClose}/>}
         </div>
@@ -66,7 +91,11 @@ class Modal extends React.Component {
 
     return (
       <div className='shapla-modal is-active'>
-        <div className="shapla-modal-background" onClick={this.backgroundClick()}/>
+        {
+          this.props.closeOnBackgroundClick ?
+            <div className="shapla-modal-background" onClick={this.props.onClose}/> :
+            <div className="shapla-modal-background"/>
+        }
         <div className={this.contentClass()}>
           <div className="shapla-modal-card-head">
             <p className="shapla-modal-card-title">{this.props.title}</p>
@@ -76,13 +105,18 @@ class Modal extends React.Component {
             {this.props.children}
           </div>
           <div className="shapla-modal-card-foot is-pulled-right">
-            <button className="shapla-button" onClick={this.props.onClose}>Cancel</button>
+            {this.props.footer || <button className="shapla-button" onClick={this.props.onClose}>Cancel</button>}
           </div>
         </div>
       </div>
     )
   }
 
+  /**
+   * Content class
+   *
+   * @returns {string}
+   */
   contentClass() {
     let classes = [
       `is-${this.props.contentSize}`,
@@ -104,16 +138,6 @@ class Modal extends React.Component {
    */
   is_card() {
     return this.props.type === 'card';
-  }
-
-  close() {
-    return this.props.onClick;
-  }
-
-  backgroundClick() {
-    if (this.props.closeOnBackgroundClick) {
-      this.close();
-    }
   }
 
   /**

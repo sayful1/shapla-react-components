@@ -18,7 +18,7 @@ npm install --save shapla-react-button
 
 with Sass:
 ```js
-import 'shapla-react-button/src/button.scss';
+import 'shapla-react-button/src/index.scss';
 ```
 
 with CSS:

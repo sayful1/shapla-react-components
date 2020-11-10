@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from "../src";
-import '../src/_button.scss'
+import '../src/index.scss'
 
 class App extends React.Component {
   render() {

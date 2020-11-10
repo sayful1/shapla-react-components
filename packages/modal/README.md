@@ -1,4 +1,4 @@
-# shapla-modal
+# React Modal
 
 [![npm](https://img.shields.io/npm/v/shapla-modal.svg) ![npm](https://img.shields.io/npm/dm/shapla-modal.svg)](https://www.npmjs.com/package/shapla-modal)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
@@ -13,7 +13,7 @@ A classic modal overlay for Vue.js, in which you can include any content you wan
 # Installation
 
 ```
-npm install --save shapla-modal
+npm install --save shapla-react-modal
 ```
 
 # Usage
@@ -64,22 +64,3 @@ export default {
 | `closeOnBackgroundClick`  | Boolean   | **no**    | `true`        | If set `true`, clicking outside content area will trigger close event.                                                                                                                        |
 | `showCloseIcon`           | Boolean   | **no**    | `true`        | If set `false`, no closing icon will be shown                                                                                                                                                 |
 | `contentSize`             | String    | **no**    | `medium`      | Value can be `small`, `medium`, `large` or `full`. `small` has content width 320px, `medium` has content width 640px, `large` has content width 960px and `full` will take full browser width |
-
-## Listeners
-The modal component fires the following events:
-
-**`close`**: When close icon or outside content area is clicked, it fires the event.
-
-```html
-<!-- template -->
-<modal @close="closeModal">
-</modal>
-
-
-<!-- method -->
-methods: {
-  closeModal(){
-    this.modalActive = false;
-  }
-}
-```

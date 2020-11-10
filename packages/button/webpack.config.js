@@ -6,37 +6,37 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const combineMediaQuery = require('postcss-combine-media-query');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let plugins = [];
-
-plugins.push(new MiniCssExtractPlugin({
-  filename: "./button.css"
-}));
-
 module.exports = (env, argv) => {
   let isDev = argv.mode !== 'production',
-    outputCommonjs = {filename: 'button.common.js', libraryTarget: 'commonjs'},
-    outputUmd = {filename: 'button.umd.js', libraryTarget: 'umd'};
+    name = argv.name ? argv.name : 'index';
+
+  let plugins = [];
+
+  plugins.push(new MiniCssExtractPlugin({
+    filename: `./${name}.css`
+  }));
 
   if (isDev) {
     plugins.push(new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
+      template: '../../public/index.html'
     }));
   }
 
   const config = {
-    entry: path.join(__dirname, 'example', 'main.js'),
-    "output": Object.assign(
-      {"path": path.resolve(__dirname, 'dist')},
-      (env && env.common) ? outputCommonjs : outputUmd
-    ),
-    "devtool": isDev ? 'eval-source-map' : false,
-    "module": {
-      "rules": [
+    // entry: path.join(__dirname, 'example', 'main.js'),
+    output: {
+      // path: path.resolve(__dirname, 'dist'),
+      filename: isDev ? `${name}.js` : `${name}.min.js`,
+      libraryTarget: 'umd'
+    },
+    "devtool": isDev ? 'source-map' : false,
+    module: {
+      rules: [
         {
-          "test": /\.(js|jsx)$/i,
-          "use": {
-            "loader": "babel-loader",
-            "options": {
+          test: /\.(js|jsx)$/i,
+          use: {
+            loader: "babel-loader",
+            options: {
               presets: [
                 '@babel/preset-env',
                 '@babel/preset-react'
@@ -132,7 +132,7 @@ module.exports = (env, argv) => {
       ],
       extensions: ['*', '.js', '.json']
     },
-    "plugins": plugins
+    plugins: plugins
   }
 
   if (!isDev) {

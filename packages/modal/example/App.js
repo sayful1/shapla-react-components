@@ -23,7 +23,13 @@ class App extends React.Component {
       <div className="stackonet-admin-app">
         <p>First Testing page using React.</p>
 
-        <Modal active={this.state.active} closeOnBackgroundClick={false} type='card' onClose={this.closeModal}>
+        <Modal
+          active={this.state.active}
+          closeOnBackgroundClick={false}
+          type='card'
+          onClose={this.closeModal}
+          footer={<button>Save</button>}
+        >
           Some Modal Content
         </Modal>
       </div>

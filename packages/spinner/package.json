@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-react-components/issues"
   },
-  "main": "dist/spinner.common.js",
-  "unpkg": "dist/spinner.umd.js",
+  "main": "dist/spinner.js",
+  "unpkg": "dist/spinner.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -32,9 +32,9 @@
   ],
   "scripts": {
     "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
-    "build:common": "webpack --mode=production --env common --entry ./src/index.js",
-    "build:umd": "webpack --mode=production --env umd --entry ./src/index.js",
-    "build": "npm run build:common && npm run build:umd"
+    "dev-build:umd": "webpack --mode=development --name=spinner --env umd --entry ./src/index.js",
+    "build:umd": "webpack --mode=production --name=spinner --env umd --entry ./src/index.js --entry ./src/index.scss",
+    "build": "npm run dev-build:umd && npm run build:umd"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -53,12 +53,12 @@
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
-    "mini-css-extract-plugin": "^1.2.1",
+    "mini-css-extract-plugin": "^1.3.0",
     "mini-svg-data-uri": "^1.2.3",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "path": "^0.12.7",
-    "postcss": "^8.1.4",
+    "postcss": "^8.1.6",
     "postcss-combine-media-query": "^1.0.1",
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",

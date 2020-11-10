@@ -18,7 +18,7 @@ npm install --save shapla-react-spinner
 
 with Sass:
 ```js
-import 'shapla-react-spinner/src/spinner.scss';
+import 'shapla-react-spinner/src/index.scss';
 ```
 
 with CSS:

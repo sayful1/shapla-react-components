@@ -53,6 +53,7 @@ class Modal extends React.Component {
     if (!this.props.active) {
       return null;
     }
+
     if (!this.is_card()) {
       return (
         <div className='shapla-modal is-active'>
@@ -62,9 +63,22 @@ class Modal extends React.Component {
         </div>
       )
     }
+
     return (
-      <div>
-        <DeleteIcon/>
+      <div className='shapla-modal is-active'>
+        <div className="shapla-modal-background" onClick={this.backgroundClick()}/>
+        <div className={this.contentClass()}>
+          <div className="shapla-modal-card-head">
+            <p className="shapla-modal-card-title">{this.props.title}</p>
+            {this.props.showCloseIcon && <DeleteIcon onClick={this.props.onClose}/>}
+          </div>
+          <div className="shapla-modal-card-body">
+            {this.props.children}
+          </div>
+          <div className="shapla-modal-card-foot is-pulled-right">
+            <button className="shapla-button" onClick={this.props.onClose}>Cancel</button>
+          </div>
+        </div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 {
   "name": "shapla-react-modal",
-  "description": "A classic modal overlay, in which you can include any content you want for React",
+  "description": "A classic modal overlay for React, in which you can include any content you want.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -10,6 +10,7 @@
   "keywords": [
     "react",
     "react-component",
+    "popup",
     "dialog",
     "modal"
   ],
@@ -33,9 +34,9 @@
   ],
   "scripts": {
     "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
-    "build:common": "webpack --mode=production --name=modal --env common --entry ./src/index.js",
+    "dev-build:umd": "webpack --mode=development --name=modal --env umd --entry ./src/index.js",
     "build:umd": "webpack --mode=production --name=modal --env umd --entry ./src/index.js",
-    "build": "npm run build:common && npm run build:umd"
+    "build": "npm run dev-build:umd && npm run build:umd"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

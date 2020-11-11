@@ -1,9 +1,6 @@
 # React Modal
 
-[![npm](https://img.shields.io/npm/v/shapla-react-modal.svg) ![npm](https://img.shields.io/npm/dm/shapla-react-modal.svg)](https://www.npmjs.com/package/shapla-react-modal)
-
-
-A classic modal overlay for Vue.js, in which you can include any content you want.
+A classic modal overlay for React, in which you can include any content you want.
 
 ## Table of contents
 

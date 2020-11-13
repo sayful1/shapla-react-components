@@ -15,6 +15,7 @@ class Modal extends React.Component {
    */
   static defaultProps = {
     active: false,
+    className: '',
     title: 'Untitled',
     type: 'card', // Also support 'box' design
     closeOnBackgroundClick: true,
@@ -31,6 +32,7 @@ class Modal extends React.Component {
    */
   static propTypes = {
     active: PropTypes.bool,
+    className: PropTypes.string,
     title: PropTypes.string,
     type: PropTypes.string,
     closeOnBackgroundClick: PropTypes.bool,
@@ -90,7 +92,7 @@ class Modal extends React.Component {
     }
 
     return (
-      <div className='shapla-modal is-active'>
+      <div className={this.modalClass}>
         {
           this.props.closeOnBackgroundClick ?
             <div className="shapla-modal-background" onClick={this.props.onClose}/> :
@@ -110,6 +112,14 @@ class Modal extends React.Component {
         </div>
       </div>
     )
+  }
+
+  modalClass() {
+    let classes = ['shapla-modal', 'is-active'];
+    if (this.props.className) {
+      classes.push(this.props.className);
+    }
+    return classes.join(' ');
   }
 
   /**

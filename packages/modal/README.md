@@ -74,5 +74,6 @@ class MyApp extends React.Component {
 | `closeOnBackgroundClick`  | Boolean   | **no**    | `true`        | If set `true`, clicking outside content area will trigger close event.                                                                                                                        |
 | `showCloseIcon`           | Boolean   | **no**    | `true`        | If set `false`, no closing icon will be shown                                                                                                                                                 |
 | `contentSize`             | String    | **no**    | `medium`      | Value can be `small`, `medium`, `large` or `full`. `small` has content width 320px, `medium` has content width 640px, `large` has content width 960px and `full` will take full browser width |
+| `className`               | String    | **no**    | ``            | Custom CSS class
 | `children`                | String    | **no**    | ``            | Modal content
 | `footer`                  | String    | **no**    | ``            | Modal footer content when using card design.

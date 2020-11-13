@@ -79,7 +79,7 @@ class Modal extends React.Component {
 
     if (!this.is_card()) {
       return (
-        <div className='shapla-modal is-active'>
+        <div className={this.modalClass()}>
           {
             this.props.closeOnBackgroundClick ?
               <div className="shapla-modal-background" onClick={this.props.onClose}/> :
@@ -92,7 +92,7 @@ class Modal extends React.Component {
     }
 
     return (
-      <div className={this.modalClass}>
+      <div className={this.modalClass()}>
         {
           this.props.closeOnBackgroundClick ?
             <div className="shapla-modal-background" onClick={this.props.onClose}/> :
@@ -115,7 +115,7 @@ class Modal extends React.Component {
   }
 
   modalClass() {
-    let classes = ['shapla-modal', 'is-active'];
+    let classes = ['shapla-modal', 'is-active', `shapla-modal--${this.props.type}`];
     if (this.props.className) {
       classes.push(this.props.className);
     }

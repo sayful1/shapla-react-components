@@ -56,39 +56,33 @@ class ConfirmModal extends React.Component {
    * @returns {JSX.Element|null}
    */
   render() {
-    if (!this.state.modalActive) {
-      return null;
-    }
-
     return (
-      <div className='shapla-modal--confirm'>
-        <Modal type='confirm' active={this.state.modalActive} showCloseIcon={false} contentSize='small'>
-          <div className="shapla-confirm-modal">
-            <div className="shapla-confirm-modal__content">
-              {
-                this.state.params.icon &&
-                <div className={this.iconClass()}>
-                  <div className="shapla-confirm-modal__icon-content">!</div>
-                </div>
-              }
-              {
-                this.state.params.title &&
-                <h3 className="shapla-confirm-modal__title">{this.state.params.title}</h3>
-              }
-              {
-                this.state.params.message &&
-                <div className="shapla-confirm-modal__message">{this.state.params.message}</div>
-              }
-            </div>
-            <div className="shapla-confirm-modal__actions">
-              {this.state.cancelButton &&
-              <Button theme='default' onClick={this.handleCancelClick}>{this.state.cancelButton}</Button>}
-              {this.state.confirmButton &&
-              <Button theme='primary' onClick={this.handleConfirmClick}>{this.state.confirmButton}</Button>}
-            </div>
+      <Modal type='confirm' active={this.state.modalActive} showCloseIcon={false} contentSize='small'>
+        <div className="shapla-confirm-modal">
+          <div className="shapla-confirm-modal__content">
+            {
+              this.state.params.icon &&
+              <div className={this.iconClass()}>
+                <div className="shapla-confirm-modal__icon-content">!</div>
+              </div>
+            }
+            {
+              this.state.params.title &&
+              <h3 className="shapla-confirm-modal__title">{this.state.params.title}</h3>
+            }
+            {
+              this.state.params.message &&
+              <div className="shapla-confirm-modal__message">{this.state.params.message}</div>
+            }
           </div>
-        </Modal>
-      </div>
+          <div className="shapla-confirm-modal__actions">
+            {this.state.cancelButton &&
+            <Button theme='default' onClick={this.handleCancelClick}>{this.state.cancelButton}</Button>}
+            {this.state.confirmButton &&
+            <Button theme='primary' onClick={this.handleConfirmClick}>{this.state.confirmButton}</Button>}
+          </div>
+        </div>
+      </Modal>
     )
   }
 

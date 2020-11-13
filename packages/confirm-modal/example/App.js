@@ -2,8 +2,6 @@ import React from 'react'
 import {ConfirmModal, Dialog} from "../src";
 import '../src/index.scss'
 
-import 'shapla-css/src/shapla.scss'
-
 class App extends React.Component {
   constructor(props) {
     super(props);

@@ -95,7 +95,7 @@ class App extends React.Component {
         </Modal>
 
         <Modal active={this.state.showFullCardModal} type='card' onClose={this.closeFullCardModal}
-               title="Card Modal Demo 4" contentSize='full' footer={
+               title="Card Modal Demo 4" contentSize='full' className='custom-class' footer={
           <div>
             <button className='shapla-button is-primary is-outline' onClick={this.closeFullCardModal}>Close</button>
             <button className='shapla-button is-primary'>Save</button>

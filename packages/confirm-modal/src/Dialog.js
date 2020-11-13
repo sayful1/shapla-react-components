@@ -1,9 +1,21 @@
-class Confirm {
+class Dialog {
+  /**
+   * Listen event
+   *
+   * @param event
+   * @param callback
+   */
   static on(event, callback) {
     document.addEventListener(event, (e) => callback(e.detail));
   }
 
-  static emit(event, data) {
+  /**
+   * Dispatch event
+   *
+   * @param event
+   * @param data
+   */
+  static dispatch(event, data) {
     document.dispatchEvent(new CustomEvent(event, {detail: data}));
   }
 
@@ -13,7 +25,7 @@ class Confirm {
    * @param {Object} params
    */
   static show(params = {}) {
-    Confirm.emit('show', params);
+    Dialog.dispatch('show.ShaplaReactConfirmModal', params);
   }
 
   /**
@@ -46,7 +58,7 @@ class Confirm {
     return new Promise(resolve => {
       this.show(_params);
 
-      Confirm.on('clicked', confirmed => resolve(confirmed));
+      Dialog.on('click.ShaplaReactConfirmModal', confirmed => resolve(confirmed));
     });
   }
 
@@ -64,5 +76,5 @@ class Confirm {
   }
 }
 
-export {Confirm};
-export default Confirm;
+export {Dialog};
+export default Dialog;

@@ -1,6 +1,6 @@
-# React Modal
+# React Confirm Modal
 
-A classic modal overlay for React, in which you can include any content you want.
+A simple confirm modal/dialog based on modal component for React
 
 ## Table of contents
 
@@ -10,7 +10,7 @@ A classic modal overlay for React, in which you can include any content you want
 # Installation
 
 ```
-npm install --save shapla-react-modal
+npm install --save shapla-react-confirm-modal
 ```
 
 # Usage
@@ -19,60 +19,63 @@ npm install --save shapla-react-modal
 
 with Sass:
 ```js
-import 'shapla-react-modal/src/index.scss';
+import 'shapla-react-confirm-modal/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-modal/dist/modal.css';
+import 'shapla-react-confirm-modal/dist/modal.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Modal from 'shapla-react-modal';
+import {ConfirmModal, Dialog} from 'shapla-react-confirm-modal';
  
 class MyApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showBoxModal: false }
-    this.openBoxModal = this.openBoxModal.bind(this);
-    this.closeBoxModal = this.closeBoxModal.bind(this);
+
+    this.openConfirmModal = this.openConfirmModal.bind(this);
+    this.openAlertModal = this.openAlertModal.bind(this);
   }
 
-  openBoxModal() {
-    this.setState(state => state.showBoxModal = true);
+  openConfirmModal() {
+    Dialog.confirm('Are you sure to delete the item?').then(confirm => {
+      if (confirm) {
+        console.log('Confirmed');
+      }
+    });
   }
 
-  closeBoxModal() {
-    this.setState(state => state.showBoxModal = false);
+  openAlertModal() {
+    Dialog.alert({message: 'You need to click Ok button to close it.', title: 'Simple Alert'});
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.openBoxModal}>Open Box Modal</button>
+      <div className="admin-app p-8">
 
-        <Modal active={this.state.showBoxModal} type='box' onClose={this.closeBoxModal}>
-          Box modal only have white background, border radius and 1rem padding
-        </Modal>
+        <div className='space-x-4'>
+          <button className='shapla-button m-2' onClick={this.openConfirmModal}>Confirm It</button>
+          <button className='shapla-button m-2' onClick={this.openAlertModal}>Simple Alert</button>
+        </div>
+
+        <ConfirmModal/>
       </div>
-    );
+    )
   }
 }
 ```
 
 
 
-### Props
-| Property                  | Type      | Required  | Default       | Description                                                                                                                                                                                   |
-|---------------------------|-----------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `active`                  | Boolean   | **yes**   |               |                                                                                                                                                                                               |
-| `title`                   | String    | **no**    | `Untitled`    | `title` will not show if you set `type` other than `card`                                                                                                                                     |
-| `type`                    | String    | **no**    | `card`        | Currently `card` and `box` design available. Use any name to get blank modal                                                                                                                 |
-| `closeOnBackgroundClick`  | Boolean   | **no**    | `true`        | If set `true`, clicking outside content area will trigger close event.                                                                                                                        |
-| `showCloseIcon`           | Boolean   | **no**    | `true`        | If set `false`, no closing icon will be shown                                                                                                                                                 |
-| `contentSize`             | String    | **no**    | `medium`      | Value can be `small`, `medium`, `large` or `full`. `small` has content width 320px, `medium` has content width 640px, `large` has content width 960px and `full` will take full browser width |
-| `children`                | String    | **no**    | ``            | Modal content
-| `footer`                  | String    | **no**    | ``            | Modal footer content when using card design.
+### Props when passing params 
+| Property          | Type              | Required  | Default       | Description                                          
+|-------------------|-------------------|-----------|---------------|-------------------------------------------------------
+| `message`         | String            | **yes**   | ``            | Confirm dialog message
+| `title`           | String            | **no**    | ``            | Confirm dialog title
+| `icon`            | String            | **no**    | `primary`     | Value can be `primary`, `success` or `error`. 
+| `confirmButton`   | String, Boolean   | **no**    | `OK`          | Confirm button text. Set `false` to hide confirm button
+| `cancelButton`    | String, Boolean   | **no**    | `Cancel`      | Cancel button text. Set `false` to hide cancel button

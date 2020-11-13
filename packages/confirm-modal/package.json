@@ -1,6 +1,6 @@
 {
   "name": "shapla-react-confirm-modal",
-  "description": "A classic modal overlay for React, in which you can include any content you want.",
+  "description": "A simple confirm modal/dialog based on modal component for React.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",

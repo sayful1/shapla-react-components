@@ -61,7 +61,7 @@ export default {
 * [Shapla Checkbox](/components/shapla-checkbox/README.md)
 * [Shapla Color System](/components/shapla-color-system/README.md)
 * [Shapla Columns](/components/shapla-columns/README.md)
-* [Shapla Confirm Dialog](/components/shapla-confirm-dialog/README.md)
+* [Shapla Dialog Dialog](/components/shapla-confirm-dialog/README.md)
 * [Shapla Dashboard Layout](/components/shapla-dashboard-layout/README.md)
 * [Shapla Data Table](/components/shapla-data-table/README.md)
 * [Shapla Data Table Pagination](/components/shapla-data-table-pagination/README.md)

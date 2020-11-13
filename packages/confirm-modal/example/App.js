@@ -1,6 +1,7 @@
 import React from 'react'
-import {ConfirmModal, Confirm} from "../src";
+import {ConfirmModal, Dialog} from "../src";
 import '../src/index.scss'
+
 import 'shapla-css/src/shapla.scss'
 
 class App extends React.Component {
@@ -8,26 +9,31 @@ class App extends React.Component {
     super(props);
 
     this.openBoxModal = this.openBoxModal.bind(this);
+    this.openAlertModal = this.openAlertModal.bind(this);
   }
 
   openBoxModal() {
-    Confirm.confirm({message: 'Are you sure?'}).then(confirm => {
+    Dialog.confirm('Are you sure to delete the item?').then(confirm => {
       if (confirm) {
         console.log('Confirmed');
       }
     });
   }
 
+  openAlertModal() {
+    Dialog.alert({message: 'You need to click Ok button to close it.', title: 'Simple Alert'});
+  }
+
   render() {
     return (
       <div className="stackonet-admin-app p-8">
 
-        <div>
-          <button className='shapla-button m-2' onClick={this.openBoxModal}>Open Box Modal</button>
+        <div className='space-x-4'>
+          <button className='shapla-button m-2' onClick={this.openBoxModal}>Confirm It</button>
+          <button className='shapla-button m-2' onClick={this.openAlertModal}>Simple Alert</button>
         </div>
 
         <ConfirmModal/>
-
       </div>
     )
   }

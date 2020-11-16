@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import DeleteIcon from "shapla-react-delete-icon";
+import {CSSTransitionGroup} from 'react-transition-group'
 import Notify from "./Notify";
 
 class Notification extends React.Component {
@@ -70,7 +71,7 @@ class Notification extends React.Component {
 
     let items = this.state.items.map(item =>
       <div className={this.itemClass(item)} key={item.id}>
-        {this.props.showDismisses && <DeleteIcon onClick={this.closeItem(item)}/>}
+        {this.props.showDismisses && <DeleteIcon onClick={() => this.closeItem(item)}/>}
         {item.title && <div className="shapla-notification__title">{item.title}</div>}
         <div className="shapla-notification__title">{item.message}</div>
       </div>
@@ -78,7 +79,8 @@ class Notification extends React.Component {
 
     return (
       <div className={this.containerClass()}>
-        {items}
+        <CSSTransitionGroup transitionName="shapla-notification-transition" transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}>{items}</CSSTransitionGroup>
       </div>
     )
   }

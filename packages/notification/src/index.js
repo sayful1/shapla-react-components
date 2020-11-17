@@ -3,8 +3,8 @@
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
-import Notification from "./Notification";
+import Notifications from "./Notifications";
 import Notify from "./Notify";
 
-export {Notify, Notification};
+export {Notify, Notifications};
 export default Notify;

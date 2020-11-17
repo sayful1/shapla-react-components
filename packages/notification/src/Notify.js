@@ -2,21 +2,19 @@ class Notify {
   /**
    * Listen event
    *
-   * @param event
    * @param callback
    */
-  static on(event, callback) {
-    document.addEventListener(event, (e) => callback(e.detail));
+  static on(callback) {
+    document.addEventListener('show.ShaplaReactNotification', e => callback(e.detail));
   }
 
   /**
    * Dispatch event
    *
-   * @param event
    * @param data
    */
-  static #dispatch(event, data) {
-    document.dispatchEvent(new CustomEvent(event, {detail: data}));
+  static dispatch(data) {
+    document.dispatchEvent(new CustomEvent('show.ShaplaReactNotification', {detail: data}));
   }
 
   /**
@@ -42,8 +40,7 @@ class Notify {
    * @param params
    */
   static #create(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
-    Notify.#dispatch('show.ShaplaReactNotification', _params);
+    Notify.dispatch(Notify.#getParams(message, params));
   }
 
   /**

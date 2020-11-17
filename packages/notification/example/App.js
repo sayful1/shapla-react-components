@@ -1,5 +1,5 @@
 import React from 'react'
-import {Notification, Notify} from "../src";
+import {Notifications, Notify} from "../src";
 import '../src/index.scss'
 
 class App extends React.Component {
@@ -40,7 +40,7 @@ class App extends React.Component {
           <button onClick={() => this.showNotification('error')}>Show Error Notification</button>
         </div>
 
-        <Notification options={this.state.notification} position={this.state.position}/>
+        <Notifications options={this.state.notification} position={this.state.position}/>
       </div>
     )
   }

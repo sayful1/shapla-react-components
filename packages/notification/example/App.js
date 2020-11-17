@@ -8,10 +8,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {notification: {}, position: 'top-right'}
-
-    setTimeout(() => {
-      Notify.success({message: 'Show some Success Message.'});
-    }, 1000);
   }
 
   render() {
@@ -37,16 +33,33 @@ class App extends React.Component {
         <div>{positionHtml}</div>
         <p>&nbsp;</p>
         <div>
-          <button onChange="showDefaultNotification">Show Default Notification</button>
-          <button onChange="showSuccessNotification">Show Success Notification</button>
-          <button onChange="showInfoNotification">Show Info Notification</button>
-          <button onChange="showWarningNotification">Show Warning Notification</button>
-          <button onChange="showErrorNotification">Show Error Notification</button>
+          <button onClick={() => this.showNotification()}>Show Default Notification</button>
+          <button onClick={() => this.showNotification('success')}>Show Success Notification</button>
+          <button onClick={() => this.showNotification('info')}>Show Info Notification</button>
+          <button onClick={() => this.showNotification('warning')}>Show Warning Notification</button>
+          <button onClick={() => this.showNotification('error')}>Show Error Notification</button>
         </div>
 
         <Notification options={this.state.notification} position={this.state.position}/>
       </div>
     )
+  }
+
+  showNotification(type = 'default') {
+    if ('success' === type) {
+      Notify.success({
+        type: 'success', title: 'Success!', timeout: 60000,
+        message: 'This is success message. Self close after 1 minute.'
+      });
+    } else if ('info' === type) {
+      Notify.info({type: 'info', title: 'Info!', message: 'This is info message.'});
+    } else if ('warning' === type) {
+      Notify.warning({type: 'warning', title: 'Warning!', message: 'This is warning message.'});
+    } else if ('error' === type) {
+      Notify.error({type: 'error', title: 'Error!', message: 'This is error message.'});
+    } else {
+      Notify.default('This is default message.')
+    }
   }
 }
 

@@ -47,13 +47,73 @@ class Notify {
   }
 
   /**
+   * Create primary notification
+   *
+   * @param message
+   * @param params
+   */
+  static primary(message, params = {}) {
+    let _params = Notify.#getParams(message, params);
+    _params.type = 'primary';
+    Notify.#create(_params);
+  }
+
+  /**
+   * Create primary notification
+   *
+   * @param message
+   * @param params
+   */
+  static default(message, params = {}) {
+    Notify.primary(message, params);
+  }
+
+  /**
    * Create success notification
    *
-   * @param args
+   * @param message
+   * @param params
    */
-  static success(args = {}) {
-    args.type = 'success';
-    Notify.#create(args);
+  static success(message, params = {}) {
+    let _params = Notify.#getParams(message, params);
+    _params.type = 'success';
+    Notify.#create(_params);
+  }
+
+  /**
+   * Create info notification
+   *
+   * @param message
+   * @param params
+   */
+  static info(message, params = {}) {
+    let _params = Notify.#getParams(message, params);
+    _params.type = 'info';
+    Notify.#create(_params);
+  }
+
+  /**
+   * Create warning notification
+   *
+   * @param message
+   * @param params
+   */
+  static warning(message, params = {}) {
+    let _params = Notify.#getParams(message, params);
+    _params.type = 'warning';
+    Notify.#create(_params);
+  }
+
+  /**
+   * Create warning notification
+   *
+   * @param message
+   * @param params
+   */
+  static error(message, params = {}) {
+    let _params = Notify.#getParams(message, params);
+    _params.type = 'error';
+    Notify.#create(_params);
   }
 }
 

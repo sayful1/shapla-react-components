@@ -79,8 +79,8 @@ class Notification extends React.Component {
 
     return (
       <div className={this.containerClass()}>
-        <CSSTransitionGroup transitionName="shapla-notification-transition" transitionEnterTimeout={500}
-                            transitionLeaveTimeout={300}>{items}</CSSTransitionGroup>
+        <CSSTransitionGroup transitionName="shapla-notification-transition" transitionEnterTimeout={10}
+                            transitionLeaveTimeout={10}>{items}</CSSTransitionGroup>
       </div>
     )
   }

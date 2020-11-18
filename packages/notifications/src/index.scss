@@ -1,0 +1,26 @@
+@import "~shapla-css/src/components/notification";
+@import "~shapla-css/src/elements/delete-icon";
+
+$react-notifications-transition-time: 0.4s !default;
+
+.notification-enter {
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+}
+
+.notification-enter.notification-enter-active {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition: all $react-notifications-transition-time;
+}
+
+.notification-leave {
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+.notification-leave.notification-leave-active {
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+  transition: all $react-notifications-transition-time;
+}

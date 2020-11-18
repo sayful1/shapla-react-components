@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {CSSTransitionGroup} from 'react-transition-group'
+import {CSSTransition, TransitionGroup} from 'react-transition-group/dist/react-transition-group.js';
 import Notify from "./Notify";
 import Notification from "./Notification";
 
@@ -69,15 +69,18 @@ class Notifications extends React.Component {
       return null;
     }
 
-    let items = this.state.items.map(item =>
-      <Notification key={item.id} type={item.type} title={item.title} message={item.message}
-                    showDismisses={this.props.showDismisses} onRequestHide={() => this.closeItem(item)}/>
+    let items = this.state.items.map((item, index) =>
+      <CSSTransition key={index} classNames="notification" timeout={{enter: 300, exit: 300}}>
+        <Notification key={item.id} type={item.type} title={item.title} message={item.message}
+                      showDismisses={this.props.showDismisses} onRequestHide={() => this.closeItem(item)}/>
+      </CSSTransition>
     );
 
     return (
       <div className={this.containerClass()}>
-        <CSSTransitionGroup transitionName="example" transitionEnterTimeout={300}
-                            transitionLeaveTimeout={300}>{items}</CSSTransitionGroup>
+        <TransitionGroup>
+          {items}
+        </TransitionGroup>
       </div>
     )
   }

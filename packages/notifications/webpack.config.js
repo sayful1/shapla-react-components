@@ -44,6 +44,7 @@ module.exports = (env, argv) => {
               plugins: [
                 ['@babel/plugin-proposal-class-properties', {'loose': true}],
                 ['@babel/plugin-proposal-private-methods', {'loose': true}],
+                '@babel/plugin-proposal-object-rest-spread',
                 '@babel/plugin-transform-modules-umd',
                 '@babel/plugin-transform-modules-commonjs'
               ]
@@ -131,7 +132,7 @@ module.exports = (env, argv) => {
       modules: [
         path.resolve('./node_modules'),
       ],
-      extensions: ['*', '.js', '.json']
+      extensions: ['.jsx', '.js']
     },
     plugins: plugins
   }
@@ -139,7 +140,12 @@ module.exports = (env, argv) => {
   if (!isDev) {
     config.externals = {
       react: {commonjs: 'react', commonjs2: 'react', amd: 'react', root: 'React'},
-    };
+      'prop-types': {commonjs: 'prop-types', commonjs2: 'prop-types', amd: 'prop-types', root: 'PropTypes'},
+      'react-transition-group': {
+        commonjs: 'react-transition-group', commonjs2: 'react-transition-group', amd: 'react-transition-group',
+        root: ['ReactTransitionGroup'],
+      },
+    }
   }
 
   return config;

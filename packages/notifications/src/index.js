@@ -1,5 +1,5 @@
 /*!
- * Shapla React Spinner v1.0.0
+ * Shapla React Notifications v1.0.0
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */

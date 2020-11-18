@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-notification",
+  "name": "shapla-react-notifications",
   "description": "A simple dependency-free notification component for React",
   "version": "1.0.0",
   "author": {
@@ -10,6 +10,8 @@
   "keywords": [
     "react",
     "react-component",
+    "react-notifications",
+    "notifications",
     "notification"
   ],
   "license": "MIT",
@@ -20,8 +22,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-react-components/issues"
   },
-  "main": "dist/notification.js",
-  "unpkg": "dist/notification.js",
+  "main": "dist/notifications.js",
+  "unpkg": "dist/notifications.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -32,45 +34,46 @@
   ],
   "scripts": {
     "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
-    "dev-build:umd": "webpack --mode=development --name=notification --env umd --entry ./src/index.js",
-    "build:umd": "webpack --mode=production --name=notification --env umd --entry ./src/index.js --entry ./src/index.scss",
+    "dev-build:umd": "webpack --mode=development --name=notifications --env umd --entry ./src/index.js",
+    "build:umd": "webpack --mode=production --name=notifications --env umd --entry ./src/index.js --entry ./src/index.scss",
     "build": "npm run dev-build:umd && npm run build:umd"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-transition-group": "^1.2.1",
-    "shapla-css": "^1.0.0",
+    "react-transition-group": "^4.4.1",
+    "shapla-css": ">=1.0.0",
     "shapla-react-delete-icon": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
     "@babel/plugin-proposal-private-methods": "^7.12.1",
     "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@babel/plugin-transform-modules-umd": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
-    "autoprefixer": "^10.0.1",
-    "babel-loader": "^8.1.0",
+    "autoprefixer": "^10.0.2",
+    "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
-    "mini-css-extract-plugin": "^1.3.0",
+    "mini-css-extract-plugin": "^1.3.1",
     "mini-svg-data-uri": "^1.2.3",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "path": "^0.12.7",
-    "postcss": "^8.1.6",
+    "postcss": "^8.1.7",
     "postcss-combine-media-query": "^1.0.1",
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
     "react-dom": "^17.0.1",
-    "sass-loader": "^10.0.5",
+    "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.4.0",
+    "webpack": "^5.5.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },

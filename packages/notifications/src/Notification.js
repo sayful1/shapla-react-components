@@ -12,6 +12,7 @@ class Notification extends React.Component {
     title: '',
     message: '',
     showDismisses: true,
+    timeout: 3000,
     onClick: () => {
     },
     onRequestHide: () => {
@@ -26,8 +27,57 @@ class Notification extends React.Component {
     title: PropTypes.string,
     message: PropTypes.string,
     showDismisses: PropTypes.bool,
+    timeout: PropTypes.number,
     onClick: PropTypes.func,
     onRequestHide: PropTypes.func,
+  }
+
+  /**
+   * Class constructor
+   *
+   * @param props
+   */
+  constructor(props) {
+    super(props);
+
+    this.requestHide = this.requestHide.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  /**
+   * Set timer on mount
+   */
+  componentDidMount() {
+    if (this.props.timeout !== 0) {
+      this.timer = setTimeout(this.requestHide, this.props.timeout);
+    }
+  }
+
+  /**
+   * Clear timer on unmount
+   */
+  componentWillUnmount() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+  }
+
+  /**
+   * Handle item click
+   */
+  handleClick() {
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  }
+
+  /**
+   * Request to hide notification
+   */
+  requestHide() {
+    if (this.props.onRequestHide) {
+      this.props.onRequestHide();
+    }
   }
 
   /**
@@ -35,8 +85,8 @@ class Notification extends React.Component {
    */
   render() {
     return (
-      <div className={this.itemClass()} onClick={this.props.onClick}>
-        {this.props.showDismisses && <DeleteIcon onClick={this.props.onRequestHide}/>}
+      <div className={this.itemClass()} onClick={this.handleClick}>
+        {this.props.showDismisses && <DeleteIcon onClick={this.requestHide}/>}
         {this.props.title && <div className="shapla-notification__title">{this.props.title}</div>}
         <div className="shapla-notification__title">{this.props.message}</div>
       </div>

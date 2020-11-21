@@ -1,6 +1,8 @@
 import React from 'react'
-import {Notifications, Notify} from "../src";
+import {NotificationContainer, Notify} from "../src";
 import '../src/index.scss'
+import 'shapla-css/src/components/_button.scss'
+import 'shapla-css/src/spacing/_space-between.scss'
 
 class App extends React.Component {
 
@@ -32,15 +34,18 @@ class App extends React.Component {
 
         <div>{positionHtml}</div>
         <p>&nbsp;</p>
-        <div>
-          <button onClick={() => this.showNotification()}>Show Default Notification</button>
-          <button onClick={() => this.showNotification('success')}>Show Success Notification</button>
-          <button onClick={() => this.showNotification('info')}>Show Info Notification</button>
-          <button onClick={() => this.showNotification('warning')}>Show Warning Notification</button>
-          <button onClick={() => this.showNotification('error')}>Show Error Notification</button>
+        <div className='space-x-4'>
+          <button className='shapla-button' onClick={() => this.showNotification()}>Default Notification</button>
+          <button className='shapla-button' onClick={() => this.showNotification('success')}>Success Notification
+          </button>
+          <button className='shapla-button' onClick={() => this.showNotification('info')}>Info Notification</button>
+          <button className='shapla-button' onClick={() => this.showNotification('warning')}>Warning Notification
+          </button>
+          <button className='shapla-button' onClick={() => this.showNotification('error')}>Error Notification</button>
         </div>
 
-        <Notifications options={this.state.notification} position={this.state.position}/>
+        <NotificationContainer options={this.state.notification} position={this.state.position} timeout={3000}
+                               enterTimeout={400} leaveTimeout={400}/>
       </div>
     )
   }

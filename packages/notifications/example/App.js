@@ -20,7 +20,7 @@ class App extends React.Component {
       {label: 'Bottom Left', value: 'bottom-left'},
       {label: 'Bottom Center', value: 'bottom-center'},
       {label: 'Bottom Right', value: 'bottom-right'},
-      {label: 'Center', value: 'center-center'},
+      {label: 'Center (beta)', value: 'center-center'},
     ];
     let positionHtml = positions.map(el =>
       <label key={el.value}>
@@ -53,17 +53,17 @@ class App extends React.Component {
   showNotification(type = 'default') {
     if ('success' === type) {
       Notify.success({
-        type: 'success', title: 'Success!', timeout: 60000,
+        title: 'Success!', timeout: 60000,
         message: 'This is success message. Self close after 1 minute.'
       });
     } else if ('info' === type) {
-      Notify.info({type: 'info', title: 'Info!', message: 'This is info message.'});
+      Notify.info('This is info message.', 40000);
     } else if ('warning' === type) {
-      Notify.warning({type: 'warning', title: 'Warning!', message: 'This is warning message.'});
+      Notify.warning({title: 'Warning!', message: 'This is warning message.', timeout: 40000});
     } else if ('error' === type) {
-      Notify.error({type: 'error', title: 'Error!', message: 'This is error message.'});
+      Notify.error({title: 'Error!', message: 'This is error message.', timeout: 40000});
     } else {
-      Notify.default('This is default message.')
+      Notify.default('This is default message.', 'Title', 40000);
     }
   }
 }

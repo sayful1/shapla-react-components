@@ -34,17 +34,36 @@ class Notify {
   /**
    * Get parameters
    *
-   * @param {String|Object} message
-   * @param {Object} params
+   * @param {string|object} message
+   * @param args
    * @return {Object}
    */
-  static #getParams(message, params = {}) {
-    if (typeof message === 'string') {
-      params.message = message;
-    } else {
-      params = message;
+  static #getParams(message, ...args) {
+    let params = {type: 'primary', message: 'Please add some message.', title: '', timeout: 3000};
+
+    if (typeof message === 'object') {
+      params = Object.assign(params, message);
+      params.id = Notify.createUUID();
+      return params;
     }
+
+    params.message = message;
     params.id = Notify.createUUID();
+
+    if (!args.length) {
+      return params;
+    }
+
+    if (args.length > 1) {
+      params.title = args[0];
+      params.timeout = args[1];
+    } else {
+      if (typeof args[0] === "number") {
+        params.timeout = args[0];
+      } else {
+        params.title = args[0];
+      }
+    }
 
     return params;
   }
@@ -52,11 +71,10 @@ class Notify {
   /**
    * Create notification
    *
-   * @param message
-   * @param params
+   * @param {object} params
    */
-  static #create(message, params = {}) {
-    Notify.dispatch(Notify.#getParams(message, params));
+  static #create(params) {
+    Notify.dispatch(params);
   }
 
   /**
@@ -65,20 +83,20 @@ class Notify {
    * @param message
    * @param params
    */
-  static primary(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
+  static default(message, ...params) {
+    Notify.primary(message, ...params);
+  }
+
+  /**
+   * Create primary notification
+   *
+   * @param message
+   * @param params
+   */
+  static primary(message, ...params) {
+    let _params = Notify.#getParams(message, ...params);
     _params.type = 'primary';
     Notify.#create(_params);
-  }
-
-  /**
-   * Create primary notification
-   *
-   * @param message
-   * @param params
-   */
-  static default(message, params = {}) {
-    Notify.primary(message, params);
   }
 
   /**
@@ -87,8 +105,8 @@ class Notify {
    * @param message
    * @param params
    */
-  static success(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
+  static success(message, ...params) {
+    let _params = Notify.#getParams(message, ...params);
     _params.type = 'success';
     Notify.#create(_params);
   }
@@ -99,8 +117,8 @@ class Notify {
    * @param message
    * @param params
    */
-  static info(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
+  static info(message, ...params) {
+    let _params = Notify.#getParams(message, ...params);
     _params.type = 'info';
     Notify.#create(_params);
   }
@@ -111,8 +129,8 @@ class Notify {
    * @param message
    * @param params
    */
-  static warning(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
+  static warning(message, ...params) {
+    let _params = Notify.#getParams(message, ...params);
     _params.type = 'warning';
     Notify.#create(_params);
   }
@@ -123,8 +141,8 @@ class Notify {
    * @param message
    * @param params
    */
-  static error(message, params = {}) {
-    let _params = Notify.#getParams(message, params);
+  static error(message, ...params) {
+    let _params = Notify.#getParams(message, ...params);
     _params.type = 'error';
     Notify.#create(_params);
   }

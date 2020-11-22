@@ -60,7 +60,7 @@ class NotificationContainer extends React.Component {
    * @param prevProps
    */
   componentDidUpdate(prevProps) {
-    if (this.props.options !== prevProps.options) {
+    if (this.props.options.id !== prevProps.options.id) {
       this.show(this.props.options);
     }
   }
@@ -155,9 +155,6 @@ class NotificationContainer extends React.Component {
     }
 
     let items = this.state.items;
-
-    option.id = option.id || new Date().getTime();
-    option.timeout = (option.timeout && typeof option.timeout === "number") ? option.timeout : this.props.timeout;
 
     let position = this.props.position.split('-');
     if (position[0] === 'bottom') {

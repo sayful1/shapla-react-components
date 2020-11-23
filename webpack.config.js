@@ -6,14 +6,15 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const combineMediaQuery = require('postcss-combine-media-query');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let plugins = [];
-
-plugins.push(new MiniCssExtractPlugin({
-  filename: "./components.css"
-}));
-
 module.exports = (env, argv) => {
-  let isDev = argv.mode !== 'production';
+  let isDev = argv.mode !== 'production',
+    name = argv.name ? argv.name : 'index';
+
+  let plugins = [];
+
+  plugins.push(new MiniCssExtractPlugin({
+    filename: `./${name}.css`
+  }));
 
   if (isDev) {
     plugins.push(new HtmlWebpackPlugin({
@@ -22,27 +23,27 @@ module.exports = (env, argv) => {
   }
 
   const config = {
-    entry: path.join(__dirname, 'example', 'main.js'),
-    "output": Object.assign(
-      {"path": path.resolve(__dirname, 'dist')},
-      {filename: 'components.js', libraryTarget: 'umd'}
-    ),
-    "devtool": isDev ? 'eval-source-map' : false,
-    "module": {
-      "rules": [
+    output: {
+      filename: isDev ? `${name}.js` : `${name}.min.js`,
+      libraryTarget: 'umd'
+    },
+    devtool: isDev ? 'eval-source-map' : false,
+    module: {
+      rules: [
         {
-          "test": /\.(js|jsx)$/i,
-          "use": {
-            "loader": "babel-loader",
-            "options": {
+          test: /\.(js|jsx)$/i,
+          use: {
+            loader: "babel-loader",
+            options: {
               presets: [
                 '@babel/preset-env',
                 '@babel/preset-react'
               ],
               plugins: [
-                '@babel/plugin-proposal-class-properties',
+                ['@babel/plugin-proposal-class-properties', {'loose': true}],
+                ['@babel/plugin-proposal-private-methods', {'loose': true}],
+                '@babel/plugin-proposal-object-rest-spread',
                 '@babel/plugin-transform-modules-umd',
-                '@babel/plugin-transform-modules-commonjs'
               ]
             }
           }
@@ -130,13 +131,18 @@ module.exports = (env, argv) => {
       ],
       extensions: ['*', '.js', '.json']
     },
-    "plugins": plugins
+    plugins: plugins
   }
 
   if (!isDev) {
     config.externals = {
       react: {commonjs: 'react', commonjs2: 'react', amd: 'react', root: 'React'},
-    };
+      'prop-types': {commonjs: 'prop-types', commonjs2: 'prop-types', amd: 'prop-types', root: 'PropTypes'},
+      'react-transition-group': {
+        commonjs: 'react-transition-group', commonjs2: 'react-transition-group', amd: 'react-transition-group',
+        root: ['ReactTransitionGroup'],
+      },
+    }
   }
 
   return config;

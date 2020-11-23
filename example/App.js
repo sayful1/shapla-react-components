@@ -1,19 +1,31 @@
 import React from 'react'
-import {Button} from "../src";
+import {BrowserRouter, Switch, Route, Link} from "react-router-dom/umd/react-router-dom"
+import {ButtonExample} from "./pages/ButtonExample";
+import './style.scss';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="stackonet-admin-app">
-        <p>First Testing page using React.</p>
+      <div className="shapla-react-components-example">
+        <BrowserRouter>
 
-        <Button theme='primary' onClick={this.handleClick}>Click Me</Button>
+          <div className='flex flex-wrap -m-2'>
+            <div className='p-2'>
+              <button className='shapla-button'><Link to='/'>Home</Link></button>
+            </div>
+            <div className='p-2'>
+              <button className='shapla-button'><Link to='/button'>Button</Link></button>
+            </div>
+          </div>
+
+          <Switch>
+            <Route path='/button'><ButtonExample/></Route>
+          </Switch>
+
+        </BrowserRouter>
+
       </div>
     )
-  }
-
-  handleClick() {
-    console.log('Button clicked!');
   }
 }
 

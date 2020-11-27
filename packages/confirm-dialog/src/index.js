@@ -3,8 +3,8 @@
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
-import ConfirmModal from './ConfirmModal'
+import DialogContainer from './DialogContainer'
 import Dialog from './Dialog'
 
-export {ConfirmModal, Dialog}
+export {DialogContainer, Dialog}
 export default Dialog

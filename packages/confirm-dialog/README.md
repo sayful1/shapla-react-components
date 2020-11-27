@@ -1,4 +1,4 @@
-# React Confirm Modal
+# React Confirm Dialog
 
 A simple confirm modal/dialog based on modal component for React
 
@@ -10,7 +10,7 @@ A simple confirm modal/dialog based on modal component for React
 # Installation
 
 ```
-npm install --save shapla-react-confirm-modal
+npm install --save shapla-react-confirm-dialog
 ```
 
 # Usage
@@ -19,19 +19,19 @@ npm install --save shapla-react-confirm-modal
 
 with Sass:
 ```js
-import 'shapla-react-confirm-modal/src/index.scss';
+import 'shapla-react-confirm-dialog/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-confirm-modal/dist/modal.css';
+import 'shapla-react-confirm-dialog/dist/modal.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import {ConfirmModal, Dialog} from 'shapla-react-confirm-modal';
+import {DialogContainer, Dialog} from 'shapla-react-confirm-dialog';
  
 class MyApp extends React.Component {
   constructor(props) {
@@ -62,16 +62,18 @@ class MyApp extends React.Component {
           <button className='shapla-button m-2' onClick={this.openAlertModal}>Simple Alert</button>
         </div>
 
-        <ConfirmModal/>
+        <DialogContainer/>
       </div>
     )
   }
 }
 ```
 
+## Notify API
 
+- Dialog.alert(message);
+- Dialog.confirm(message);
 
-### Props when passing params 
 | Property          | Type              | Required  | Default       | Description                                          
 |-------------------|-------------------|-----------|---------------|-------------------------------------------------------
 | `message`         | String            | **yes**   | ``            | Confirm dialog message

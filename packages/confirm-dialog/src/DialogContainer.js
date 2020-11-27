@@ -4,7 +4,7 @@ import Modal from "shapla-react-modal";
 import Button from "shapla-react-button";
 import Dialog from "./Dialog";
 
-class ConfirmModal extends React.Component {
+class DialogContainer extends React.Component {
   /**
    * Specifies the default values for props:
    */
@@ -147,5 +147,5 @@ class ConfirmModal extends React.Component {
   }
 }
 
-export {ConfirmModal}
-export default ConfirmModal;
+export {DialogContainer}
+export default DialogContainer;

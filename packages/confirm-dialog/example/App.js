@@ -1,6 +1,7 @@
 import React from 'react'
-import {ConfirmModal, Dialog} from "../src";
+import {DialogContainer, Dialog} from "../src";
 import '../src/index.scss'
+import 'shapla-css/src/spacing/_space-between.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends React.Component {
           <button className='shapla-button m-2' onClick={this.openAlertModal}>Simple Alert</button>
         </div>
 
-        <ConfirmModal/>
+        <DialogContainer/>
       </div>
     )
   }

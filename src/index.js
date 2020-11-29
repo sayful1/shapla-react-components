@@ -7,3 +7,4 @@ export {default as Button} from 'shapla-react-button'
 export {default as DeleteIcon} from 'shapla-react-delete-icon'
 export {default as Spinner} from 'shapla-react-spinner'
 export {default as Modal} from 'shapla-react-modal';
+export {Dialog, DialogContainer} from 'shapla-react-confirm-dialog'

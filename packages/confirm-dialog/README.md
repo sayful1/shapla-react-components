@@ -2,6 +2,8 @@
 
 A simple confirm modal/dialog based on modal component for React
 
+[<img src="./screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
+
 ## Table of contents
 
 - [Installation](#installation)
@@ -15,6 +17,9 @@ npm install --save shapla-react-confirm-dialog
 
 # Usage
 
+### Note
+**Use only one 'DialogContainer' component in the app.**
+
 ### Styles 
 
 with Sass:
@@ -24,7 +29,7 @@ import 'shapla-react-confirm-dialog/src/index.scss';
 
 with CSS:
 ```js
-import 'shapla-react-confirm-dialog/dist/modal.css';
+import 'shapla-react-confirm-dialog/dist/confirm-dialog.css';
 ```
 
 ### Javascript Instantiation
@@ -73,6 +78,8 @@ class MyApp extends React.Component {
 
 - Dialog.alert(message);
 - Dialog.confirm(message);
+
+Both `alert` and `confirm` can accept String for the message or Object with following props.
 
 | Property          | Type              | Required  | Default       | Description                                          
 |-------------------|-------------------|-----------|---------------|-------------------------------------------------------

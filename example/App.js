@@ -5,6 +5,7 @@ import {ButtonExample} from "./pages/ButtonExample";
 import {ModalExample} from "./pages/ModalExample";
 import SpinnerExample from "./pages/SpinnerExample";
 import DeleteIconExample from "./pages/DeleteIconExample";
+import ConfirmDialogExample from "./pages/ConfirmDialogExample";
 
 class App extends React.Component {
   render() {
@@ -24,6 +25,9 @@ class App extends React.Component {
                 <button className='shapla-button'><Link to='/modal'>Modal</Link></button>
               </div>
               <div className='p-2'>
+                <button className='shapla-button'><Link to='/dialog'>Confirm Dialog</Link></button>
+              </div>
+              <div className='p-2'>
                 <button className='shapla-button'><Link to='/spinner'>Spinner</Link></button>
               </div>
               <div className='p-2'>
@@ -35,6 +39,7 @@ class App extends React.Component {
           <Switch>
             <Route path='/button'><ButtonExample/></Route>
             <Route path='/modal'><ModalExample/></Route>
+            <Route path='/dialog'><ConfirmDialogExample/></Route>
             <Route path='/spinner'><SpinnerExample/></Route>
             <Route path='/delete-icon'><DeleteIconExample/></Route>
           </Switch>

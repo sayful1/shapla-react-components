@@ -23,7 +23,7 @@ import 'shapla-react-spinner/src/index.scss';
 
 with CSS:
 ```js
-import 'shapla-react-spinner/dist/columns.css';
+import 'shapla-react-columns/dist/columns.css';
 ```
 
 ### Javascript Instantiation
@@ -55,7 +55,7 @@ class MyApp extends React.Component {
 ```
 
 
-### Props for `columns`
+### Props for `Columns`
 | Property      | Type      | Required  | Default   | Description                                                                                                                                                                                                                    |
 |---------------|-----------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `multiline`   | Boolean   | **no**    | `false`   | Whenever you want to start a new line, you can also add the `multiline` property and add more column elements than would fit in a single row                                                                                   |
@@ -67,7 +67,7 @@ class MyApp extends React.Component {
 | `columnGap`   | String    | **no**    | `0.75rem` | If you want to use custom column gap, you can change this value
 
 
-### Props for `column`
+### Props for `Column`
 If you want to change the size of a single column, you can use one of the following props
 Each props can take value from 1 to 12 as it 12 columns grid system.
 

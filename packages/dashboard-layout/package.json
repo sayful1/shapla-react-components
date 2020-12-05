@@ -1,6 +1,6 @@
 {
-  "name": "shapla-react-sidenav",
-  "description": "A simple side overlay navigation for React.",
+  "name": "shapla-react-dashboard-layout",
+  "description": "A simple dashboard layout React component to build your app dashboard.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -10,8 +10,9 @@
   "keywords": [
     "react",
     "react-component",
-    "sidenav",
-    "navigation"
+    "dashboard",
+    "dashboard-layout",
+    "app-layout"
   ],
   "license": "MIT",
   "repository": {
@@ -21,8 +22,8 @@
   "bugs": {
     "url": "https://github.com/sayful1/shapla-react-components/issues"
   },
-  "main": "dist/sidenav.js",
-  "unpkg": "dist/sidenav.js",
+  "main": "dist/dashboard-layout.js",
+  "unpkg": "dist/dashboard-layout.js",
   "module": "src/index.js",
   "files": [
     "dist/*",
@@ -33,14 +34,15 @@
   ],
   "scripts": {
     "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
-    "dev-build:umd": "webpack --mode=development --name=sidenav --env umd --entry ./src/index.js",
-    "build:umd": "webpack --mode=production --name=sidenav --env umd --entry ./src/index.js --entry ./src/index.scss",
+    "dev-build:umd": "webpack --mode=development --name=dashboard-layout --env umd --entry ./src/index.js",
+    "build:umd": "webpack --mode=production --name=dashboard-layout --env umd --entry ./src/index.js --entry ./src/index.scss",
     "build": "npm run dev-build:umd && npm run build:umd"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "shapla-css": ">=1.1.0"
+    "shapla-css": ">=1.1.0",
+    "shapla-react-sidenav": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

@@ -1,5 +1,5 @@
 # React Sidenav
-A simple side overlay navigation for React.
+A simple dashboard layout to build your app dashboard for React.
 
 ## Table of contents
 

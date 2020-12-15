@@ -1,6 +1,6 @@
 {
   "name": "shapla-react-dashboard-layout",
-  "description": "A simple dashboard layout React component to build your app dashboard.",
+  "description": "A simple dashboard layout to build your app dashboard for React.",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -42,7 +42,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "shapla-css": ">=1.1.0",
-    "shapla-react-sidenav": "^1.0.0"
+    "shapla-react-sidenav": ">=1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

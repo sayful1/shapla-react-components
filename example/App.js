@@ -8,8 +8,10 @@ import SpinnerExample from "./pages/SpinnerExample";
 import DeleteIconExample from "./pages/DeleteIconExample";
 import ConfirmDialogExample from "./pages/ConfirmDialogExample";
 import ColumnsExample from "./pages/ColumnsExample";
+import Welcome from "./pages/Welcome";
 import DashboardLayout from "shapla-react-dashboard-layout";
 import menuItems from "./menuItems";
+import {useHistory} from 'react-router-dom/umd/react-router-dom.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class App extends React.Component {
     let sidenavMenu = menuItems.map(item => {
       return (
         <li className="sidenav-list__item" key={item.label}>
-          <Link className="sidenav-list__link" to={item.to}>{item.label}</Link>
+          <a className="sidenav-list__link" onClick={() => this.handleMenuClick(item)}>{item.label}</a>
         </li>
       );
     });
@@ -40,32 +42,6 @@ class App extends React.Component {
             onHideSidenav={() => this.setState({activateSideNav: false})}
             sidenavContent={<ul className="sidenav-list">{sidenavMenu}</ul>}
           >
-            <div className="mb-8">
-              <div className='flex flex-wrap -m-2'>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/'>Home</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/button'>Button</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/modal'>Modal</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/dialog'>Confirm Dialog</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/spinner'>Spinner</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/delete-icon'>Delete Icon</Link></button>
-                </div>
-                <div className='p-2'>
-                  <button className='shapla-button'><Link to='/columns'>Columns/Grid System</Link></button>
-                </div>
-              </div>
-            </div>
-
             <Switch>
               <Route path='/button'><ButtonExample/></Route>
               <Route path='/columns'><ColumnsExample/></Route>
@@ -78,6 +54,10 @@ class App extends React.Component {
         </HashRouter>
       </div>
     )
+  }
+
+  handleMenuClick(item) {
+    useHistory.push(item.to);
   }
 }
 

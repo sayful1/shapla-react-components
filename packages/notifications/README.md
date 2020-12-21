@@ -1,7 +1,7 @@
 # Shapla React Notifications
 A simple notification component for React
 
-[<img src="./screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
+[<img src="./packages/notifications/screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
 
 ## Table of contents
 

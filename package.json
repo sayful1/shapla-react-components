@@ -47,6 +47,7 @@
     "shapla-react-dashboard-layout": "latest",
     "shapla-react-delete-icon": "latest",
     "shapla-react-modal": "latest",
+    "shapla-react-notifications": "^1.0.0",
     "shapla-react-sidenav": "latest",
     "shapla-react-spinner": "latest"
   },

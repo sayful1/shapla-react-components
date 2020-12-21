@@ -1,4 +1,5 @@
 const menuItems = [
+  {to: '/', label: 'Home'},
   {to: '/button', label: 'Button'},
   {to: '/columns', label: 'Columns'},
   {to: '/dialog', label: 'Confirm Dialog'},

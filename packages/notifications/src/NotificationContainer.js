@@ -109,7 +109,7 @@ class NotificationContainer extends React.Component {
   containerClass() {
     let position = this.props.position.split('-');
     return [
-      'shapla-notification',
+      'shapla-notification-container',
       'shapla-notification--' + this.props.position,
       'is-position-' + position[0],
       'is-align-' + position[1],

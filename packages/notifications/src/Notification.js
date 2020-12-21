@@ -99,7 +99,7 @@ class Notification extends React.Component {
    * @returns {string}
    */
   itemClass() {
-    let classes = ['shapla-notification__item'];
+    let classes = ['shapla-notification'];
     if (-1 !== ['primary', 'success', 'info', 'warning', 'error'].indexOf(this.props.type)) {
       classes.push(`has-${this.props.type}`);
     }

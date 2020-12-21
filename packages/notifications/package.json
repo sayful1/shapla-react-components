@@ -42,8 +42,8 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-transition-group": "^4.4.1",
-    "shapla-css": ">=1.0.0",
-    "shapla-react-delete-icon": "^1.0.0"
+    "shapla-css": "latest",
+    "shapla-react-delete-icon": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

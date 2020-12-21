@@ -40,7 +40,7 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "shapla-css": ">=1.1.0"
+    "shapla-css": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

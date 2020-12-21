@@ -1,5 +1,5 @@
 /*!
- * Shapla React Modal v1.0.0
+ * Shapla React Modal v1.0.2
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */

@@ -18,15 +18,15 @@ class DashboardLayout extends React.Component {
     greeting: 'Hello,',
     headerHeight: '56px',
     headerTheme: 'primary',
-    sideNavType: 'overlay',
-    // Side navigation props
-    activateSideNav: false,
-    showOverlay: false,
-    navWidth: '300px',
-    sidenavMenu: '',
     navbarBrand: '',
     navbarStart: '',
     navbarEnd: '',
+    // Side navigation props
+    activateSideNav: false,
+    sideNavType: 'overlay',
+    showOverlay: false,
+    navWidth: '300px',
+    sidenavContent: '',
     onShowSidenav: () => {
     },
     onHideSidenav: () => {
@@ -37,6 +37,7 @@ class DashboardLayout extends React.Component {
    * Specifies props data type
    */
   static propTypes = {
+    activateSideNav: PropTypes.bool,
     title: PropTypes.string,
     userDisplayName: PropTypes.string,
     avatarUrl: PropTypes.string,
@@ -44,7 +45,6 @@ class DashboardLayout extends React.Component {
     headerHeight: PropTypes.string,
     headerTheme: PropTypes.oneOf(['default', 'primary', 'secondary']),
     sideNavType: PropTypes.oneOf(['overlay', 'off-canvas']),
-    activateSideNav: PropTypes.bool,
     showOverlay: PropTypes.bool,
     navWidth: PropTypes.string,
     onShowSidenav: PropTypes.func,
@@ -115,7 +115,7 @@ class DashboardLayout extends React.Component {
         <Sidenav active={this.props.activateSideNav} navWidth={this.props.navWidth} showOverlay={this.props.showOverlay}
                  position="left" onClose={() => this.closeSideNavigation()}>
           {(this.props.avatarUrl || this.props.userDisplayName) && sidenavHeader}
-          {this.props.sidenavMenu && <div className="shapla-dashboard-sidenav-menu">{this.props.sidenavMenu}</div>}
+          {this.props.sidenavContent && <div className="shapla-dashboard-sidenav-menu">{this.props.sidenavContent}</div>}
         </Sidenav>
 
         <div className="shapla-dashboard-content">

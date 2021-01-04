@@ -1,6 +1,8 @@
 class Tooltip {
-  constructor(element) {
+  constructor(element, config = {}) {
     this.element = element;
+    this.forElement = null;
+    this.config = Object.assign({theme: 'dark', defaultPosition: 'bottom'}, config);
 
     this.cssClasses = {
       IS_ACTIVE: 'is-active',
@@ -21,7 +23,27 @@ class Tooltip {
    * @param {Event} event The event that fired.
    * @private
    */
-  handleMouseEnter_(event) {
+  show(event) {
+    this.calculatePosition(event);
+
+    this.element.classList.add(this.cssClasses.IS_ACTIVE);
+  }
+
+  /**
+   * Hide tooltip on mouseleave or scroll
+   *
+   * @private
+   */
+  hide() {
+    this.element.classList.remove(this.cssClasses.IS_ACTIVE);
+  }
+
+  /**
+   * Calculate tooltip position
+   *
+   * @param {Event} event
+   */
+  calculatePosition(event) {
     let props = event.target.getBoundingClientRect();
     let left = props.left + (props.width / 2);
     let top = props.top + (props.height / 2);
@@ -55,18 +77,7 @@ class Tooltip {
     } else {
       this.element.style.top = props.top + props.height + 10 + 'px';
     }
-
-    this.element.classList.add(this.cssClasses.IS_ACTIVE);
-  };
-
-  /**
-   * Hide tooltip on mouseleave or scroll
-   *
-   * @private
-   */
-  hideTooltip_() {
-    this.element.classList.remove(this.cssClasses.IS_ACTIVE);
-  };
+  }
 
   /**
    * Initialize element.
@@ -76,39 +87,52 @@ class Tooltip {
       return;
     }
 
-    let forElId = this.element.getAttribute('data-tooltip-for');
+    this.createForElementIfNotExist();
 
-    if (forElId) {
-      this.forElement_ = document.getElementById(forElId);
+    if (this.forElement) {
+      // It's left here because it prevents accidental text selection on Android
+      if (!this.forElement.hasAttribute('tabindex')) {
+        this.forElement.setAttribute('tabindex', '0');
+      }
+
+      // Show tooltip
+      this.boundMouseEnterHandler = this.show.bind(this);
+      this.forElement.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
+      this.forElement.addEventListener('touchend', this.boundMouseEnterHandler, false);
+
+      // Close tooltip
+      this.boundMouseLeaveAndScrollHandler = this.hide.bind(this);
+      this.forElement.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
+      window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
+      window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
+    }
+  }
+
+  /**
+   * Create for element if not exists
+   */
+  createForElementIfNotExist() {
+    let forElId = this.element.getAttribute('data-tooltip-for'),
+      forEl = forElId ? document.getElementById(forElId) : false;
+
+    if (forEl) {
+      this.forElement = forEl;
     } else {
       let content = this.element.getAttribute('data-tooltip'),
         uuid = Tooltip.createUUID();
 
       let cElement = document.createElement("div");
       cElement.classList.add(this.cssClasses.MAIN);
+      cElement.classList.add(`is-${this.config.theme}`);
       cElement.setAttribute('data-tooltip-for', uuid);
+      cElement.setAttribute('tabindex', '0');
       cElement.innerText = content;
       document.body.appendChild(cElement);
 
-      this.forElement_ = this.element;
-      this.forElement_.setAttribute('data-tooltip-target', uuid);
-      this.forElement_.removeAttribute('data-tooltip');
+      this.forElement = this.element;
+      this.forElement.setAttribute('data-tooltip-target', uuid);
+      this.forElement.removeAttribute('data-tooltip');
       this.element = cElement;
-    }
-
-    if (this.forElement_) {
-      // It's left here because it prevents accidental text selection on Android
-      if (!this.forElement_.hasAttribute('tabindex')) {
-        this.forElement_.setAttribute('tabindex', '0');
-      }
-
-      this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
-      this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
-      this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
-      this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
-      this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
-      window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
-      window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
     }
   }
 

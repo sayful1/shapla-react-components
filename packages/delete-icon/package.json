@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-delete-icon",
+  "name": "@shapla/react-delete-icon",
   "description": "A simple circle with a cross based on Bulma delete element for Vue",
   "version": "1.0.1",
   "author": {

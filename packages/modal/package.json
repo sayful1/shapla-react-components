@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-modal",
+  "name": "@shapla/react-modal",
   "description": "A classic modal overlay for React, in which you can include any content you want.",
   "version": "1.0.2",
   "author": {

@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-sidenav",
+  "name": "@shapla/react-sidenav",
   "description": "A simple side overlay navigation for React.",
   "version": "1.0.0",
   "author": {

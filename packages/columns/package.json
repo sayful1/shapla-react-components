@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-columns",
+  "name": "@shapla/react-columns",
   "description": "A simple way to build responsive columns for React",
   "version": "1.0.0",
   "author": {

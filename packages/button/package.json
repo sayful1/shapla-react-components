@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-button",
+  "name": "@shapla/react-button",
   "description": "A simple button, in different colors, sizes, and states",
   "version": "1.0.1",
   "author": {

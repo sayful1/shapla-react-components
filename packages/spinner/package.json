@@ -1,5 +1,5 @@
 {
-  "name": "shapla-react-spinner",
+  "name": "@shapla/react-spinner",
   "description": "A loading spinner component based on Material Design Lite Spinner for React",
   "version": "1.0.0",
   "author": {

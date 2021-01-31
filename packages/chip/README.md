@@ -9,7 +9,7 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/react-button
+npm install --save shapla-react-button
 ```
 
 # Usage

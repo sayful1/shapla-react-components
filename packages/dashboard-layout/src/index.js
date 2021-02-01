@@ -1,11 +1,11 @@
 /*!
- * Shapla Dashboard Layout v1.0.0
+ * Shapla Dashboard Layout
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import Sidenav from "shapla-react-sidenav";
+import Sidenav from "@shapla/react-sidenav";
 
 class DashboardLayout extends React.Component {
   /**

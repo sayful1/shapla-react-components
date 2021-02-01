@@ -38,11 +38,13 @@
     "build:umd": "webpack --mode=production --name=dashboard-layout --env umd --entry ./src/index.js --entry ./src/index.scss",
     "build": "npm run dev-build:umd && npm run build:umd"
   },
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "shapla-css": ">=1.1.0",
-    "shapla-react-sidenav": ">=1.0.0"
+    "react": "^17.0.1"
+  },
+  "dependencies": {
+    "shapla-css": "^2.0",
+    "@shapla/react-sidenav": "^1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -65,6 +67,8 @@
     "postcss-combine-media-query": "^1.0.1",
     "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
@@ -72,7 +76,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "browserslist": [
     "> 1%",

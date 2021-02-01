@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardLayout from "../src/index";
 import '../src/index.scss'
-import 'shapla-css/src/minireset/_minireset.scss'
+import 'shapla-css/src/utilities/minireset.scss'
 
 class App extends React.Component {
   constructor(props) {

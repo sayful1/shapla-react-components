@@ -10,7 +10,7 @@ A simple dashboard layout to build your app dashboard for React.
 # Installation
 
 ```
-npm install --save shapla-react-dashboard-layout
+npm install --save @shapla/react-dashboard-layout
 ```
 
 # Usage
@@ -20,20 +20,20 @@ npm install --save shapla-react-dashboard-layout
 with Sass:
 
 ```js
-import 'shapla-react-dashboard-layout/src/index.scss';
+import '@shapla/react-dashboard-layout/src/index.scss';
 ```
 
 with CSS:
 
 ```js
-import 'shapla-react-dashboard-layout/dist/dashboard-layout.css';
+import '@shapla/react-dashboard-layout/dist/dashboard-layout.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import DashboardLayout from 'shapla-react-dashboard-layout';
+import DashboardLayout from '@shapla/react-dashboard-layout';
 
 class MyApp extends React.Component {
   constructor(props) {

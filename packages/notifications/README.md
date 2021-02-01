@@ -11,7 +11,7 @@ A simple notification component for React
 # Installation
 
 ```
-npm install --save shapla-react-notifications
+npm install --save @shapla/react-notifications
 ```
 
 # Usage
@@ -23,19 +23,19 @@ npm install --save shapla-react-notifications
 
 with Sass:
 ```js
-import 'shapla-react-notifications/src/index.scss';
+import '@shapla/react-notifications/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-notifications/dist/notifications.css';
+import '@shapla/react-notifications/dist/notifications.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import {NotificationContainer, Notify} from 'shapla-react-notification';
+import {NotificationContainer, Notify} from '@shapla/react-notifications';
  
 class MyApp extends React.Component {
   

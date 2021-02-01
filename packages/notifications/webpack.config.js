@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const combineMediaQuery = require('postcss-combine-media-query');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
   let isDev = argv.mode !== 'production',
@@ -138,14 +139,7 @@ module.exports = (env, argv) => {
   }
 
   if (!isDev) {
-    config.externals = {
-      react: {commonjs: 'react', commonjs2: 'react', amd: 'react', root: 'React'},
-      'prop-types': {commonjs: 'prop-types', commonjs2: 'prop-types', amd: 'prop-types', root: 'PropTypes'},
-      'react-transition-group': {
-        commonjs: 'react-transition-group', commonjs2: 'react-transition-group', amd: 'react-transition-group',
-        root: ['ReactTransitionGroup'],
-      },
-    }
+    config.externals = [nodeExternals()]
   }
 
   return config;

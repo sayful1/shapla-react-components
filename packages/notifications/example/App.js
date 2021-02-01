@@ -1,8 +1,7 @@
 import React from 'react'
 import {NotificationContainer, Notify} from "../src";
 import '../src/index.scss'
-import 'shapla-css/src/components/_button.scss'
-import 'shapla-css/src/spacing/_space-between.scss'
+import 'shapla-css/src/elements/button/button.scss'
 
 class App extends React.Component {
 

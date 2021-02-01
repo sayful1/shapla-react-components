@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import DeleteIcon from "shapla-react-delete-icon";
+import DeleteIcon from "@shapla/react-delete-icon";
 
 class Notification extends React.Component {
 

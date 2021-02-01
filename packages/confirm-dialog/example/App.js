@@ -1,7 +1,6 @@
 import React from 'react'
 import {DialogContainer, Dialog} from "../src";
 import '../src/index.scss'
-import 'shapla-css/src/spacing/_space-between.scss'
 
 class App extends React.Component {
   constructor(props) {

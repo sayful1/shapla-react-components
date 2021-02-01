@@ -2,7 +2,7 @@
 
 A simple confirm modal/dialog based on modal component for React
 
-[<img src="./screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
+[<img src="./packages/confirm-dialog/screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
 
 ## Table of contents
 
@@ -12,7 +12,7 @@ A simple confirm modal/dialog based on modal component for React
 # Installation
 
 ```
-npm install --save shapla-react-confirm-dialog
+npm install --save @shapla/react-confirm-dialog
 ```
 
 # Usage
@@ -24,19 +24,19 @@ npm install --save shapla-react-confirm-dialog
 
 with Sass:
 ```js
-import 'shapla-react-confirm-dialog/src/index.scss';
+import '@shapla/react-confirm-dialog/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-confirm-dialog/dist/confirm-dialog.css';
+import '@shapla/react-confirm-dialog/dist/confirm-dialog.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import {DialogContainer, Dialog} from 'shapla-react-confirm-dialog';
+import {DialogContainer, Dialog} from '@shapla/react-confirm-dialog';
  
 class MyApp extends React.Component {
   constructor(props) {

@@ -9,7 +9,7 @@ A simple side overlay navigation for React.
 # Installation
 
 ```
-npm install --save shapla-react-sidenav
+npm install --save @shapla/react-sidenav
 ```
 
 # Usage
@@ -18,19 +18,19 @@ npm install --save shapla-react-sidenav
 
 with Sass:
 ```js
-import 'shapla-react-sidenav/src/index.scss';
+import '@shapla/react-sidenav/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-sidenav/dist/sidenav.css';
+import '@shapla/react-sidenav/dist/sidenav.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Sidenav from 'shapla-react-sidenav';
+import Sidenav from '@shapla/react-sidenav';
  
 class MyApp extends React.Component {
 

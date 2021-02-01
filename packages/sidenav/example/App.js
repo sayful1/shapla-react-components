@@ -1,10 +1,6 @@
 import React from 'react'
 import Sidenav from "../src/index";
 import '../src/index.scss'
-import 'shapla-css/src/flexbox.scss'
-import 'shapla-css/src/components/_button.scss'
-import 'shapla-css/src/spacing/_space-between.scss'
-
 
 class App extends React.Component {
   constructor(props) {

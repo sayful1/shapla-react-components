@@ -41,7 +41,16 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "@shapla/react-button": "latest"
+    "@shapla/react-button": "^1.0.0",
+    "@shapla/react-chip": "^1.0.0",
+    "@shapla/react-columns": "^1.0.0",
+    "@shapla/react-confirm-dialog": "^1.0.0",
+    "@shapla/react-dashboard-layout": "^1.0.0",
+    "@shapla/react-delete-icon": "^1.0.0",
+    "@shapla/react-modal": "^1.0.0",
+    "@shapla/react-notifications": "^1.0.0",
+    "@shapla/react-sidenav": "^1.0.0",
+    "@shapla/react-spinner": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -64,6 +73,7 @@
     "postcss-combine-media-query": "^1.0.1",
     "postcss-loader": "^4.2.0",
     "postcss-preset-env": "^6.7.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -73,7 +83,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.19.0",
     "webpack-cli": "^4.4.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-node-externals": "^2.5.2"
   },
   "browserslist": [
     "> 1%",

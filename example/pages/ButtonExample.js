@@ -1,6 +1,5 @@
 import React from 'react'
-import Button from "@shapla/react-button";
-import '@shapla/react-button/src/index.scss'
+import {Button} from "../../src/index";
 
 class ButtonExample extends React.Component {
   render() {

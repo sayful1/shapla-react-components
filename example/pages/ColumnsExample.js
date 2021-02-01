@@ -1,6 +1,6 @@
 import React from 'react'
-import {Column, Columns} from "shapla-react-columns";
-import 'shapla-react-columns/src/index.scss'
+import {Column, Columns} from "../../src/index";
+import '@shapla/react-columns/src/index.scss'
 
 class ColumnsExample extends React.Component {
 

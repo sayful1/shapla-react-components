@@ -1,7 +1,7 @@
 import './style.scss';
-import "shapla-react-dashboard-layout/src/index.scss";
+import "@shapla/react-dashboard-layout/src/index.scss";
 import React from 'react'
-import {HashRouter, Link, Route, Switch} from "react-router-dom/umd/react-router-dom"
+import {HashRouter, Route, Switch} from "react-router-dom/umd/react-router-dom"
 import {ButtonExample} from "./pages/ButtonExample";
 import {ModalExample} from "./pages/ModalExample";
 import SpinnerExample from "./pages/SpinnerExample";
@@ -9,7 +9,7 @@ import DeleteIconExample from "./pages/DeleteIconExample";
 import ConfirmDialogExample from "./pages/ConfirmDialogExample";
 import ColumnsExample from "./pages/ColumnsExample";
 import Welcome from "./pages/Welcome";
-import DashboardLayout from "shapla-react-dashboard-layout";
+import DashboardLayout from "@shapla/react-dashboard-layout";
 import menuItems from "./menuItems";
 import {useHistory} from 'react-router-dom/umd/react-router-dom.js'
 
@@ -31,7 +31,7 @@ class App extends React.Component {
       );
     });
     return (
-      <div className="shapla-react-components-example">
+      <div className="@shapla/react-components-example">
         <HashRouter>
           <DashboardLayout
             title='Dashboard'
@@ -49,6 +49,7 @@ class App extends React.Component {
               <Route path='/dialog'><ConfirmDialogExample/></Route>
               <Route path='/modal'><ModalExample/></Route>
               <Route path='/spinner'><SpinnerExample/></Route>
+              <Route path='/'><Welcome/></Route>
             </Switch>
           </DashboardLayout>
         </HashRouter>

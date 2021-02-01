@@ -12,7 +12,7 @@ class Welcome extends React.Component {
       );
     });
     return (
-      <div className="shapla-react-components-welcome">
+      <div className="@shapla/react-components-welcome">
         <div className='flex flex-wrap -m-2'>{sidenavMenu}</div>
       </div>
     )

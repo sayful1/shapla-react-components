@@ -1,9 +1,6 @@
 import React from 'react'
 import DeleteIcon from "../src/index";
 import '../src/index.scss'
-import 'shapla-css/src/flexbox.scss'
-import 'shapla-css/src/spacing/_margin.scss'
-import 'shapla-css/src/spacing/_space-between.scss'
 
 
 class App extends React.Component {

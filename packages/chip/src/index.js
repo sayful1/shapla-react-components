@@ -5,6 +5,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types';
+import DeleteIcon from '@shapla/react-delete-icon';
 
 class Chip extends React.Component {
   /**
@@ -12,10 +13,12 @@ class Chip extends React.Component {
    */
   static defaultProps = {
     text: '',
-    image_src: '',
+    imageSrc: '',
     height: '32px',
     deletable: false,
     small: false,
+    onDeleteIconClick: () => {
+    },
   };
 
   /**
@@ -23,10 +26,11 @@ class Chip extends React.Component {
    */
   static propTypes = {
     text: PropTypes.string,
-    image_src: PropTypes.string,
+    imageSrc: PropTypes.string,
     height: PropTypes.string,
     deletable: PropTypes.bool,
     small: PropTypes.bool,
+    onDeleteIconClick: PropTypes.func,
   }
 
   /**
@@ -44,9 +48,12 @@ class Chip extends React.Component {
   render() {
     return (
       <span className={this.chipClasses()}>
-        {this.props.image_src && <img className='shapla-chip__contact' src={this.props.image_src} alt=''/>}
+        {this.props.imageSrc && <img className='shapla-chip__contact' src={this.props.imageSrc} alt=''/>}
         <span className="shapla-chip__text">{this.props.children || this.props.text}</span>
-        {this.props.deletable && <span className="shapla-delete-icon is-small shapla-chip__action" aria-label="close"/>}
+        {
+          this.props.deletable &&
+          <span className='shapla-chip__action'><DeleteIcon onClick={this.props.onDeleteIconClick}/></span>
+        }
       </span>
     )
   }
@@ -85,8 +92,5 @@ class Chip extends React.Component {
   }
 }
 
-export
-{
-  Chip
-}
+export {Chip};
 export default Chip;

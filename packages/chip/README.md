@@ -1,4 +1,5 @@
 # Shapla React Button
+
 A simple button, in different colors, sizes, and states
 
 ## Table of contents
@@ -9,46 +10,47 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save shapla-react-button
+npm install --save @shapla/react-chip
 ```
 
 # Usage
 
-### Styles 
+### Styles
 
 with Sass:
+
 ```js
-import 'shapla-react-button/src/index.scss';
+import '@shapla/react-chip/src/index.scss';
 ```
 
 with CSS:
+
 ```js
-import 'shapla-react-button/dist/button.css';
+import '@shapla/react-chip/dist/chip.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Button from 'shapla-react-button';
- 
+import Chip from '@shapla/react-chip';
+
 class MyApp extends React.Component {
   render() {
     return (
-      <Button theme="primary">Click Me!</Button>
+      <Chip text='Sayful Islam' deletable={true} onDeleteIconClick={() => console.log('delete')}/>
     );
   }
 }
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                                               |
-|---------------|-----------|-----------|-----------|-----------------------------------------------------------|
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary`.       |
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`.  |
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.               |
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.          |
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.                |
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used.                |
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.                 |
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.    |
+
+| Property            | Type      | Required  | Default   | Description
+|---------------------|-----------|-----------|-----------|----------------------------------------
+| `text`              | String    | **no**    | ``        | Chip text
+| `imageSrc`          | String    | **no**    | ``        | Chip contact image url
+| `deletable`         | Boolean   | **no**    | `false`   | If set `true`, Delete icon will appear
+| `small`             | Boolean   | **no**    | `false`   | If set `true`, a small chip with display
+| `height`            | String    | **no**    | `32px`    | Custom height of chip
+| `onDeleteIconClick` | String    | **no**    | `32px`    | Trigger when you click on delete icon.

@@ -1,5 +1,5 @@
 # React Delete Icon
-A simple circle with a cross based on Bulma delete element for React
+A simple circle with a cross for React
 
 ## Table of contents
 
@@ -9,7 +9,7 @@ A simple circle with a cross based on Bulma delete element for React
 # Installation
 
 ```
-npm install --save shapla-react-delete-icon
+npm install --save @shapla/react-delete-icon
 ```
 
 # Usage
@@ -18,19 +18,19 @@ npm install --save shapla-react-delete-icon
 
 with Sass:
 ```js
-import 'shapla-react-delete-icon/src/index.scss';
+import '@shapla/react-delete-icon/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-delete-icon/dist/delete-icon.css';
+import '@shapla/react-delete-icon/dist/delete-icon.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import DeleteIcon from 'shapla-react-delete-icon';
+import DeleteIcon from '@shapla/react-delete-icon';
  
 class MyApp extends React.Component {
   render() {

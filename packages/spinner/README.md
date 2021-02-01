@@ -9,7 +9,7 @@ A loading spinner component based on Material Design Lite Spinner for React
 # Installation
 
 ```
-npm install --save shapla-react-spinner
+npm install --save @shapla/react-spinner
 ```
 
 # Usage
@@ -18,19 +18,19 @@ npm install --save shapla-react-spinner
 
 with Sass:
 ```js
-import 'shapla-react-spinner/src/index.scss';
+import '@shapla/react-spinner/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-spinner/dist/spinner.css';
+import '@shapla/react-spinner/dist/spinner.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Spinner from 'shapla-react-spinner';
+import Spinner from '@shapla/react-spinner';
  
 class MyApp extends React.Component {
   render() {

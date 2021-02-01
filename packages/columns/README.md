@@ -9,7 +9,7 @@ A simple way to build responsive columns for React
 # Installation
 
 ```
-npm install --save shapla-react-columns
+npm install --save @shapla/react-columns
 ```
 
 # Usage
@@ -18,19 +18,19 @@ npm install --save shapla-react-columns
 
 with Sass:
 ```js
-import 'shapla-react-spinner/src/index.scss';
+import '@shapla/react-columns/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-columns/dist/columns.css';
+import '@shapla/react-columns/dist/columns.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import {Columns,Column} from 'shapla-react-columns';
+import {Columns,Column} from '@shapla/react-columns';
  
 class MyApp extends React.Component {
   render() {

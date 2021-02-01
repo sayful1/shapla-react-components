@@ -1,5 +1,5 @@
 /*!
- * Shapla React Columns v1.0.0
+ * Shapla React Columns
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */

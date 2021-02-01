@@ -49,16 +49,14 @@ class Columns extends React.Component {
   }
 
   classes() {
-    let classes = ['column-gutter-width'];
-    if (this.props.multiline) classes.push('flex-wrap');
-    if (this.props.centered) classes.push('justify-center');
-    if (this.props.vcentered) classes.push('items-center');
-    if (this.props.mobile) classes.push('sm:flex');
-    if (!this.props.desktop) {
-      classes.push('md:flex');
-    } else {
-      classes.push('lg:flex');
-    }
+    let classes = ['shapla-columns'];
+    if (this.props.multiline) classes.push('is-multiline');
+    if (this.props.centered) classes.push('is-centered');
+    if (this.props.vcentered) classes.push('is-vcentered');
+    if (this.props.mobile) classes.push('is-mobile');
+    if (this.props.desktop) classes.push('is-desktop');
+    if (this.props.gapless) classes.push('is-gapless');
+    if (!!this.props.columnGap) classes.push('is-variable');
 
     if (this.props.className) classes.push(this.props.className);
 
@@ -68,10 +66,7 @@ class Columns extends React.Component {
   styles() {
     let styles = {};
     if (this.props.columnGap) {
-      styles['--column-gutter-width'] = this.props.columnGap;
-    }
-    if (this.props.gapless) {
-      styles['--column-gutter-width'] = 0;
+      styles['--shapla-column-gap'] = this.props.columnGap;
     }
     return styles;
   }

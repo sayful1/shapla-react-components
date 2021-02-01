@@ -43,14 +43,13 @@ class Column extends React.Component {
    * @returns {string}
    */
   classes() {
-    let _class = [];
+    let _class = ['shapla-column'];
 
-    if (this.props.mobile) _class.push(`sm:w-${this.props.mobile}/12`);
-    if (this.props.tablet) _class.push(`md:w-${this.props.tablet}/12`);
-    if (this.props.desktop) _class.push(`lg:w-${this.props.desktop}/12`);
-    if (this.props.widescreen) _class.push(`xl:w-${this.props.widescreen}/12`);
-    if (this.props.fullhd) _class.push(`xxl:w-${this.props.fullhd}/12`);
-    if (_class.length < 1) _class.push('flex-1');
+    if (this.props.mobile) _class.push(`is-${this.props.mobile}-mobile`);
+    if (this.props.tablet) _class.push(`is-${this.props.tablet}-tablet`);
+    if (this.props.desktop) _class.push(`is-${this.props.desktop}-desktop`);
+    if (this.props.widescreen) _class.push(`is-${this.props.widescreen}-widescreen`);
+    if (this.props.fullhd) _class.push(`is-${this.props.fullhd}-fullhd`);
     if (this.props.className) _class.push(this.props.className);
 
     return _class.join(' ');

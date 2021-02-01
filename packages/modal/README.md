@@ -10,7 +10,7 @@ A classic modal overlay for React, in which you can include any content you want
 # Installation
 
 ```
-npm install --save shapla-react-modal
+npm install --save @shapla/react-modal
 ```
 
 # Usage
@@ -19,19 +19,19 @@ npm install --save shapla-react-modal
 
 with Sass:
 ```js
-import 'shapla-react-modal/src/index.scss';
+import '@shapla/react-modal/src/index.scss';
 ```
 
 with CSS:
 ```js
-import 'shapla-react-modal/dist/modal.css';
+import '@shapla/react-modal/dist/modal.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Modal from 'shapla-react-modal';
+import Modal from '@shapla/react-modal';
  
 class MyApp extends React.Component {
   constructor(props) {

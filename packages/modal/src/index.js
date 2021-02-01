@@ -1,12 +1,12 @@
 /*!
- * Shapla React Modal v1.0.2
+ * Shapla React Modal
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import DeleteIcon from 'shapla-react-delete-icon';
+import DeleteIcon from '@shapla/react-delete-icon';
 
 class Modal extends React.Component {
 
@@ -15,11 +15,13 @@ class Modal extends React.Component {
    */
   static defaultProps = {
     active: false,
-    className: '',
     title: 'Untitled',
     type: 'card', // Also support 'box' design
     closeOnBackgroundClick: true,
     showCloseIcon: true,
+    className: '',
+    contentClassName: '',
+    backgroundTheme: 'dark',
     contentSize: 'medium',
     children: '',
     footer: '',
@@ -32,11 +34,13 @@ class Modal extends React.Component {
    */
   static propTypes = {
     active: PropTypes.bool,
-    className: PropTypes.string,
     title: PropTypes.string,
     type: PropTypes.string,
     closeOnBackgroundClick: PropTypes.bool,
     showCloseIcon: PropTypes.bool,
+    className: PropTypes.string,
+    contentClassName: PropTypes.string,
+    backgroundTheme: PropTypes.oneOf(['dark', 'light']),
     contentSize: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
     onClose: PropTypes.func,
   }
@@ -82,11 +86,11 @@ class Modal extends React.Component {
         <div className={this.modalClass()}>
           {
             this.props.closeOnBackgroundClick ?
-              <div className="shapla-modal-background" onClick={this.props.onClose}/> :
-              <div className="shapla-modal-background"/>
+              <div className={this.backgroundClasses()} onClick={this.props.onClose}/> :
+              <div className={this.backgroundClasses()}/>
           }
-          <div className={this.contentClass()}>{this.props.children}</div>
           {this.props.showCloseIcon && <DeleteIcon size='large' fixed={true} onClick={this.props.onClose}/>}
+          <div className={this.contentClasses()}>{this.props.children}</div>
         </div>
       )
     }
@@ -95,18 +99,18 @@ class Modal extends React.Component {
       <div className={this.modalClass()}>
         {
           this.props.closeOnBackgroundClick ?
-            <div className="shapla-modal-background" onClick={this.props.onClose}/> :
-            <div className="shapla-modal-background"/>
+            <div className={this.backgroundClasses()} onClick={this.props.onClose}/> :
+            <div className={this.backgroundClasses()}/>
         }
-        <div className={this.contentClass()}>
-          <div className="shapla-modal-card-head">
-            <p className="shapla-modal-card-title">{this.props.title}</p>
+        <div className={this.contentClasses()}>
+          <div className="shapla-modal-card__header">
+            <p className="shapla-modal-card__title">{this.props.title}</p>
             {this.props.showCloseIcon && <DeleteIcon onClick={this.props.onClose}/>}
           </div>
-          <div className="shapla-modal-card-body">
+          <div className="shapla-modal-card__body">
             {this.props.children}
           </div>
-          <div className="shapla-modal-card-foot is-pulled-right">
+          <div className="shapla-modal-card__footer is-pulled-right">
             {this.props.footer || <button className="shapla-button" onClick={this.props.onClose}>Cancel</button>}
           </div>
         </div>
@@ -115,11 +119,15 @@ class Modal extends React.Component {
   }
 
   modalClass() {
-    let classes = ['shapla-modal', 'is-active', `shapla-modal--${this.props.type}`];
+    let classes = ['shapla-modal', 'is-active'];
     if (this.props.className) {
       classes.push(this.props.className);
     }
     return classes.join(' ');
+  }
+
+  backgroundClasses() {
+    return ['shapla-modal-background', `is-${this.props.backgroundTheme}`].join(' ');
   }
 
   /**
@@ -127,16 +135,13 @@ class Modal extends React.Component {
    *
    * @returns {string}
    */
-  contentClass() {
-    let classes = [
-      `is-${this.props.contentSize}`,
-      `shapla-modal-content--${this.props.type}`
-    ];
-
-    if (this.is_card()) {
-      classes.push('shapla-modal-card')
-    } else {
-      classes.push('shapla-modal-content')
+  contentClasses() {
+    let classes = ['shapla-modal-content', `is-${this.props.contentSize}`];
+    if (this.props.type === 'card') classes.push('shapla-modal-card')
+    if (this.props.type === 'box') classes.push('shapla-modal-box')
+    if (this.props.type === 'confirm') classes.push('shapla-modal-confirm')
+    if (this.props.contentClassName) {
+      classes.push(this.props.contentClassName);
     }
     return classes.join(' ');
   }

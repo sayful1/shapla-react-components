@@ -1,7 +1,6 @@
 import React from 'react'
 import Modal from "../src";
 import '../src/index.scss'
-import 'shapla-css/src/shapla.scss'
 
 class App extends React.Component {
   constructor(props) {

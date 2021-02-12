@@ -1,0 +1,119 @@
+.shapla-checkbox {
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  padding: 0 0 0 24px
+}
+
+.shapla-checkbox__input {
+  opacity: 0;
+  line-height: 24px
+}
+
+.shapla-checkbox .shapla-checkbox__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none
+}
+
+.shapla-checkbox__box-outline {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid var(--shapla-text-secondary, rgba(0, 0, 0, .54));
+  border-radius: 2px;
+  z-index: 2
+}
+
+.shapla-checkbox.is-checked .shapla-checkbox__box-outline {
+  border: 2px solid var(--shapla-primary, #00d1b2)
+}
+
+.shapla-checkbox.is-disabled .shapla-checkbox__box-outline, fieldset[disabled] .shapla-checkbox .shapla-checkbox__box-outline {
+  border: 2px solid var(--shapla-text-disabled, rgba(0, 0, 0, .38));
+  cursor: auto
+}
+
+.shapla-checkbox__focus-helper {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: transparent
+}
+
+.shapla-checkbox.is-focused .shapla-checkbox__focus-helper, .shapla-checkbox:not(.is-disabled).is-hovered .shapla-checkbox__focus-helper {
+  -webkit-box-shadow: 0 0 0 8px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .1)
+}
+
+.shapla-checkbox.is-focused.is-checked .shapla-checkbox__focus-helper {
+  -webkit-box-shadow: 0 0 0 8px var(--shapla-primary-alpha, rgba(0, 209, 178, .25));
+  box-shadow: 0 0 0 8px var(--shapla-primary-alpha, rgba(0, 209, 178, .25));
+  background-color: var(--shapla-primary-alpha, rgba(0, 209, 178, .25))
+}
+
+.shapla-checkbox__tick-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='xMinYMin meet'%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.176.53-.53z' fill='%23fff'/%3E%3C/clipPath%3E%3C/defs%3E%3Cpath clip-path='url(%23a)' d='M0 0h1v1H0z'/%3E%3C/svg%3E");
+  mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='xMinYMin meet'%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.176.53-.53z' fill='%23fff'/%3E%3C/clipPath%3E%3C/defs%3E%3Cpath clip-path='url(%23a)' d='M0 0h1v1H0z'/%3E%3C/svg%3E");
+  background: transparent;
+  -webkit-transition-duration: .28s;
+  transition-duration: .28s;
+  -webkit-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  -webkit-transition-property: background;
+  transition-property: background
+}
+
+.shapla-checkbox.is-checked .shapla-checkbox__tick-outline {
+  background: var(--shapla-primary, #00d1b2) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='xMinYMin meet'%3E%3Cpath d='M.04.627L.146.52.43.804.323.91zm.177.177L.854.167.96.273.323.91z' fill='%23fff'/%3E%3C/svg%3E")
+}
+
+.shapla-checkbox.is-checked.is-disabled .shapla-checkbox__tick-outline, fieldset[disabled] .shapla-checkbox.is-checked .shapla-checkbox__tick-outline {
+  background: var(--shapla-text-disabled, rgba(0, 0, 0, .38)) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='xMinYMin meet'%3E%3Cpath d='M.04.627L.146.52.43.804.323.91zm.177.177L.854.167.96.273.323.91z' fill='%23fff'/%3E%3C/svg%3E")
+}
+
+.shapla-checkbox__label {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0
+}
+
+.shapla-checkbox.is-disabled .shapla-checkbox__label, fieldset[disabled] .shapla-checkbox .shapla-checkbox__label {
+  color: var(--shapla-text-disabled, rgba(0, 0, 0, .38));
+  cursor: auto
+}

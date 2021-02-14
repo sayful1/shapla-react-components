@@ -1,5 +1,6 @@
-# Shapla React Button
-A simple button, in different colors, sizes, and states
+# Shapla React Checkbox
+
+A custom checkbox for React that exactly work same way as native checkbox
 
 ## Table of contents
 
@@ -9,46 +10,45 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/react-button
+npm install --save @shapla/react-checkbox
 ```
 
 # Usage
 
-### Styles 
+### Styles
 
 with Sass:
+
 ```js
-import '@shapla/react-button/src/index.scss';
+import '@shapla/react-checkbox/src/index.scss';
 ```
 
 with CSS:
+
 ```js
-import '@shapla/react-button/dist/button.css';
+import '@shapla/react-checkbox/dist/button.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Button from '@shapla/react-button';
- 
+import Checkbox from '@shapla/react-checkbox';
+
 class MyApp extends React.Component {
   render() {
     return (
-      <Button theme="primary">Click Me!</Button>
+      <Checkbox name="_acceptance" value='yes' label="You must accept our terms and conditions." checked={true}/>
     );
   }
 }
 ```
 
 ### Props
-| Property      | Type      | Required  | Default   | Description                                               |
-|---------------|-----------|-----------|-----------|-----------------------------------------------------------|
-| `theme`       | String    | **no**    | `default` | Value can be `default` or `primary` or `secondary`.       |
-| `size`        | String    | **no**    | `normal`  | Value can be `normal` or `small` or `medium` or `large`.  |
-| `fullwidth`   | Boolean   | **no**    | `false`   | If set `true`, button will take full width.               |
-| `disabled`    | Boolean   | **no**    | `false`   | If set `true`, disabled attribute will be added.          |
-| `outline`     | Boolean   | **no**    | `false`   | If set `true`, outline style will be used.                |
-| `rounded`     | Boolean   | **no**    | `false`   | If set `true`, rounded style will be used.                |
-| `fab`         | Boolean   | **no**    | `false`   | If set `true`, circle style will be used.                 |
-| `shadow`      | Boolean   | **no**    | `false`   | If set `true`, box-shadow will be added around button.    |
+
+| Property      | Type      | Required  | Default     | Description
+|---------------|-----------|-----------|-------------|-----------------------------------------------------------
+| `label`       | String    | **no**    | ``          | Checkbox label
+| `value`       | String    | **no**    | `on`        | The default value for the checkbox
+| `disabled`    | Boolean   | **no**    | `false`     | If set `true`, Checkbox will be disabled to check.
+| `checked`     | Boolean   | **no**    | `false`     | If set `true`, Checkbox will be checked.

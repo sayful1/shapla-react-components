@@ -1,6 +1,6 @@
 {
   "name": "@shapla/react-checkbox",
-  "description": "A simple button, in different colors, sizes, and states",
+  "description": "A custom checkbox for React that exactly work same way as native checkbox",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",
@@ -31,7 +31,7 @@
     "*.js"
   ],
   "scripts": {
-    "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
+    "dev": "webpack serve --mode=development --hot --progress --entry ./example/main.js --output-path ./dist",
     "dev-build:umd": "webpack --mode=development --name=checkbox --env umd --entry ./src/index.js",
     "build:umd": "webpack --mode=production --name=checkbox --env umd --entry ./src/index.js --entry ./src/index.scss",
     "build": "npm run dev-build:umd && npm run build:umd"

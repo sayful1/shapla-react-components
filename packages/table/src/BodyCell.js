@@ -12,6 +12,7 @@ class BodyCell extends React.Component {
     actions: [],
     isPrimary: false,
     isToggle: false,
+    isCheckbox: false,
     isMobile: false,
     onClickMore: () => {
     },
@@ -30,6 +31,7 @@ class BodyCell extends React.Component {
     actions: PropTypes.array,
     isPrimary: PropTypes.bool,
     isToggle: PropTypes.bool,
+    isCheckbox: PropTypes.bool,
     isMobile: PropTypes.bool,
     onClickAction: PropTypes.func,
     onClickToggle: PropTypes.func,
@@ -51,9 +53,11 @@ class BodyCell extends React.Component {
    * @returns {string}
    */
   getBodyCellClass() {
-    const {column, isPrimary, isToggle} = this.props;
-    let classes = ['shapla-data-table__cell', `shapla-data-table__cell-${column.key}`];
+    const {column, isPrimary, isToggle, isCheckbox} = this.props;
+    let classes = ['shapla-data-table__cell'];
+    if (column.key) classes.push(`shapla-data-table__cell-${column.key}`)
     if (isPrimary) classes.push('column-primary');
+    if (isCheckbox) classes.push('is-checkbox-cell');
     if (isToggle) classes.push('is-expand-toggle-cell');
     if (this.isNumeric()) classes.push('is-numeric-cell');
     return classes.join(' ');

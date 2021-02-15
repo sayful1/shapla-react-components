@@ -31,15 +31,15 @@ class HeaderCell extends React.Component {
    */
   render() {
     const {children, column} = this.props;
+    let data = children || column.label;
     return (
       <th className={this.getHeadCellClass()} role="columnheader" scope="col">
         {
-          children ||
-          this.isSortable() ? column.label :
+          !this.isSortable() ? data :
             <a href="#" onClick={event => this.handleSort(event)}>
               {this.isSortedDesc() && <TableIcon icon="arrow-upward"/>}
-              {this.isSortedAsc() && <TableIcon icon="arrow-downward"/>}
-              <span>{column.label}</span>
+              {!this.isSortedDesc() && <TableIcon icon="arrow-downward"/>}
+              <span>{data}</span>
             </a>
         }
       </th>
@@ -48,8 +48,10 @@ class HeaderCell extends React.Component {
 
   handleSort(event) {
     event.preventDefault();
-    if (this.props.onClickSort) {
-      this.props.onClickSort(this.props.column.key);
+    const {onClickSort, column, sortOrder} = this.props;
+    if (onClickSort) {
+      let order = sortOrder === 'asc' ? 'desc' : 'asc';
+      onClickSort(column.key, order);
     }
   }
 
@@ -61,6 +63,11 @@ class HeaderCell extends React.Component {
     if (isCheckbox) classes.push('is-checkbox-cell');
     if (isExpandToggle) classes.push('is-expand-toggle-cell');
     if (this.isNumeric()) classes.push('is-numeric-cell');
+    if (this.isSortable()) {
+      classes.push('is-sortable');
+      if (this.isSortedDesc()) classes.push('is-sorted-descending');
+      if (!this.isSortedDesc()) classes.push('is-sorted-ascending');
+    }
     return classes.join(' ');
   }
 

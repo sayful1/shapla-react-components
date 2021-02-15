@@ -15,7 +15,9 @@ class BodyRow extends React.Component {
    * Render component UI
    */
   render() {
-    return (<tr className="shapla-data-table__row">{this.props.children}</tr>)
+    const {children, className} = this.props;
+    let classes = className ? `shapla-data-table__row ${className}` : 'shapla-data-table__row';
+    return (<tr className={classes}>{children}</tr>)
   }
 }
 

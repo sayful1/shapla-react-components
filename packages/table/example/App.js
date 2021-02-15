@@ -42,6 +42,7 @@ class App extends React.Component {
             sortOrder={sortOrder}
             onSelectItem={items => this.setState(state => state.selectedItems = items)}
             onClickSort={(key, order) => this.sortData(key, order)}
+            onClickAction={(action, item) => this.onActionClick(action, item)}
           />
         </div>
 
@@ -64,6 +65,14 @@ class App extends React.Component {
       rows.sort((a, b) => b[column] - a[column]);
     }
     this.setState(state => state.rows = rows);
+  }
+
+  onActionClick(action, row) {
+    if ('trash' === action) {
+      if (confirm('Are you sure to delete?')) {
+        alert('deleted: ' + row.title);
+      }
+    }
   }
 }
 

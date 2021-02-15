@@ -26,14 +26,10 @@ class Table extends React.Component {
     mobileWidth: 768,
     onClickSort: () => {
     },
-    onSelectItem: () => {
-    },
-    onClickMore: () => {
-    },
     onClickAction: () => {
     },
-    onClickToggle: () => {
-    },
+    onSelectItem: () => {
+    }
   }
 
   /**
@@ -53,6 +49,7 @@ class Table extends React.Component {
     showExpand: PropTypes.bool,
     mobileWidth: PropTypes.number,
     onClickSort: PropTypes.func,
+    onClickAction: PropTypes.func,
     onSelectItem: PropTypes.func,
   }
 
@@ -69,6 +66,9 @@ class Table extends React.Component {
     this.handleSelectAll = this.handleSelectAll.bind(this);
   }
 
+  /**
+   * Run on mount
+   */
   componentDidMount() {
     this.updateTableWidth();
 
@@ -81,14 +81,27 @@ class Table extends React.Component {
     });
   }
 
+  /**
+   * Update table width
+   */
   updateTableWidth() {
     this.setState(state => state.windowWidth = window.innerWidth)
   }
 
+  /**
+   * Is mobile view
+   *
+   * @returns {boolean}
+   */
   isMobileView() {
     return this.state.windowWidth <= this.props.mobileWidth;
   }
 
+  /**
+   * Action column
+   *
+   * @returns {string}
+   */
   actionColumn() {
     let column = 'title';
     this.props.columns.forEach((col, index) => {
@@ -97,6 +110,11 @@ class Table extends React.Component {
     return column;
   }
 
+  /**
+   * Table container classes
+   *
+   * @returns {string}
+   */
   tableContainerClasses() {
     let classes = ['shapla-data-table-container'];
     if (this.isMobileView()) {
@@ -111,7 +129,7 @@ class Table extends React.Component {
   render() {
     const {
       areaLabel, index, showCb, showExpand, columns, sortBy, sortOrder, onClickSort, items,
-      notFoundText, selectedItems, actions, onClickAction, onClickToggle
+      notFoundText, selectedItems, actions, onClickAction
     } = this.props;
     let headerCells = columns.map(column => {
       return (
@@ -127,7 +145,7 @@ class Table extends React.Component {
         return (
           <BodyCell key={column.key} column={column} item={item} actions={actions}
                     isPrimary={this.actionColumn() === column.key} isMobile={this.isMobileView()}
-                    onClickAction={onClickAction} onClickToggle={onClickToggle}>
+                    onClickAction={onClickAction} onClickToggle={event => this.toggleRow(event)}>
             {item[column.key]}
           </BodyCell>
         )
@@ -163,6 +181,11 @@ class Table extends React.Component {
     )
   }
 
+  /**
+   * colspan
+   *
+   * @returns {number}
+   */
   colspan() {
     let columns = Object.keys(this.props.columns).length;
 
@@ -177,6 +200,11 @@ class Table extends React.Component {
     return columns;
   }
 
+  /**
+   * If all items are selected
+   *
+   * @returns {boolean}
+   */
   isAllSelected() {
     const {items, selectedItems} = this.props;
     if (!items.length) {
@@ -186,6 +214,11 @@ class Table extends React.Component {
     return selectedItems.length === items.length;
   }
 
+  /**
+   * Handle select item
+   *
+   * @param item
+   */
   handleSelectItem(item) {
     const {selectedItems, index, onSelectItem} = this.props;
     let value = item[index] !== undefined ? item[index] : item.id,
@@ -199,6 +232,9 @@ class Table extends React.Component {
     onSelectItem(selected);
   }
 
+  /**
+   * Handle select all
+   */
   handleSelectAll() {
     let selected = [];
     const {items, selectedItems, index, onSelectItem} = this.props;
@@ -214,6 +250,24 @@ class Table extends React.Component {
     }
 
     onSelectItem(selected);
+  }
+
+  /**
+   * Toggle row
+   *
+   * @param event
+   */
+  toggleRow(event) {
+    let el = event.target, tr = el.closest('tr'), table = el.closest('table');
+    table.querySelectorAll('tr').forEach(element => {
+      if (element.classList.contains('is-expanded') && element !== tr) {
+        element.classList.remove('is-expanded');
+      }
+    });
+
+    setTimeout(() => {
+      tr.classList.toggle('is-expanded');
+    }, 50);
   }
 }
 

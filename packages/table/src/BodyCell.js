@@ -86,7 +86,7 @@ class BodyCell extends React.Component {
         <button className="data-table-toggle-button" aria-label="Show more details"
                 onClick={event => this.toggleClicked(event)}>
           <TableIcon icon="expand-less" className="triangle-up"/>
-          <TableIcon icon="expand-less" className="triangle-up"/>
+          <TableIcon icon="expand-more" className="triangle-down"/>
         </button>
         }
       </td>

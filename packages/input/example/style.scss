@@ -1,0 +1,23 @@
+html, body, *, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.shapla-columns {
+  display: flex;
+  margin: - 1rem;
+
+  &.is-multiline {
+    flex-wrap: wrap;
+  }
+}
+
+.shapla-column {
+  width: 100%;
+  padding: 1rem;
+
+  @media screen and (min-width: 768px) {
+    &.is-4-tablet {
+      width: 33.333333%;
+    }
+  }
+}

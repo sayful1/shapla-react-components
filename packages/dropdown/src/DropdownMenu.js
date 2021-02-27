@@ -39,6 +39,7 @@ class DropdownMenu extends Component {
   componentDidUpdate(preProps) {
     if (preProps.active !== this.props.active) {
       this.calculateDirection();
+      this.setState(state => state.isActive = this.props.active);
     }
   }
 

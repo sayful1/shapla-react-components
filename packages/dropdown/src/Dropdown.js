@@ -33,13 +33,13 @@ class Dropdown extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state.isActive) {
-      document.addEventListener('click', event => {
+    document.addEventListener('click', event => {
+      if (this.state.isActive) {
         if (!this.dropdownRef.current.contains(event.target)) {
           this.setState(state => state.isActive = false);
         }
-      });
-    }
+      }
+    });
   }
 
   render() {

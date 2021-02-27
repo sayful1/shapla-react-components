@@ -1,38 +1,48 @@
 import React from 'react'
 import {Dropdown} from "../src";
 import '../src/index.scss'
+import './style.scss'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      columns: [
-        {key: 'title', label: 'Title', numeric: false},
-        {key: 'bangle', label: 'Bangle', numeric: true},
-        {key: 'english', label: 'English', numeric: true},
-        {key: 'math', label: 'Math', numeric: true, sortable: true},
-      ],
-      rows: [
-        {id: 1, title: 'Sayful Islam', bangle: 70, english: 80, math: 100},
-        {id: 2, title: 'Akhi', bangle: 70, english: 80, math: 90},
-        {id: 3, title: 'Saif Al Araf', bangle: 70, english: 80, math: 80},
-      ],
-      actions: [
-        {key: 'edit', label: 'Edit'},
-        {key: 'trash', label: 'Delete'}
-      ],
-      sortBy: 'math',
-      sortOrder: 'asc',
-      selectedItems: [],
-    }
   }
 
   render() {
     return (
-      <div className="stackonet-admin-app">
-        <Dropdown trigger="Open menu">
-          <a href="#" className="shapla-dropdown-item is-link">Link One</a>
+      <div className="stackonet-admin-app p-8">
+        <Dropdown trigger={<button>From Left: Click</button>} hoverable={false}>
+          <a href="https://example.com" className="shapla-dropdown-item is-link is-active">Link 1</a>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 2</a>
+          <span className="shapla-dropdown-divider"></span>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 3</a>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 4</a>
         </Dropdown>
+        <Dropdown trigger={<button>From Right: Hover</button>} hoverable={true} right={true}>
+          <a href="https://example.com" className="shapla-dropdown-item is-link is-active">Link 1</a>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 2</a>
+          <span className="shapla-dropdown-divider"></span>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 3</a>
+          <a href="https://example.com" className="shapla-dropdown-item is-link">Link 4</a>
+        </Dropdown>
+        <div>
+          <Dropdown trigger={<button>From Bottom to Top: Click</button>} hoverable={false} direction='up'>
+            <a href="https://example.com" className="shapla-dropdown-item is-link is-active">Link 1</a>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 2</a>
+            <span className="shapla-dropdown-divider"></span>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 3</a>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 4</a>
+          </Dropdown>
+        </div>
+        <div>
+          <Dropdown trigger={<button>Auto direction: Click</button>} hoverable={false}>
+            <a href="https://example.com" className="shapla-dropdown-item is-link is-active">Link 1</a>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 2</a>
+            <span className="shapla-dropdown-divider"></span>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 3</a>
+            <a href="https://example.com" className="shapla-dropdown-item is-link">Link 4</a>
+          </Dropdown>
+        </div>
       </div>
     )
   }

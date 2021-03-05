@@ -1,5 +1,5 @@
 import React from 'react'
-import {Table, Pagination} from "../src";
+import {Table, Pagination, StatusList} from "../src";
 import '../src/index.scss'
 import 'shapla-css/src/utilities/screen-readers.scss'
 
@@ -7,6 +7,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      statuses: [
+        {key: 'all', label: 'All', count: 50},
+        {key: 'bangle', label: 'Bangle', count: 20},
+        {key: 'english', label: 'English', count: 10},
+        {key: 'math', label: 'Math', count: 20, active: true},
+      ],
       columns: [
         {key: 'title', label: 'Title', numeric: false},
         {key: 'bangle', label: 'Bangle', numeric: true},
@@ -35,6 +41,7 @@ class App extends React.Component {
       <div className="stackonet-admin-app">
         <div>
           <h2>Has items</h2>
+          <StatusList items={this.state.statuses} onChange={status => this.changeStatus(status)}/>
           <Table
             items={rows}
             selectedItems={selectedItems}
@@ -77,6 +84,14 @@ class App extends React.Component {
         alert('deleted: ' + row.title);
       }
     }
+  }
+
+  changeStatus(status) {
+    let statuses = this.state.statuses;
+    statuses.forEach((_status, index) => {
+      statuses[index]['active'] = (_status.key === status.key);
+    });
+    this.setState(state => state.statuses = statuses);
   }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
-import {Table} from "../src";
+import {Table, Pagination} from "../src";
 import '../src/index.scss'
+import 'shapla-css/src/utilities/screen-readers.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends React.Component {
       sortBy: 'math',
       sortOrder: 'asc',
       selectedItems: [],
+      currentPage: 1,
     }
   }
 
@@ -44,6 +46,8 @@ class App extends React.Component {
             onClickSort={(key, order) => this.sortData(key, order)}
             onClickAction={(action, item) => this.onActionClick(action, item)}
           />
+          <Pagination totalItems={100} perPage={20} currentPage={this.state.currentPage}
+                      onPaginate={page => this.setState(state => state.currentPage = page)}/>
         </div>
 
         <div>

@@ -1,6 +1,6 @@
-# Shapla React Data Table
+# Shapla React Dropdown
 
-A simple responsive data table component for React
+A simple and interactive dropdown menu for discoverable content for React
 
 ## Table of contents
 
@@ -10,7 +10,7 @@ A simple responsive data table component for React
 # Installation
 
 ```
-npm install --save @shapla/react-table
+npm install --save @shapla/react-dropdown
 ```
 
 # Usage
@@ -20,25 +20,31 @@ npm install --save @shapla/react-table
 with Sass:
 
 ```js
-import '@shapla/react-table/src/index.scss';
+import '@shapla/react-dropdown/src/index.scss';
 ```
 
 with CSS:
 
 ```js
-import '@shapla/react-table/dist/table.css';
+import '@shapla/react-dropdown/dist/table.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import Table from '@shapla/react-table';
+import {Dropdown} from '@shapla/react-dropdown';
 
 class MyApp extends React.Component {
   render() {
     return (
-      <div></div>
+      <Dropdown trigger={<button>From Left: Click</button>} hoverable={false}>
+        <a href="https://example.com" className="shapla-dropdown-item is-link is-active">Link 1</a>
+        <a href="https://example.com" className="shapla-dropdown-item is-link">Link 2</a>
+        <span className="shapla-dropdown-divider"></span>
+        <a href="https://example.com" className="shapla-dropdown-item is-link">Link 3</a>
+        <a href="https://example.com" className="shapla-dropdown-item is-link">Link 4</a>
+      </Dropdown>
     );
   }
 }
@@ -46,37 +52,9 @@ class MyApp extends React.Component {
 
 ### Props
 
-| Property        | Type    | Required | Default            | Description                                                             |
-|-----------------|---------|----------|--------------------|-------------------------------------------------------------------------|
-| `columns`       | Array   | **yes**  | `null`             | Pass an **Array** of **Objects**. See _columns data object_             |
-| `items`         | Array   | **yes**  | `null`             | Pass an **Array** of **Objects** with key:value format.                 |
-| `selectedItems` | Array   | no       | `[]`               | Pass an **Array** of object id                                          |
-| `actions`       | Array   | no       | `[]`               | If you want to show row actions, pass an **Array** of **Objects**       |
-| `index`         | String  | no       | `id`               | The index identifier of the row                                         |
-| `selectAllText` | String  | no       | `Select All`       | Shows if no items are found                                             |
-| `notFoundText`  | String  | no       | `No items found.`  | Shows if no items are found                                             |
-| `sortBy`        | String  | no       | `null`             | The property in data on which to initially sort.                        |
-| `sortOrder`     | String  | no       | `asc`              | The initial sort order.                                                 |
-| `showCb`        | Boolean | no       | `true`             | Whether to show the bulk checkbox in each rows                          |
-| `mobileWidth`   | Number  | no       | `768`              | Mobile breakpoint for table.                                            |
-| `onSelectItem`  | Func    | no       | ``                 | Return `selectedItems` as parameter
-| `onClickAction` | Func    | no       | ``                 | Return `action` as first parameter and `item` as second parameter
-| `onClickSort`   | Func    | no       | ``                 | Return `column key` as first parameter and `sort order` as second parameter
-
-
-### columns data object
-
-| Property      | Type      | Required  | Default   | Description                                                             |
-|---------------|-----------|-----------|-----------|-------------------------------------------------------------------------|
-| `key`         | String    | **yes**   | ``        | Column key.                                                             |
-| `label`       | String    | **yes**   | ``        | Column label                                                            |
-| `numeric`     | Boolean   | no        | `false`   | Set `true` if table column data type is numeric.                        |
-| `sortable`    | Boolean   | no        | `false`   | Whether the column data can be sorted by `asc` or `desc` order.         |
-
-
-### actions data object
-
-| Property      | Type      | Required  | Default   | Description   |
-|---------------|-----------|-----------|-----------|---------------|
-| `key`         | String    | **yes**   | ``        | Action key    |
-| `label`       | String    | **yes**   | ``        | Action label  |
+| Property      | Type      | Required  | Default   | Description
+|---------------|-----------|-----------|-----------|---------------------------------------------------------------------------
+| `hoverable`   | Boolean   | **no**    | `true`    | If set `true`, the dropdown will show up when hovering the trigger slot.
+| `right`       | Boolean   | **no**    | `false`   | Set `true` to have a right-aligned dropdown.
+| `role`        | String    | **no**    | `menu`    | Role of component. Mostly for accessibility.
+| `direction`   | Boolean   | **no**    | `auto`    | Value can be `auto`, `up`, `down`

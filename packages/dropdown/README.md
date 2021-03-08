@@ -26,14 +26,14 @@ import '@shapla/react-dropdown/src/index.scss';
 with CSS:
 
 ```js
-import '@shapla/react-dropdown/dist/table.css';
+import '@shapla/react-dropdown/dist/dropdown.css';
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from 'react';
-import {Dropdown} from '@shapla/react-dropdown';
+import Dropdown from '@shapla/react-dropdown';
 
 class MyApp extends React.Component {
   render() {

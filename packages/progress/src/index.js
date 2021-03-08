@@ -1,5 +1,5 @@
 /*!
- * Shapla React Progressbar
+ * Shapla React Progress
  * (c) 2020 Sayful Islam
  * Released under the MIT License.
  */
@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from "prop-types";
 
-class Progressbar extends React.Component {
+class Progress extends React.Component {
   /**
    * Specifies the default values for props:
    */
@@ -77,5 +77,5 @@ class Progressbar extends React.Component {
   }
 }
 
-export {Progressbar}
-export default Progressbar;
+export {Progress}
+export default Progress;

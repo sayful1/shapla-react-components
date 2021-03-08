@@ -3,19 +3,36 @@ import Checkbox from "../src";
 import '../src/index.scss'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.formRef = React.createRef();
+  }
+
   render() {
     return (
       <div className="stackonet-admin-app">
-        <p>First Testing page using React.</p>
+        <h4>Open browser console and submit the form.</h4>
+        <form action="" method="post" onSubmit={this.handleSubmit} id='test-form' ref={this.formRef}>
+          <Checkbox name='example_cb_1' id='example_cb_1' label='Check me' value='on'
+                    onChange={event => console.log(event.target.checked)}/>
 
-        <Checkbox name='example_cb_1' id='example_cb_1' label='Check me' checked={true} disabled={true}
-                  onChange={event => console.log(event.target.checked)}/>
+          <Checkbox name='example_cb_2' id='example_cb_2' label='Check me' checked={true} value='off'
+                    onChange={event => console.log(event.target.checked)}/>
+          <p>
+            <button>Submit</button>
+          </p>
+        </form>
       </div>
     )
   }
 
-  handleClick() {
-    console.log('Button clicked!');
+  handleSubmit(event) {
+    event.preventDefault();
+    let formData = new FormData(this.formRef.current);
+    console.log(formData.get('example_cb_1'));
+    console.log(formData.get('example_cb_2'));
   }
 }
 

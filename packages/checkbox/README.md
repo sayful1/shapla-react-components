@@ -26,7 +26,7 @@ import '@shapla/react-checkbox/src/index.scss';
 with CSS:
 
 ```js
-import '@shapla/react-checkbox/dist/button.css';
+import '@shapla/react-checkbox/dist/checkbox.css';
 ```
 
 ### Javascript Instantiation
@@ -48,7 +48,8 @@ class MyApp extends React.Component {
 
 | Property      | Type      | Required  | Default     | Description
 |---------------|-----------|-----------|-------------|-----------------------------------------------------------
+| `value`       | String    | **no**    | `yes`       | The default value for the checkbox
 | `label`       | String    | **no**    | ``          | Checkbox label
-| `value`       | String    | **no**    | `on`        | The default value for the checkbox
 | `disabled`    | Boolean   | **no**    | `false`     | If set `true`, Checkbox will be disabled to check.
 | `checked`     | Boolean   | **no**    | `false`     | If set `true`, Checkbox will be checked.
+| `onChange`    | Function  | **no**    | ``          | A function that receives the Event. So you can get checked status `event.target.checked`

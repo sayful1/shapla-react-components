@@ -1,6 +1,6 @@
 /*!
  * Shapla React Checkbox
- * (c) 2020 Sayful Islam
+ * (c) 2021 Sayful Islam
  * Released under the MIT License.
  */
 import React from 'react'

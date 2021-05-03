@@ -1,6 +1,6 @@
 {
   "name": "@shapla/react-tabs",
-  "description": "A simple responsive data table component for React",
+  "description": "A simple responsive horizontal navigation tabs component based on Bulma Tabs for React",
   "version": "1.0.0",
   "author": {
     "name": "Sayful Islam",

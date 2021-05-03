@@ -26,7 +26,9 @@ class Tab extends React.Component {
   }
 
   componentDidMount() {
-    TabEvent.on('change.ShaplaTab', selectedTab => {
+    TabEvent.on('change.ShaplaTab', data => {
+      let selectedTab = data.current;
+      console.log(selectedTab.props.label,this.props.label)
       this.setState(state => state.isActive = (this.props.label === selectedTab.props.label));
     })
   }

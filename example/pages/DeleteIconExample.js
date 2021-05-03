@@ -1,6 +1,5 @@
 import React from 'react'
 import {DeleteIcon} from "../../src/index";
-import '@shapla/react-delete-icon/src/index.scss'
 
 
 class DeleteIconExample extends React.Component {

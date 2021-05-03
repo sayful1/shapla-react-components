@@ -43,7 +43,7 @@ class Tabs extends React.Component {
     this.setState(state => state.selectedTab = activeTabIndex);
     children.forEach((tab, index) => {
       if (index === activeTabIndex) {
-        TabEvent.dispatch('change.ShaplaTab', tab);
+        TabEvent.dispatch('change.ShaplaTab', {current: tab, pre: tab});
       }
     })
   }
@@ -98,8 +98,9 @@ class Tabs extends React.Component {
 
   changeSelectedTab(event, selectedTab, index) {
     event.preventDefault();
+    let preTab = this.state.tabs[this.state.selectedTab];
     this.setState(state => state.selectedTab = index)
-    TabEvent.dispatch('change.ShaplaTab', selectedTab);
+    TabEvent.dispatch('change.ShaplaTab', {current: selectedTab, pre: preTab});
   }
 }
 

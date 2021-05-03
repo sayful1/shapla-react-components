@@ -1,6 +1,5 @@
 import React from 'react'
 import {Spinner} from "../../src/index";
-import '@shapla/react-spinner/src/index.scss'
 
 class SpinnerExample extends React.Component {
 

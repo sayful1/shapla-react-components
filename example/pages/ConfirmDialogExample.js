@@ -1,6 +1,5 @@
 import React from 'react'
 import {DialogContainer, Dialog} from "../../src/index";
-import '@shapla/react-confirm-dialog/src/index.scss'
 
 class ConfirmDialogExample extends React.Component {
   constructor(props) {

@@ -31,63 +31,66 @@
     "*.js"
   ],
   "scripts": {
-    "dev": "webpack serve --mode=development --hot --progress --watch --entry ./example/main.js --output-path ./dist",
+    "dev": "webpack serve --mode=development --hot --progress --entry ./example/main.js --output-path ./dist",
     "dev-build:umd": "webpack --mode=development --name=components --env umd --entry ./src/index.js",
     "build:umd": "webpack --mode=production --name=components --env umd --entry ./src/index.js --entry ./src/index.scss",
     "build": "npm run dev-build:umd && npm run build:umd"
   },
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1"
-  },
-  "dependencies": {
-    "@shapla/react-button": "^1.0.0",
-    "@shapla/react-chip": "^1.0.0",
-    "@shapla/react-columns": "^1.0.0",
-    "@shapla/react-confirm-dialog": "^1.0.0",
-    "@shapla/react-dashboard-layout": "^1.0.0",
-    "@shapla/react-delete-icon": "^1.0.0",
-    "@shapla/react-modal": "^1.0.0",
-    "@shapla/react-notifications": "^1.0.0",
-    "@shapla/react-sidenav": "^1.0.0",
-    "@shapla/react-spinner": "^1.0.0"
-  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@babel/plugin-transform-modules-umd": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "autoprefixer": "^10.2.4",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
+    "@babel/plugin-transform-modules-umd": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/preset-react": "^7.13.13",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
-    "css-loader": "^5.0.1",
+    "css-loader": "^5.2.4",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^4.5.1",
-    "mini-css-extract-plugin": "^1.3.5",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "mini-svg-data-uri": "^1.2.3",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "path": "^0.12.7",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.13",
     "postcss-combine-media-query": "^1.0.1",
-    "postcss-loader": "^4.2.0",
+    "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "sass-loader": "^10.1.1",
+    "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.19.0",
-    "webpack-cli": "^4.4.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "^3.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "peerDependencies": {
+    "prop-types": "^15.7",
+    "react": "^16.0 || ^17.0"
+  },
+  "dependencies": {
+    "@shapla/react-button": "^1.0",
+    "@shapla/react-checkbox": "^1.0",
+    "@shapla/react-chip": "^1.0",
+    "@shapla/react-columns": "^1.0",
+    "@shapla/react-confirm-dialog": "^1.0",
+    "@shapla/react-dashboard-layout": "^1.0",
+    "@shapla/react-delete-icon": "^1.0",
+    "@shapla/react-dropdown": "^1.0",
+    "@shapla/react-modal": "^1.0",
+    "@shapla/react-notifications": "^1.0",
+    "@shapla/react-progress": "^1.0",
+    "@shapla/react-sidenav": "^1.0",
+    "@shapla/react-spinner": "^1.0"
+  }
 }

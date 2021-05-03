@@ -1,5 +1,3 @@
-import './style.scss';
-import "@shapla/react-dashboard-layout/src/index.scss";
 import React from 'react'
 import {HashRouter, Route, Switch} from "react-router-dom/umd/react-router-dom"
 import {ButtonExample} from "./pages/ButtonExample";
@@ -11,7 +9,6 @@ import ColumnsExample from "./pages/ColumnsExample";
 import Welcome from "./pages/Welcome";
 import DashboardLayout from "@shapla/react-dashboard-layout";
 import menuItems from "./menuItems";
-import {useHistory} from 'react-router-dom/umd/react-router-dom.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -57,8 +54,14 @@ class App extends React.Component {
     )
   }
 
+  /**
+   * Handle menu click
+   *
+   * @param item
+   */
   handleMenuClick(item) {
-    useHistory.push(item.to);
+    window.location.hash = item.to;
+    this.setState(state => state.activateSideNav = false)
   }
 }
 

@@ -1,7 +1,5 @@
 import React from "react";
-import { Columns, Column } from "../src";
-import "../src/index.scss";
-import "./style.scss";
+import { Columns,Column } from "../../src/index";
 
 class ColumnsPage extends React.Component {
   constructor(props) {

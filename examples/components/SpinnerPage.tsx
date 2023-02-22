@@ -1,13 +1,12 @@
 import React from "react";
-import Spinner from "../src";
-import "../src/index.scss";
+import { Spinner } from "../../src/index";
 
 class SpinnerPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      active: true,
+      active: true
     };
 
     setTimeout(() => {

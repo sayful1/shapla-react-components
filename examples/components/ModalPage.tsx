@@ -1,6 +1,5 @@
 import React from "react";
-import Modal from "../src";
-import "../src/index.scss";
+import { Modal } from "../../src/index";
 
 class App extends React.Component {
   constructor(props) {

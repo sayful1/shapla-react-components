@@ -1,7 +1,5 @@
 import React from "react";
-import Progress from "../src";
-import "../src/index.scss";
-import "./style.scss";
+import { Progress } from "../../src/index";
 
 class App extends React.Component {
   constructor(props) {

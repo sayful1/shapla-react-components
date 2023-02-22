@@ -1,8 +1,10 @@
 import React from "react";
-import Checkbox from "../src";
+import { Checkbox } from "../../src/index";
 
 class CheckboxPage extends React.Component {
-  constructor(props) {
+  private formRef: React.RefObject<HTMLDivElement>;
+
+  constructor(props: Record<string, string>) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);

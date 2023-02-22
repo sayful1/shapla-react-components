@@ -6,6 +6,10 @@
 @include shapla.sr-only;
 @include shapla.tabs;
 
+@include shapla.dashboard;
+@include shapla.sidenav;
+@include shapla.button;
+@include shapla.modal;
 @include shapla.delete-icon;
 @include shapla.notification;
 @include shapla.notification-animation;

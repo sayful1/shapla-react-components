@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button } from "../../src/index";
-import "../src/index.scss";
 
 class ButtonPage extends Component {
   render() {

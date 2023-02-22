@@ -1,6 +1,5 @@
 import React from "react";
-import Sidenav from "../src/index";
-import "../src/index.scss";
+import { Sidenav } from "../../src/index";
 
 class SidenavPage extends React.Component {
   constructor(props) {

@@ -1,7 +1,5 @@
 import React from "react";
-import Dropdown from "../src";
-import "../src/index.scss";
-import "./style.scss";
+import { Dropdown } from "../../src/index";
 
 class DropdownPage extends React.Component {
   constructor(props) {
@@ -156,5 +154,4 @@ class DropdownPage extends React.Component {
   }
 }
 
-export { DropdownPage };
 export default DropdownPage;

@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardLayout from "../src/index";
+import { DashboardLayout } from "../../src/index";
 
 class DashboardPage extends React.Component {
   constructor(props) {

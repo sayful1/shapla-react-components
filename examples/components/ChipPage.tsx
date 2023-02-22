@@ -1,6 +1,5 @@
 import React from "react";
-import Chip from "../src";
-import "../src/index.scss";
+import { Chip } from "../../src/index";
 
 class ChipPage extends React.Component {
   render() {

@@ -1,0 +1,33 @@
+@mixin notification-animation {
+  $react-notifications-transition-time: 0.4s !default;
+
+  .notification-enter {
+    visibility: hidden;
+    transform: translate3d(var(--shapla-notification-enter));
+
+    &.notification-enter-active {
+      visibility: visible;
+      transform: translate3d(var(--shapla-notification-enter-active));
+      transition: all
+        var(
+          --shapla-notification-enter-timout,
+          #{$react-notifications-transition-time}
+        );
+    }
+  }
+
+  .notification-exit {
+    visibility: visible;
+    transform: translate3d(var(--shapla-notification-leave));
+    transition: all
+      var(
+        --shapla-notification-leave-timout,
+        #{$react-notifications-transition-time}
+      );
+
+    &.notification-exit-active {
+      visibility: hidden;
+      transform: translate3d(var(--shapla-notification-leave-active));
+    }
+  }
+}

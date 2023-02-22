@@ -1,0 +1,74 @@
+{
+  "name": "@shapla/react-components",
+  "description": "A collection of React components.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Sayful Islam",
+    "email": "sayful.islam001@gmail.com",
+    "url": "https://sayfulislam.com"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "components"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sayful1/shapla-react-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sayful1/shapla-react-components/issues"
+  },
+  "unpkg": "./dist/components.umd.cjs",
+  "main": "./dist/components.umd.cjs",
+  "module": "./dist/components.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build:tsc": "tsc --declaration --emitDeclarationOnly --declarationDir dist",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --fix src",
+    "format": "prettier . --write"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "peerDependencies": {
+    "react": "^16.0 || ^18.0",
+    "react-dom": "^18.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react-transition-group": "^4.4.5",
+    "shapla-css": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-transition-group": "^4.4.5",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "2.8.4",
+    "sass": "^1.58.3",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
+},

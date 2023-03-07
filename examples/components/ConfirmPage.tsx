@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogContainer,Dialog } from "../../src/index";
+import { DialogContainer, Dialog } from "../../src/index";
 
 class ConfirmPage extends React.Component {
   constructor(props) {

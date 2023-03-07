@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import PropTypes from "prop-types";
 import Cross from "../cross/Cross";
 
@@ -9,7 +9,7 @@ interface ChipPropsInterface {
   deletable: boolean;
   small: boolean;
   onDeleteIconClick: () => void;
-  children?: JSX.Element | string;
+  children?: ReactNode;
 }
 
 class Chip extends Component<ChipPropsInterface> {

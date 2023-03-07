@@ -29,7 +29,7 @@ with SCSS:
 ### Javascript Instantiation
 
 ```js
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Button } from "@shapla/react-components";
 
 class MyApp extends Component {
@@ -42,7 +42,7 @@ class MyApp extends Component {
 ### Props
 
 | Property    | Type    | Required | Default   | Description                                              |
-|-------------|---------|----------|-----------|----------------------------------------------------------|
+| ----------- | ------- | -------- | --------- | -------------------------------------------------------- |
 | `theme`     | String  | **no**   | `default` | Value can be `default` or `primary` or `secondary`.      |
 | `size`      | String  | **no**   | `normal`  | Value can be `normal` or `small` or `medium` or `large`. |
 | `fullwidth` | Boolean | **no**   | `false`   | If set `true`, button will take full width.              |

@@ -1,5 +1,7 @@
 # Shapla React Components
 
+> IMPORTANT: Shapla React Components is a work in progress and subject to major changes until 1.0 release.
+
 A collection of reusable React components for rapid development.
 
 ## Table of contents
@@ -39,8 +41,9 @@ load style of component and also need to import ES module and use as react compo
 ```
 
 ### Javascript Instantiation
+
 ```js
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Button } from "@shapla/react-components";
 
 class MyApp extends Component {
@@ -52,16 +55,16 @@ class MyApp extends Component {
 
 # Components
 
-* [Button](/src/components/button/README.md)
-* [Checkbox](/src/components/checkbox/README.md)
-* [Chip](/src/components/chip/README.md)
-* [Columns](/src/components/columns/README.md)
-* [Confirm](/src/components/confirm/README.md)
-* [Cross](/src/components/cross/README.md)
-* [Dashboard](/src/components/dashboard/README.md)
-* [Dropdown](/src/components/dropdown/README.md)
-* [Modal](/src/components/modal/README.md)
-* [Notifications](/src/components/notifications/README.md)
-* [Progress](/src/components/progress/README.md)
-* [Sidenav](/src/components/sidenav/README.md)
-* [Spinner](/src/components/spinner/README.md)
+- [Button](/src/components/button/README.md)
+- [Checkbox](/src/components/checkbox/README.md)
+- [Chip](/src/components/chip/README.md)
+- [Columns](/src/components/columns/README.md)
+- [Confirm](/src/components/confirm/README.md)
+- [Cross](/src/components/cross/README.md)
+- [Dashboard](/src/components/dashboard/README.md)
+- [Dropdown](/src/components/dropdown/README.md)
+- [Modal](/src/components/modal/README.md)
+- [Notifications](/src/components/notifications/README.md)
+- [Progress](/src/components/progress/README.md)
+- [Sidenav](/src/components/sidenav/README.md)
+- [Spinner](/src/components/spinner/README.md)

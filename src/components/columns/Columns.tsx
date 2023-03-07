@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import PropTypes from "prop-types";
 
 interface ColumnsPropsInterface {
@@ -10,7 +10,7 @@ interface ColumnsPropsInterface {
   desktop?: boolean;
   className?: string;
   columnGap?: string;
-  children: string | JSX.Element;
+  children: ReactNode;
 }
 
 class Columns extends Component<ColumnsPropsInterface> {

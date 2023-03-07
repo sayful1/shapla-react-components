@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import PropTypes from "prop-types";
 
 interface ColumnPropsInterface {
@@ -8,7 +8,7 @@ interface ColumnPropsInterface {
   desktop?: number;
   widescreen?: number;
   fullhd?: number;
-  children?: string | JSX.Element;
+  children?: ReactNode;
 }
 
 class Column extends Component<ColumnPropsInterface> {

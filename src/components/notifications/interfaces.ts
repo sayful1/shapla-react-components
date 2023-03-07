@@ -1,9 +1,12 @@
+import { RefObject } from "react";
+
 interface NotificationDataArgsInterface {
   message: string;
   id?: string;
   type?: "primary" | "success" | "info" | "warning" | "error";
   title?: string;
   timeout?: number;
+  nodeRef?: RefObject<any>;
 }
 
 interface NotificationPropsInterface {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Columns,Column } from "../../src/index";
+import { Columns, Column } from "../../src/index";
 
 class ColumnsPage extends React.Component {
   constructor(props) {

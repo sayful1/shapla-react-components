@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "../../src/index";
 
 class CheckboxPage extends React.Component {
-  private formRef: React.RefObject<HTMLDivElement>;
+  private readonly formRef: React.RefObject<HTMLFormElement>;
 
   constructor(props: Record<string, string>) {
     super(props);

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, HTMLAttributes } from "react";
 
-interface CrossPropsInterface {
+interface CrossPropsInterface extends HTMLAttributes<HTMLSpanElement> {
   size?: "normal" | "small" | "medium" | "large";
   ariaLabel?: string;
   fixed?: boolean;
@@ -22,11 +22,14 @@ class Cross extends Component<CrossPropsInterface> {
    * Render component UI
    */
   render() {
+    const { size, fixed, ariaLabel, onClick, className, ...others } =
+      this.props;
     return (
       <span
         className={this.classes()}
-        aria-label={this.props.ariaLabel}
-        onClick={this.props.onClick}
+        aria-label={ariaLabel}
+        onClick={onClick}
+        {...others}
       />
     );
   }
@@ -39,6 +42,7 @@ class Cross extends Component<CrossPropsInterface> {
   classes() {
     const classes = ["shapla-delete-icon"];
 
+    if (this.props.className) classes.push(this.props.className);
     if (this.props.size === "small") classes.push("is-small");
     if (this.props.size === "medium") classes.push("is-medium");
     if (this.props.size === "large") classes.push("is-large");

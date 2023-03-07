@@ -1,9 +1,22 @@
-import React, { Component, SyntheticEvent } from "react";
+import React, {
+  Component,
+  HTMLAttributes,
+  ReactNode,
+  SyntheticEvent,
+} from "react";
 import PropTypes from "prop-types";
 
-interface ButtonPropsInterface {
-  theme?: "default" | "primary" | "secondary";
-  size?: "small" | "normal" | "medium" | "large";
+interface ButtonPropsInterface
+  extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+  theme?:
+    | "default"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning"
+    | "error"
+    | string;
+  size?: "small" | "normal" | "medium" | "large" | string;
   fullwidth?: boolean;
   disabled?: boolean;
   outline?: boolean;
@@ -11,8 +24,9 @@ interface ButtonPropsInterface {
   fab?: boolean;
   shadow?: boolean;
   href?: string;
-  children: JSX.Element | string;
-  onClick: ((event: SyntheticEvent) => void) | (() => void);
+  loading?: boolean;
+  children: ReactNode;
+  onClick?: ((event: SyntheticEvent) => void) | (() => void);
 }
 
 class Button extends Component<ButtonPropsInterface> {
@@ -28,6 +42,7 @@ class Button extends Component<ButtonPropsInterface> {
     rounded: false,
     fab: false,
     shadow: false,
+    loading: false,
     href: "",
   };
 
@@ -43,6 +58,7 @@ class Button extends Component<ButtonPropsInterface> {
     rounded: PropTypes.bool,
     fab: PropTypes.bool,
     shadow: PropTypes.bool,
+    loading: PropTypes.bool,
     href: PropTypes.string,
     onClick: PropTypes.func,
   };
@@ -60,24 +76,23 @@ class Button extends Component<ButtonPropsInterface> {
    * Render component UI
    */
   render() {
-    if (this.props.href) {
+    const { href, children, onClick, disabled, className, ...others } =
+      this.props;
+    if (href) {
       return (
-        <a
-          href={this.props.href}
-          className={this.classes()}
-          onClick={this.props.onClick}
-        >
-          {this.props.children}
+        <a href={href} className={this.classes()} onClick={onClick} {...others}>
+          {children}
         </a>
       );
     }
     return (
       <button
         className={this.classes()}
-        disabled={this.props.disabled}
-        onClick={this.props.onClick}
+        disabled={disabled}
+        onClick={onClick}
+        {...others}
       >
-        {this.props.children}
+        {children}
       </button>
     );
   }
@@ -95,6 +110,7 @@ class Button extends Component<ButtonPropsInterface> {
     if (this.props.rounded) classes.push("is-rounded");
     if (this.props.fab) classes.push("is-fab");
     if (this.props.shadow) classes.push("has-shadow");
+    if (this.props.loading) classes.push("is-loading");
     if ("default" !== this.props.theme) classes.push(`is-${this.props.theme}`);
     if ("normal" !== this.props.size) classes.push(`is-${this.props.size}`);
 

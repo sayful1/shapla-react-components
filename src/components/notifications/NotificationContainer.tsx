@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef, RefObject, useRef } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Notify from "./Notify";
@@ -41,6 +41,7 @@ class NotificationContainer extends React.Component<
       "center-center",
     ]),
   };
+  private nodeRef: RefObject<unknown>;
 
   /**
    * Class constructor
@@ -51,6 +52,7 @@ class NotificationContainer extends React.Component<
     super(props);
 
     this.state = { items: [] };
+    this.nodeRef = createRef();
 
     this.show = this.show.bind(this);
   }
@@ -73,29 +75,24 @@ class NotificationContainer extends React.Component<
       return null;
     }
 
-    const items = this.state.items.map((item) => {
-      const key = item.id || new Date().getTime();
-      return (
-        <CSSTransition
-          key={item.id}
-          classNames="notification"
-          timeout={{
-            enter: this.props.enterTimeout,
-            exit: this.props.leaveTimeout,
-          }}
-        >
-          <Notification
-            key={key}
-            type={item.type}
-            title={item.title}
-            message={item.message}
-            timeout={item.timeout}
-            showDismisses={this.props.showDismisses}
-            onRequestHide={() => this.closeItem(item)}
-          />
-        </CSSTransition>
-      );
-    });
+    const items = this.state.items.map(
+      (item: NotificationDataArgsInterface) => {
+        const key = item.id || new Date().getTime();
+        item.nodeRef = createRef();
+        return (
+          <CSSTransition key={item.id} classNames="notification" timeout={300}>
+            <Notification
+              type={item.type}
+              title={item.title}
+              message={item.message}
+              timeout={item.timeout}
+              showDismisses={this.props.showDismisses}
+              onRequestHide={() => this.closeItem(item)}
+            />
+          </CSSTransition>
+        );
+      }
+    );
 
     return (
       <div className={this.containerClass()} style={this.containerStyle()}>
@@ -168,7 +165,7 @@ class NotificationContainer extends React.Component<
     } else {
       items.unshift(option);
     }
-    this.setState({ items });
+    this.setState({ items: items });
   }
 
   /**

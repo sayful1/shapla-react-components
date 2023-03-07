@@ -14,27 +14,38 @@ import DropdownPage from "./components/DropdownPage";
 import ProgressPage from "./components/ProgressPage";
 import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
+import HomePage from "./HomePage";
+
+const routerLinks = [
+  { path: "", label: "Home", element: <HomePage /> },
+  { path: "button", label: "Button", element: <ButtonPage /> },
+  { path: "checkbox", label: "Checkbox", element: <CheckboxPage /> },
+  { path: "chip", label: "Chip", element: <ChipPage /> },
+  { path: "column", label: "Column", element: <ColumnsPage /> },
+  { path: "confirm", label: "Confirm", element: <ConfirmPage /> },
+  { path: "cross", label: "Cross", element: <CrossPage /> },
+  { path: "dropdown", label: "Dropdown", element: <DropdownPage /> },
+  { path: "modal", label: "Modal", element: <ModalPage /> },
+  {
+    path: "notification",
+    label: "Notification",
+    element: <NotificationPage />,
+  },
+  { path: "progress", label: "Progress", element: <ProgressPage /> },
+  { path: "sidenav", label: "Sidenav", element: <SidenavPage /> },
+  { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
+];
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-    children: [
-      { path: "button", element: <ButtonPage /> },
-      { path: "checkbox", element: <CheckboxPage /> },
-      { path: "chip", element: <ChipPage /> },
-      { path: "column", element: <ColumnsPage /> },
-      { path: "confirm", element: <ConfirmPage /> },
-      { path: "cross", element: <CrossPage /> },
-      { path: "dropdown", element: <DropdownPage /> },
-      { path: "modal", element: <ModalPage /> },
-      { path: "notification", element: <NotificationPage /> },
-      { path: "progress", element: <ProgressPage /> },
-      { path: "sidenav", element: <SidenavPage /> },
-      { path: "spinner", element: <SpinnerPage /> }
-    ]
-  }
+    children: routerLinks.map((_link) => {
+      return { path: _link.path, element: _link.element };
+    }),
+  },
 ]);
 
+export { routerLinks };
 export default router;

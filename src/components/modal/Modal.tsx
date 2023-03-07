@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import PropTypes from "prop-types";
 import Cross from "../cross/Cross";
 
@@ -12,7 +12,7 @@ interface ModalPropsInterface {
   contentClassName: string;
   backgroundTheme: "dark" | "light";
   contentSize: "small" | "medium" | "large" | "full";
-  children: string | JSX.Element | JSX.Element[];
+  children: ReactNode;
   footer: string;
   onClose: () => void;
 }

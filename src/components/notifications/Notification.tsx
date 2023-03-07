@@ -90,7 +90,7 @@ class Notification extends Component<NotificationPropsInterface> {
         {this.props.title && (
           <div className="shapla-notification__title">{this.props.title}</div>
         )}
-        <div className="shapla-notification__title">{this.props.message}</div>
+        <div className="shapla-notification__message">{this.props.message}</div>
       </div>
     );
   }
@@ -100,11 +100,10 @@ class Notification extends Component<NotificationPropsInterface> {
    *
    * @returns {string}
    */
-  itemClass() {
+  itemClass(): string {
     const classes = ["shapla-notification"];
     if (
-      -1 !==
-      ["primary", "success", "info", "warning", "error"].indexOf(
+      ["primary", "success", "info", "warning", "error"].includes(
         this.props.type
       )
     ) {

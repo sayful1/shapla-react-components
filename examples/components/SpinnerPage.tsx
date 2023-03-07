@@ -6,7 +6,7 @@ class SpinnerPage extends React.Component {
     super(props);
 
     this.state = {
-      active: true
+      active: true,
     };
 
     setTimeout(() => {

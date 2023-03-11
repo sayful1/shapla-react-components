@@ -19,4 +19,5 @@ export { default as Notify } from "./components/notifications/Notify";
 export { default as NotificationContainer } from "./components/notifications/NotificationContainer";
 export { default as Progress } from "./components/progress/Progress";
 export { default as Sidenav } from "./components/sidenav/Sidenav";
+export { default as SpinnerContainer } from "./components/spinner/SpinnerContainer";
 export { default as Spinner } from "./components/spinner/Spinner";

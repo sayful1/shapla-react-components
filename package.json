@@ -1,7 +1,7 @@
 {
   "name": "@shapla/react-components",
   "description": "A collection of React components.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -44,8 +44,8 @@
     "last 2 versions"
   ],
   "peerDependencies": {
-    "react": "^16.0 || ^18.0",
-    "react-dom": "^16.0 || ^18.0"
+    "react": "^17.0 || ^18.0",
+    "react-dom": "^17.0 || ^18.0"
   },
   "dependencies": {
     "prop-types": "^15.8.1",

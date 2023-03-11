@@ -1,23 +1,33 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Spinner from "./Spinner";
 
 interface SpinnerPropsInterface {
   active: boolean;
   single: boolean;
   showText: boolean;
+  isRootSpinner: boolean;
   loadingText: string;
   position: "fixed" | "absolute" | "static";
   size: "default" | "large" | "medium" | "small";
 }
 
-class Spinner extends Component<SpinnerPropsInterface> {
+interface SpinnerStateInterface {
+  globallyActive: boolean;
+}
+
+class SpinnerContainer extends Component<
+  SpinnerPropsInterface,
+  SpinnerStateInterface
+> {
   /**
    * Specifies the default values for props:
    */
   static defaultProps = {
-    active: true,
+    active: false,
     single: false,
     showText: false,
+    isRootSpinner: false,
     loadingText: "Loading...",
     position: "fixed",
     size: "default",
@@ -31,6 +41,7 @@ class Spinner extends Component<SpinnerPropsInterface> {
     single: PropTypes.bool,
     showText: PropTypes.bool,
     loadingText: PropTypes.string,
+    isRootSpinner: PropTypes.bool,
     position: PropTypes.oneOf(["fixed", "absolute", "static"]),
     size: PropTypes.oneOf(["default", "large", "medium", "small"]),
   };
@@ -42,6 +53,25 @@ class Spinner extends Component<SpinnerPropsInterface> {
    */
   constructor(props: SpinnerPropsInterface) {
     super(props);
+
+    this.state = {
+      globallyActive: false,
+    };
+
+    if (this.props.isRootSpinner) {
+      Spinner.on((globallyActive: { active: boolean }) => {
+        this.toggleRootSpinner(globallyActive.active);
+      });
+    }
+  }
+
+  /**
+   * Toggle root spinner
+   *
+   * @param active
+   */
+  toggleRootSpinner(active: boolean) {
+    this.setState({ globallyActive: active });
   }
 
   /**
@@ -65,7 +95,7 @@ class Spinner extends Component<SpinnerPropsInterface> {
    * Render component UI
    */
   render() {
-    if (!this.props.active) {
+    if (!(this.props.active || this.state.globallyActive)) {
       return null;
     }
 
@@ -162,4 +192,4 @@ class Spinner extends Component<SpinnerPropsInterface> {
   }
 }
 
-export default Spinner;
+export default SpinnerContainer;

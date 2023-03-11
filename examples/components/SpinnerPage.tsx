@@ -1,17 +1,23 @@
-import React from "react";
-import { Spinner } from "../../src/index";
+import React, { Component } from "react";
+import { Spinner, SpinnerContainer } from "../../src/index";
 
-class SpinnerPage extends React.Component {
+class SpinnerPage extends Component<{}, { active: boolean }> {
   constructor(props) {
     super(props);
 
-    this.state = {
-      active: true,
-    };
+    this.showSpinner = this.showSpinner.bind(this);
+  }
+
+  componentDidMount() {
+    this.showSpinner();
+  }
+
+  showSpinner() {
+    Spinner.show();
 
     setTimeout(() => {
-      this.setState((state) => (state.active = false));
-    }, 5000);
+      Spinner.hide();
+    }, 3000);
   }
 
   render() {
@@ -19,7 +25,9 @@ class SpinnerPage extends React.Component {
       <div className="stackonet-admin-app">
         <p>Shapla React Spinner</p>
 
-        <Spinner active={this.state.active} single={true} showText={true} />
+        <button onClick={this.showSpinner}>Show spinner</button>
+
+        <SpinnerContainer isRootSpinner={true} single={true} showText={true} />
       </div>
     );
   }

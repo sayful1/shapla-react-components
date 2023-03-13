@@ -42,7 +42,7 @@ class MyApp extends Component {
 ### Props
 
 | Property    | Type    | Required | Default   | Description                                              |
-| ----------- | ------- | -------- | --------- | -------------------------------------------------------- |
+|-------------|---------|----------|-----------|----------------------------------------------------------|
 | `theme`     | String  | **no**   | `default` | Value can be `default` or `primary` or `secondary`.      |
 | `size`      | String  | **no**   | `normal`  | Value can be `normal` or `small` or `medium` or `large`. |
 | `fullwidth` | Boolean | **no**   | `false`   | If set `true`, button will take full width.              |
@@ -51,3 +51,4 @@ class MyApp extends Component {
 | `rounded`   | Boolean | **no**   | `false`   | If set `true`, rounded style will be used.               |
 | `fab`       | Boolean | **no**   | `false`   | If set `true`, circle style will be used.                |
 | `shadow`    | Boolean | **no**   | `false`   | If set `true`, box-shadow will be added around button.   |
+| `loading`   | Boolean | **no**   | `false`   | If set `true`, a loading icon will be shown.             |

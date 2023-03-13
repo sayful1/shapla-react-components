@@ -1,7 +1,7 @@
 {
   "name": "@shapla/react-components",
   "description": "A collection of React components.",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "author": {
     "name": "Sayful Islam",
     "email": "sayful.islam001@gmail.com",
@@ -26,16 +26,14 @@
   "typings": "./dist/index.d.ts",
   "files": [
     "dist/*",
-    "src/*",
-    "*.json",
-    "*.js"
+    "src/*"
   ],
   "scripts": {
     "install:docs": "npm i --no-save react-router-dom@latest @types/react-router-dom",
     "dev": "vite",
     "build:tsc": "tsc --declaration --emitDeclarationOnly --declarationDir dist",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build:lib": "vite build",
+    "build": "npm run build:lib && npm run build:tsc",
     "lint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --fix src",
     "format": "prettier . --write"
   },

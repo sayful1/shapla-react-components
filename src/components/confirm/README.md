@@ -2,7 +2,7 @@
 
 A simple confirm modal/dialog based on modal component for React
 
-[<img src="./packages/confirm-dialog/screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
+[<img src="./src/confirm/screenshot.png" style="width: 100%;" />](https://github.com/sayful1/shapla-react-components)
 
 ## Table of contents
 
@@ -12,34 +12,29 @@ A simple confirm modal/dialog based on modal component for React
 # Installation
 
 ```
-npm install --save @shapla/react-confirm-dialog
+npm i @shapla/react-components
 ```
 
 # Usage
+
+### Styles
+
+with SCSS:
+
+```scss
+// Add the following line at top of your scss file
+@use "@shapla/react-components/src/index.scss" as shapla;
+```
 
 ### Note
 
 **Use only one 'DialogContainer' component in the app.**
 
-### Styles
-
-with Sass:
-
-```js
-import "@shapla/react-confirm-dialog/src/index.scss";
-```
-
-with CSS:
-
-```js
-import "@shapla/react-confirm-dialog/dist/confirm-dialog.css";
-```
-
 ### Javascript Instantiation
 
 ```js
 import React from "react";
-import { DialogContainer, Dialog } from "@shapla/react-confirm-dialog";
+import { DialogContainer, Dialog } from "@shapla/react-components";
 
 class MyApp extends React.Component {
   constructor(props) {
@@ -91,7 +86,7 @@ class MyApp extends React.Component {
 Both `alert` and `confirm` can accept String for the message or Object with following props.
 
 | Property        | Type            | Required | Default   | Description                                             |
-| --------------- | --------------- | -------- | --------- | ------------------------------------------------------- |
+|-----------------|-----------------|----------|-----------|---------------------------------------------------------|
 | `message`       | String          | **yes**  | ``        | Confirm dialog message                                  |
 | `title`         | String          | **no**   | ``        | Confirm dialog title                                    |
 | `icon`          | String          | **no**   | `primary` | Value can be `primary`, `success` or `error`.           |

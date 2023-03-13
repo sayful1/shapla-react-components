@@ -10,37 +10,34 @@ A simple circle with a cross for React
 # Installation
 
 ```
-npm install --save @shapla/react-delete-icon
+npm i @shapla/react-components
 ```
 
 # Usage
 
 ### Styles
 
-with Sass:
+with SCSS:
 
-```js
-import "@shapla/react-delete-icon/src/index.scss";
-```
+```scss
+// Add the following line at top of your scss file
+@use "@shapla/react-components/src/index.scss" as shapla;
 
-with CSS:
-
-```js
-import "@shapla/react-delete-icon/dist/delete-icon.css";
+@include shapla.delete-icon;
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from "react";
-import DeleteIcon from "@shapla/react-delete-icon";
+import {Cross} from "@shapla/react-components";
 
 class MyApp extends React.Component {
   render() {
     return (
-      <DeleteIcon size="small" onClick={this.handleClick}>
+      <Cross size="small" onClick={this.handleClick}>
         Click Me
-      </DeleteIcon>
+      </Cross>
     );
   }
   handleClick() {
@@ -52,6 +49,6 @@ class MyApp extends React.Component {
 ### Props
 
 | Property    | Type   | Required | Default  | Description                                              |
-| ----------- | ------ | -------- | -------- | -------------------------------------------------------- |
+|-------------|--------|----------|----------|----------------------------------------------------------|
 | `size`      | String | **no**   | `normal` | Value can be `normal` or `small` or `medium` or `large`. |
 | `ariaLabel` | String | **no**   | `close`  | Value for html `aria-label` attribute                    |

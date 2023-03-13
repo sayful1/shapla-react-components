@@ -1,9 +1,4 @@
-import React, {
-  Component,
-  HTMLAttributes,
-  ReactNode,
-  SyntheticEvent,
-} from "react";
+import React, {Component, HTMLAttributes, ReactNode,} from "react";
 import PropTypes from "prop-types";
 
 interface ButtonPropsInterface
@@ -26,7 +21,6 @@ interface ButtonPropsInterface
   href?: string;
   loading?: boolean;
   children: ReactNode;
-  onClick?: ((event: SyntheticEvent) => void) | (() => void);
 }
 
 class Button extends Component<ButtonPropsInterface> {
@@ -50,7 +44,7 @@ class Button extends Component<ButtonPropsInterface> {
    * Specifies props data type
    */
   static propTypes = {
-    theme: PropTypes.oneOf(["default", "primary", "secondary"]),
+    theme: PropTypes.oneOf(["default", "primary", "secondary", "success", "error", 'warning']),
     size: PropTypes.oneOf(["small", "normal", "medium", "large"]),
     fullwidth: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -60,7 +54,6 @@ class Button extends Component<ButtonPropsInterface> {
     shadow: PropTypes.bool,
     loading: PropTypes.bool,
     href: PropTypes.string,
-    onClick: PropTypes.func,
   };
 
   /**
@@ -76,11 +69,24 @@ class Button extends Component<ButtonPropsInterface> {
    * Render component UI
    */
   render() {
-    const { href, children, onClick, disabled, className, ...others } =
-      this.props;
+    const {
+      theme,
+      size,
+      fab,
+      fullwidth,
+      loading,
+      outline,
+      rounded,
+      shadow,
+      href,
+      children,
+      disabled,
+      className,
+      ...others
+    } = this.props;
     if (href) {
       return (
-        <a href={href} className={this.classes()} onClick={onClick} {...others}>
+        <a href={href} className={this.classes()} {...others}>
           {children}
         </a>
       );
@@ -89,7 +95,6 @@ class Button extends Component<ButtonPropsInterface> {
       <button
         className={this.classes()}
         disabled={disabled}
-        onClick={onClick}
         {...others}
       >
         {children}
@@ -103,16 +108,18 @@ class Button extends Component<ButtonPropsInterface> {
    * @returns {string}
    */
   classes() {
+    const {fullwidth, outline, rounded, fab, shadow, loading, theme, size, className} = this.props;
     const classes = ["shapla-button"];
 
-    if (this.props.fullwidth) classes.push("is-fullwidth");
-    if (this.props.outline) classes.push("is-outline");
-    if (this.props.rounded) classes.push("is-rounded");
-    if (this.props.fab) classes.push("is-fab");
-    if (this.props.shadow) classes.push("has-shadow");
-    if (this.props.loading) classes.push("is-loading");
-    if ("default" !== this.props.theme) classes.push(`is-${this.props.theme}`);
-    if ("normal" !== this.props.size) classes.push(`is-${this.props.size}`);
+    if (fullwidth) classes.push("is-fullwidth");
+    if (outline) classes.push("is-outline");
+    if (rounded) classes.push("is-rounded");
+    if (fab) classes.push("is-fab");
+    if (shadow) classes.push("has-shadow");
+    if (loading) classes.push("is-loading");
+    if ("default" !== theme) classes.push(`is-${theme}`);
+    if ("normal" !== size) classes.push(`is-${size}`);
+    if (className) classes.push(className);
 
     return classes.join(" ");
   }

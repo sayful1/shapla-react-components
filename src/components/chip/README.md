@@ -10,30 +10,27 @@ A simple button, in different colors, sizes, and states
 # Installation
 
 ```
-npm install --save @shapla/react-chip
+npm i @shapla/react-components
 ```
 
 # Usage
 
 ### Styles
 
-with Sass:
+with SCSS:
 
-```js
-import "@shapla/react-chip/src/index.scss";
-```
+```scss
+// Add the following line at top of your scss file
+@use "@shapla/react-components/src/index.scss" as shapla;
 
-with CSS:
-
-```js
-import "@shapla/react-chip/dist/chip.css";
+@include shapla.chip;
 ```
 
 ### Javascript Instantiation
 
 ```js
 import React from "react";
-import Chip from "@shapla/react-chip";
+import {Chip} from "@shapla/react-components";
 
 class MyApp extends React.Component {
   render() {
@@ -51,7 +48,7 @@ class MyApp extends React.Component {
 ### Props
 
 | Property            | Type    | Required | Default | Description                              |
-| ------------------- | ------- | -------- | ------- | ---------------------------------------- |
+|---------------------|---------|----------|---------|------------------------------------------|
 | `text`              | String  | **no**   | ``      | Chip text                                |
 | `imageSrc`          | String  | **no**   | ``      | Chip contact image url                   |
 | `deletable`         | Boolean | **no**   | `false` | If set `true`, Delete icon will appear   |

@@ -67,6 +67,14 @@ class ButtonPage extends Component {
             </Button>
           </div>
         </div>
+        <div className="mb-8">
+          <h2 className="subtitle">Custom class handle</h2>
+          <div className="space-x-4">
+            <Button theme="primary" className={'has-custom-class'}>
+              has-custom-class
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

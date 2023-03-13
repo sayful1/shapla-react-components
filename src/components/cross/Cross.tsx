@@ -1,10 +1,9 @@
-import React, { Component, HTMLAttributes } from "react";
+import React, {Component, HTMLAttributes} from "react";
 
 interface CrossPropsInterface extends HTMLAttributes<HTMLSpanElement> {
   size?: "normal" | "small" | "medium" | "large";
   ariaLabel?: string;
   fixed?: boolean;
-  onClick?: () => void;
 }
 
 class Cross extends Component<CrossPropsInterface> {
@@ -15,20 +14,17 @@ class Cross extends Component<CrossPropsInterface> {
     size: "normal",
     ariaLabel: "close",
     fixed: false,
-    onClick: () => {},
   };
 
   /**
    * Render component UI
    */
   render() {
-    const { size, fixed, ariaLabel, onClick, className, ...others } =
-      this.props;
+    const {size, fixed, ariaLabel, className, ...others} = this.props;
     return (
       <span
         className={this.classes()}
         aria-label={ariaLabel}
-        onClick={onClick}
         {...others}
       />
     );

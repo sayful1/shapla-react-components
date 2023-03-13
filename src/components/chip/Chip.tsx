@@ -1,8 +1,8 @@
-import React, { Component, ReactNode } from "react";
+import React, {Component, HTMLAttributes, ReactNode} from "react";
 import PropTypes from "prop-types";
 import Cross from "../cross/Cross";
 
-interface ChipPropsInterface {
+interface ChipPropsInterface extends HTMLAttributes<HTMLSpanElement> {
   text: string;
   imageSrc: string;
   height: string;
@@ -22,7 +22,8 @@ class Chip extends Component<ChipPropsInterface> {
     height: "32px",
     deletable: false,
     small: false,
-    onDeleteIconClick: () => {},
+    onDeleteIconClick: () => {
+    },
   };
 
   /**
@@ -64,7 +65,7 @@ class Chip extends Component<ChipPropsInterface> {
         </span>
         {this.props.deletable && (
           <span className="shapla-chip__action">
-            <Cross onClick={this.props.onDeleteIconClick} />
+            <Cross onClick={this.props.onDeleteIconClick}/>
           </span>
         )}
       </span>

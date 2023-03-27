@@ -21,3 +21,4 @@ export { default as Progress } from "./components/progress/Progress";
 export { default as Sidenav } from "./components/sidenav/Sidenav";
 export { default as SpinnerContainer } from "./components/spinner/SpinnerContainer";
 export { default as Spinner } from "./components/spinner/Spinner";
+export { default as Table } from "./components/table/ShaplaTable";

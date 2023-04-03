@@ -1,0 +1,11 @@
+.section-hero {
+  margin-bottom: 3rem;
+
+  &__title {
+    font-size: 3.75rem;
+
+    + .subtitle {
+      margin-top: -1rem;
+    }
+  }
+}

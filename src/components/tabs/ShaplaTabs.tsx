@@ -1,12 +1,11 @@
 import React, {ReactElement, ReactNode, useContext, useEffect, useState,} from "react";
 import {TabsDataInterface,TabsProps} from "./interfaces";
-
 import ShaplaTabsContext from "./ShaplaTabsContext";
 import ShaplaTab from "./ShaplaTab";
 
 
 
-export default ({
+const Shaplatab = ({
                     alignment = "left",
                     size = "default",
                     tabStyle = "default",
@@ -17,11 +16,12 @@ export default ({
                 }: TabsProps) => {
     const shaplaTab = useContext(ShaplaTabsContext) as TabsDataInterface
 
-    const [selectedIndex ] = useState(-1);
+    const [selectedIndex,setSelectedIndex ] = useState(-1);
     const [tabs, setTabs] = useState<TabsDataInterface[]>(shaplaTab.tabs || []);
     const selectTab = (tab: TabsDataInterface, index: number) => {
         // @ts-ignore
         const newTab = { ...tab, selectedIndex: index };
+        setSelectedIndex(index);
         onChangeTab && onChangeTab(newTab, index);
     };
 
@@ -53,15 +53,16 @@ export default ({
         ].filter(Boolean).join(" "));
     }, [size, fullwidth, alignment, tabStyle]);
     useEffect(() => {
-        const newTabs = React.Children.toArray(children).filter(
-            (child) => {
-                if (React.isValidElement(child) && child.type === ShaplaTab)
-                    return child;
-            }
-        );
-        //@ts-ignore
-        setTabs(newTabs)
-    }, [children]);
+            const newTabs = React.Children.toArray(children).filter(
+                (child) => {
+                    if (React.isValidElement(child) && child.type === ShaplaTab)
+                        return child;
+                }
+            );
+            // @ts-ignore
+            setTabs(newTabs)
+        },
+        [children]);
     return <div className={tabsClasses}>
         <div className={tabClasses}>
             <ul className="shapla-tabs__nav">
@@ -84,3 +85,4 @@ export default ({
     </div>
 
 }
+export default Shaplatab

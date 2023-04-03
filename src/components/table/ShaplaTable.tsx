@@ -18,7 +18,7 @@ const ShaplaTable  = ({
   actions = [],
   showCb = true,
   notFoundText = "No items found.",
-  sortBy = "id",  
+  sortBy = "id",
   sortOrder = "desc",
   mobileWidth = 768,
   areaLabel = "",
@@ -100,16 +100,13 @@ const ShaplaTable  = ({
 
     setColspan(columnsCount);
   }, [columns, showCb, showExpand]);
-  const [tableClasses, setTableClasses] = useState({
-    "shapla-data-table-container": true,
-    "shapla-data-table--mobile": isMobileView,
-  });
+  const [tableClasses, setTableClasses] = useState<string[]>([]);
 
   useEffect(() => {
-    setTableClasses({
-      "shapla-data-table-container": true,
-      "shapla-data-table--mobile": isMobileView,
-    });
+    const classes = ["shapla-data-table-container"];
+    if (isMobileView) classes.push("shapla-data-table--mobile");
+    setTableClasses(classes);
+
   }, [isMobileView]);
 
   const toggleExpandRow = (event: Event) => {
@@ -143,7 +140,8 @@ const ShaplaTable  = ({
     setTimeout(() => tr?.classList.toggle("is-expanded"), 50);
   };
   return (
-    <div className={tableClasses ? "shapla-data-table-container shapla-data-table--mobile" : ""}>
+      // <div className={tableClasses ? "shapla-data-table-container shapla-data-table--mobile" : ""}>
+      // <div className={tableClasses.join(" ")}>
       <table className="shapla-data-table" aria-label={areaLabel} >
         <TableHeader >
             {showCb &&
@@ -171,7 +169,7 @@ const ShaplaTable  = ({
           )
             }
 
-          
+
           {columns.map((column) => (
              actions.length &&
             <TableHeaderCell
@@ -184,10 +182,10 @@ const ShaplaTable  = ({
                 onSortClick && onSortClick(column.key, sortOrder === "asc" ? "desc" : "asc")
               }}
             />
-            
+
 
           ))}
-          
+
           {showExpand && (
             <TableHeaderCell is-expand-toggle={true} />
           )}
@@ -259,7 +257,7 @@ const ShaplaTable  = ({
 
         </TableBody>
       </table>
-    </div>
+    // </div>
 
   )
 }

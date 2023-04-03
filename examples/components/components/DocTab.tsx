@@ -15,7 +15,9 @@ interface Props {
     name2?:string,
     scssMixin?: string;
     propsHeading?: string;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     properties?: Object;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     desc?: Object;
 }
 const DocTab = ({
@@ -31,13 +33,18 @@ const DocTab = ({
                     properties = ()=>{return {}},
                     desc = () => {return {}}
                 }: Props) => {
-    const [selectedTab] = useState('Implementation')
+    const [selectedTab,setSelectedTab] = useState('Implementation')
     return (
         <>
             <SectionHero heading={heading}>
                 <p>{subHeading} </p>
             </SectionHero>
-            <ShaplaTabs  alignment="center" size="large" fullwidth = {true}>
+            <ShaplaTabs onChangeTab={(e)=>{
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                setSelectedTab(e.props.name)
+
+            }}  alignment="center" size="large" fullwidth = {true}>
                 <ShaplaTab name="Implementation" selected={selectedTab === 'Implementation'}>
                     <div>
                     <SectionUsage
@@ -52,7 +59,6 @@ const DocTab = ({
                         properties={properties}
                         desc={desc}
                     />
-                    {/*{children}*/}
                     </div>
                 </ShaplaTab>
                 <ShaplaTab name="Demo and Example Code"    selected={selectedTab === 'Demo and Example Code'}>

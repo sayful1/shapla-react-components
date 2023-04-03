@@ -1,16 +1,18 @@
 import React, {useEffect} from "react";
-// import "./style.scss";
+import "./style.scss";
 import {ShaplaTable} from "../../../src/index";
 
 interface Props {
     children?: React.ReactNode;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     properties?: Object;
     heading?: string;
+    // eslint-disable-next-line @typescript-eslint/ban-types
     desc?: Object;
 
 
 }
-export default ({heading="Properties",properties =  {},desc = {}}:Props) => {
+const SectionProps = ({heading="Properties",properties =  {},desc = {}}:Props) => {
     const columns = [
         { key: "property", label: "Property" },
         { key: "type", label: "Type" },
@@ -20,34 +22,6 @@ export default ({heading="Properties",properties =  {},desc = {}}:Props) => {
         ];
 
     const [tableRows, setTableRows] = React.useState([]);
-    // useEffect(()=>
-    // {
-    //             let descriptions = desc;
-    //     if (!Object.keys(descriptions).length) {
-    //         descriptions = Object.keys(properties).reduce(
-    //             (previousValue, currentValue) => ({
-    //                 ...previousValue,
-    //                 [currentValue]: "",
-    //             }),
-    //             {}
-    //         );
-    // }
-    //         let rows = [];
-    //     for (const [key, value] of Object.entries(properties)) {
-    //         if (Object.keys(descriptions).indexOf(key) === -1) {
-    //             continue;
-    //         }
-    //         rows.push({
-    //             property: key,
-    //             default: value["default"] ?? "undefined",
-    //             type: value["type"] ?? "Any",
-    //             required: value["required"] ?? false ? "yes" : "no",
-    //             description: descriptions ?? "",
-    //         });
-    //         // @ts-ignore
-    //         setTableRows(rows)
-    //     }
-    // },[properties,desc]);
     useEffect(() => {
         let descriptions = desc;
         if (!Object.keys(descriptions).length) {
@@ -59,7 +33,6 @@ export default ({heading="Properties",properties =  {},desc = {}}:Props) => {
                 {}
             );
         }
-        // console.log(properties)
         const newTableRows = Object.entries(properties)
             .filter(([key]) => Object.keys(descriptions).includes(key))
             .map(([key, value]) => ({
@@ -73,7 +46,6 @@ export default ({heading="Properties",properties =  {},desc = {}}:Props) => {
             );
         // @ts-ignore
         setTableRows(newTableRows);
-        console.log(newTableRows);
     }, [properties, desc]);
 
         return (
@@ -83,3 +55,4 @@ export default ({heading="Properties",properties =  {},desc = {}}:Props) => {
         </section>
     )
 }
+export default SectionProps;

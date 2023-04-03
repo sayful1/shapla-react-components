@@ -4,7 +4,7 @@ interface Props {
     children: React.ReactNode;
     heading?: string;
 };
-export default ({children,heading=""}:Props) => {
+const SectionHero =({children,heading=""}:Props) => {
     return (
         <section className="section section-hero">
             <h1 className="section-hero__title">
@@ -16,3 +16,4 @@ export default ({children,heading=""}:Props) => {
         </section>
     )
 }
+export default SectionHero

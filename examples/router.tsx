@@ -15,7 +15,7 @@ import ProgressPage from "./components/ProgressPage";
 import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
 import TabsPage from "./components/TabsPage";
-import TablePage from "./components/TablePage";
+import TablePage from "./components/Tablepage";
 import HomePage from "./HomePage";
 
 const routerLinks = [

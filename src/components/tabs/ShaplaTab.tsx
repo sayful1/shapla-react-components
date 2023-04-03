@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {TabsDataInterface} from "./interfaces";
 import ShaplaTabsContext from "./ShaplaTabsContext";
 
 
@@ -9,15 +8,13 @@ interface Props {
     name: string;
     active?: boolean;
     selected?: boolean;
-    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+    navTo?: string;
 
 
 }
-
-export default ({
+const ShaplaTab = ({
                     children,
                     selected = false,
-    onClick = () => {}
 
                 }: Props) => {
     const tabs = useContext(ShaplaTabsContext);
@@ -41,11 +38,11 @@ export default ({
     }, [selected]);
 
 
-
     return (
-        <div onClick={onClick} className={`shapla-tabs__panel ${selected ? 'is-active' : ""}`}>
+        <div  className={`shapla-tabs__panel ${isActive ? 'is-active' : ""}`}>
             {children}
         </div>
     )
 
 }
+export default ShaplaTab;

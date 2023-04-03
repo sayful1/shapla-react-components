@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useState,useEffect,ReactNode} from "react";
 import {
     ShaplaTable,
     ShaplaTablePagination as Pagination,
@@ -7,7 +7,24 @@ import DocTab from "./components/DocTab";
 import {ItemInterface} from "../../src/components/table/TableInterfaces";
 //
 const ShaplaTableDoc = () => {
-    const [properties, setProperties] = useState({});
+    const properties ={
+        items: {type: Array, required: true, },
+        columns: {type: Array, required: true},
+        selectedItems: {type: Array, required: false, default: []},
+        actions: {type: Array, required: false, default: []},
+        showCb: {type: Boolean, required: false, default: true},
+        notFoundText: {type: String, required: false, default: "No items found."},
+        sortBy: {type: String, required: false, default: "id"},
+        sortOrder: {type: String, required: false, default: "desc"},
+        mobileWidth: {type: Number, required: false, default: 768},
+        areaLabel: {type: String, required: false, default: ""},
+        showExpand: {type: Boolean, required: false, default: false},
+        children: {type: React, required: false, default: null},
+        onActionClick: {type: Function, required: false, default: null},
+        onItemSelect: {type: Function, required: false, default: null},
+        onRowClick: {type: Function, required: false, default: null},
+        onSortClick: {type: Function, required: false, default: null},
+    }
     const [description, setDescription] = useState({});
     const statuses = [
         {key: "all", label: "All", count: 11, active: true},
@@ -37,9 +54,7 @@ const ShaplaTableDoc = () => {
     const [sortBy, setSortBy] = useState("math");
     const [sortOrder, setSortOrder] = useState("asc");
 
-    useEffect(() => {
-        setProperties(ShaplaTable.prototype);
-    }, [ShaplaTable]);
+
     const paginate = (page: number) => {
         setCurrentPage(page);
     }

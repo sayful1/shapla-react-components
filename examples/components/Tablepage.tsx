@@ -1,13 +1,11 @@
-import React, { useState,useEffect,ReactNode} from "react";
+import React, { useState} from "react";
 import {
     ShaplaTable,
     ShaplaTablePagination as Pagination,
 } from "../../src";
 import DocTab from "./components/DocTab";
 import {ItemInterface} from "../../src/components/table/TableInterfaces";
-import DataTable from "../../src/components/table/components/TableBody";
 import StatusList from "../../src/components/table/components/StatusList";
-import button from "../../src/components/button/Button";
 const ShaplaTableDoc = () => {
     const properties ={
         items: {type: Array, required: true, },
@@ -26,7 +24,7 @@ const ShaplaTableDoc = () => {
         onRowClick: {type: Function, required: false, default: null},
         onSortClick: {type: Function, required: false, default: null},
     }
-    const [description, setDescription] = useState({});
+    const description = {};
     const statuses = [
         {key: "all", label: "All", count: 11, active: true},
         {key: "active", label: "Active", count: 9, active: false},
@@ -47,11 +45,10 @@ const ShaplaTableDoc = () => {
         {key: "edit", label: "Edit"},
         {key: "trash", label: "Delete"},
     ]
-    const BulkActions = [{key: "trash", label: "Move to Trash"}]
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [perPage, setPerPage] = useState(20);
-    const [totalItems, setTotalItems] = useState(100);
+    const [perPage] = useState(20);
+    const [totalItems] = useState(100);
     const [sortBy, setSortBy] = useState("math");
     const [sortOrder, setSortOrder] = useState("asc");
 
@@ -59,15 +56,12 @@ const ShaplaTableDoc = () => {
     const paginate = (page: number) => {
         setCurrentPage(page);
     }
-    const changePerPage = (perPage: number) => {
-        setPerPage(perPage);
-    }
     const changeStatus = (status: { key: string, label: string, count: number, active: boolean },) => {
         statuses.filter((item) => {
             item.active = item.key === status.key;
         });
     }
-    const sortData = (column: any, order: string) => {
+    const sortData = (column:string , order: string) => {
         setSortBy(column);
         setSortOrder(order);
         if ("asc" === order) {

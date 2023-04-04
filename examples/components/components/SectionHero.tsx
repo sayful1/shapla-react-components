@@ -3,7 +3,7 @@ import "./style.scss";
 interface Props {
     children: React.ReactNode;
     heading?: string;
-};
+}
 const SectionHero =({children,heading=""}:Props) => {
     return (
         <section className="section section-hero">

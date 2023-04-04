@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode, useContext, useEffect, useState,} from "react";
+import React, {ReactElement, useContext, useEffect, useState,} from "react";
 import {TabsDataInterface,TabsProps} from "./interfaces";
 import ShaplaTabsContext from "./ShaplaTabsContext";
 import ShaplaTab from "./ShaplaTab";
@@ -19,7 +19,6 @@ const Shaplatab = ({
     const [selectedIndex,setSelectedIndex ] = useState(-1);
     const [tabs, setTabs] = useState<TabsDataInterface[]>(shaplaTab.tabs || []);
     const selectTab = (tab: TabsDataInterface, index: number) => {
-        // @ts-ignore
         const newTab = { ...tab, selectedIndex: index };
         setSelectedIndex(index);
         onChangeTab && onChangeTab(newTab, index);
@@ -59,6 +58,8 @@ const Shaplatab = ({
                         return child;
                 }
             );
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             setTabs(newTabs)
         },
@@ -68,11 +69,11 @@ const Shaplatab = ({
             <ul className="shapla-tabs__nav">
                 {
                     tabs.map((tab, index) => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
-                        return <li key={index} className={navItemClass(index)}>
-                            {  // @ts-ignore
+                        return <li key={index} className={navItemClass(tab,index).join(" ")}>
+                            {
                             <a href={tab.props.navTo} onClick={ ()=> selectTab(tab,index)}>
-                                {/*@ts-ignore*/}
                                 {tab.props.name}
                             </a>
                             }

@@ -2,7 +2,7 @@ import React, {ReactNode, useEffect, useRef} from "react";
 import hljs from "highlight.js";
 
 interface Props {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 const CodeHighlighter =  ({ children }:Props) => {
     const codeRef = useRef(null);

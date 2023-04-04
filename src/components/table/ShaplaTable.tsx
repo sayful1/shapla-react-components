@@ -1,5 +1,5 @@
-import React, {ReactNode, useEffect, useState} from "react";
-import {TableProps} from "./TableInterfaces";
+import React, { useEffect, useState} from "react";
+import {TableColumnDataInterface, TableProps} from "./TableInterfaces";
 import TableHeaderCell from "./components/HeaderCell";
 import ShaplaCheckbox from "../checkbox/Checkbox";
 import TableBody from "./components/TableBody";
@@ -9,6 +9,7 @@ import BodyCellExpand from "./components/BodyCellExpand";
 import BodyRowExpand from "./components/BodyRowExpand";
 import BodyRowNoItem from "./components/BodyRowNoItem";
 import "./table.scss";
+import TableHeader from "./components/TableHeader";
 
 const ShaplaTable = ({
                          items,
@@ -85,7 +86,7 @@ const ShaplaTable = ({
 
     useEffect(() => {
         let column = "title";
-        columns.forEach((col: any, index: number) => {
+        columns.forEach((col: TableColumnDataInterface, index: number) => {
             if (index === 0) column = col.key;
         });
         setActionColumn(column);
@@ -99,14 +100,14 @@ const ShaplaTable = ({
 
         setColspan(columnsCount);
     }, [columns, showCb, showExpand]);
-    const [tableClasses, setTableClasses] = useState<string[]>([]);
+    // const [tableClasses, setTableClasses] = useState<string[]>([]);
 
-    useEffect(() => {
-        const classes = ["shapla-data-table-container"];
-        if (isMobileView) classes.push("shapla-data-table--mobile");
-        setTableClasses(classes);
-
-    }, [isMobileView]);
+    // useEffect(() => {
+    //     const classes = ["shapla-data-table-container"];
+    //     if (isMobileView) classes.push("shapla-data-table--mobile");
+    //     setTableClasses(classes);
+    //
+    // }, [isMobileView]);
 
     const toggleExpandRow = (event: Event) => {
         const el = event.target as HTMLElement,
@@ -139,10 +140,8 @@ const ShaplaTable = ({
         setTimeout(() => tr?.classList.toggle("is-expanded"), 50);
     };
     return (
-        // <div className={tableClasses.join(" ")}>
         <table className="shapla-data-table" aria-label={areaLabel}>
-            <thead>
-            <tr>
+            <TableHeader>
                 {showCb &&
                     (
                         <TableHeaderCell showText={true} is-checkbox={true}>
@@ -194,8 +193,7 @@ const ShaplaTable = ({
                     <TableHeaderCell is-expand-toggle={true}/>
                 )
                 }
-            </tr>
-            </thead>
+            </TableHeader>
             <TableBody>
                 {
                     items.length ?
@@ -266,7 +264,6 @@ const ShaplaTable = ({
             </TableBody>
 
         </table>
-
 
     )
 }

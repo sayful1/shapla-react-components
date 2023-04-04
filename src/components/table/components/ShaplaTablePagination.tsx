@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import "../styles/pagination.scss";
 
 interface PaginationProps {
@@ -16,21 +16,22 @@ interface PaginationProps {
     textOf?: string;
     paginate: (page: number) => void;
 }
+
 const Pagination: React.FC<PaginationProps> = ({
-    totalItems,
-    perPage,
-    currentPage,
-    size = "default",
-    textName = "items",
-    textNameSingular = "item",
-    textCurrentPage = "Current Page",
-    textFirstPage = "First page",
-    textPreviousPage = "Previous page",
-    textNextPage = "Next page",
-    textLastPage = "Last page",
-    textOf = "of",
-    paginate,
-}) => {
+                                                   totalItems,
+                                                   perPage,
+                                                   currentPage,
+                                                   size = "default",
+                                                   textName = "items",
+                                                   textNameSingular = "item",
+                                                   textCurrentPage = "Current Page",
+                                                   textFirstPage = "First page",
+                                                   textPreviousPage = "Previous page",
+                                                   textNextPage = "Next page",
+                                                   textLastPage = "Last page",
+                                                   textOf = "of",
+                                                   paginate,
+                                               }) => {
     const [disableFirst, setDisableFirst] = useState<boolean>(false);
     const [disablePrev, setDisablePrev] = useState<boolean>(false);
     const [disableNext, setDisableNext] = useState<boolean>(false);
@@ -87,15 +88,16 @@ const Pagination: React.FC<PaginationProps> = ({
                     className={"shapla-pagination-link shapla-pagination-previous-page " + (disablePrev ? "is-disabled" : "")}
                     href="#"
                     role="button"
-                    onClick={prePage}
+                    onClick={firstPage}
                 >
                     <span className="screen-reader-text sr-only">
-                        {textPreviousPage}
+                         {textPreviousPage}
                     </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                        <path fill="none" d="M0 0h24v24H0z" />
-                    </svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                         <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+                        />
+                        <path fill="none" d="M24 24H0V0h24v24z"/>
+                     </svg>
                 </a>
                 <a
                     className={`shapla-pagination-link shapla-pagination-previous-page ${disablePrev ? 'is-disabled' : ''}`}
@@ -111,8 +113,8 @@ const Pagination: React.FC<PaginationProps> = ({
                     )}
                     <svg
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        <path fill="none" d="M0 0h24v24H0z"/>
                     </svg>
                 </a>
                 <span className="shapla-pagination-input-container">
@@ -138,12 +140,15 @@ const Pagination: React.FC<PaginationProps> = ({
                     href="#"
                     className={`shapla-pagination-link shapla-pagination-next-page ${disableNext ? 'is-disabled' : ''}`}
                     role="button"
-                    onClick={(e) => { e.preventDefault(); nextPage(); }}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        nextPage();
+                    }}
                 >
                     {!disableNext && <span className="screen-reader-text sr-only">{textNextPage}</span>}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
                     </svg>
                 </a>
 
@@ -151,18 +156,21 @@ const Pagination: React.FC<PaginationProps> = ({
                     href="#"
                     className={`shapla-pagination-link shapla-pagination-last-page ${disableLast ? 'is-disabled' : ''}`}
                     role="button"
-                    onClick={(e) => { e.preventDefault(); lastPage(); }}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        lastPage();
+                    }}
                 >
                     {!disableLast && <span className="screen-reader-text sr-only">{textLastPage}</span>}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z" />
-                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"/>
+                        <path fill="none" d="M0 0h24v24H0V0z"/>
                     </svg>
                 </a>
 
             </span>
 
-        </nav >
+        </nav>
     )
 }
 

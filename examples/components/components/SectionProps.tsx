@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import "./style.scss";
 import {ShaplaTable} from "../../../src/index";
+import {ItemInterface} from "../../../src/components/table/TableInterfaces";
 
 interface Props {
     children?: React.ReactNode;
@@ -18,10 +19,9 @@ const SectionProps = ({heading="Properties",properties =  {},desc = {}}:Props) =
         { key: "type", label: "Type" },
         { key: "required", label: "Required" },
         { key: "default", label: "Default" },
-        { key: "description", label: "Description" },
         ];
 
-    const [tableRows, setTableRows] = React.useState([]);
+    const [tableRows, setTableRows] = React.useState<ItemInterface[]>([]);
     useEffect(() => {
         let descriptions = desc;
         if (!Object.keys(descriptions).length) {
@@ -40,11 +40,8 @@ const SectionProps = ({heading="Properties",properties =  {},desc = {}}:Props) =
                 default: value?.default ?? "undefined",
                 type: value?.type?.name ?? "Any",
                 required: value?.required ? "yes" : "no",
-                // @ts-ignore
-                description: descriptions[key] ?? "",
             })
             );
-        // @ts-ignore
         setTableRows(newTableRows);
     }, [properties, desc]);
 

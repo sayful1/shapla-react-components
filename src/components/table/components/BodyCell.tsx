@@ -10,6 +10,7 @@ interface Props {
   isMobile?: boolean;
   showText?:boolean;
   children? :ReactNode;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   onClickToggle?: (event: MouseEvent<HTMLButtonElement,MouseEvent>) => void;
   onClickAction?: (key: string, item: ItemInterface) => void;
@@ -26,7 +27,6 @@ const DataTableCell: FC<Props> = ({
   onClickToggle,
   onClickAction,
 }) => {
-// const [bodyCellClass, setBodyCellClass] = useState<(string | null)[]>([]);
 const [isNumeric, setIsNumeric] = useState(false);
 
   useEffect(() => {

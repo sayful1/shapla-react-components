@@ -27,7 +27,6 @@ const SectionUsage: FC<Props> = ({slug = '', name = '', slug2 = '', name2 = '', 
                     <Codehighlights>
                             <pre>
                                 <code className="language-js">
-
                                     {`import {${name},${name2}} from "shapla-react-components";
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -44,14 +43,13 @@ root.render(
             {
                 !name2 && (
                     <Codehighlights>
-                            {/*<pre>*/}
+                            <pre>
                                 <code className="language-js">
                                     {`import {${name}} from "shapla-react-components";
 const root = createRoot(document.getElementById('root'));
-root.render( <${name} /> );
-                                    `}
+root.render( <${name} /> );`}
                                 </code>
-                            {/*</pre>*/}
+                            </pre>
                     </Codehighlights>
                 )
             }

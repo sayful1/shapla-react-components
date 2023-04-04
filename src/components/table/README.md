@@ -4,7 +4,7 @@ A simple responsive data table component for React
 
 Supports:
 
-- Row Actions with children Support
+- Row Actions with children 
 - Custom Column children Support
 - Sorting
 
@@ -110,12 +110,12 @@ return (
 
 ### columns data object
 
-| Property   | Type    | Required | Default | Description                                                     |
-| ---------- | ------- | -------- | ------- | --------------------------------------------------------------- |
-| `key`      | String  | **yes**  | ``      | Column key.                                                     |
-| `label`    | String  | **yes**  | ``      | Column label                                                    |
-| `numeric`  | Boolean | no       | `false` | Set `true` if table column data type is numeric.                |
-| `sortable` | Boolean | no       | `false` | Whether the column data can be sorted by `asc` or `desc` order. |
+| Property   | Type    | Required | Default | Description                                                           |
+| ---------- | ------- | -------- | ------- |-----------------------------------------------------------------------|
+| `key`      | String  | **yes**  | ``      | Column key.                                                           |
+| `label`    | String  | **yes**  | ``      | Column label                                                          |
+| `numeric`  | Boolean | no       | `false` | Set `true` if table column data type is numeric.                      |
+| `sortable` | Boolean | no       | `false` | Whether the column data can be sorted by `asc` or `desc` order.       |
 
 ### actions data object
 
@@ -128,33 +128,33 @@ return (
 
 The table component fires the following events:
 
-**``**: When a row action is clicked, it fires the event. The action name and the current row will be passed.
+**`onActionClick`**: When a row action is clicked, it fires the event. The action name and the current row will be passed.
 
 ```html
-<!-- template -->
-<ShaplaTable onActionClick="onActionClick"> </ShaplaTable>
+<!-- jsx -->
+<ShaplaTable onActionClick={onActionClick}> </ShaplaTable>
 
 <!-- method -->
 methods: { onActionClick(action, row) { if ( 'trash' === action ) { if (
 confirm('Are you sure to delete?') ) { alert('deleted: ' + row.title); } } } }
 ```
 
-**click:sort**: When a sorted column is clicked
+**onSortClick**: When a sorted column is clicked
 
 ```html
-<!-- template -->
-<data-table @click:sort="sortCallback"> </data-table>
+<!-- jsx -->
+<ShaplaTable onSortClickt={sortCallback}> </ShaplaTable>
 
 <!-- method -->
 methods: { sortCallback(column, order) { this.sortBy = column; this.sortOrder =
 order; // this.loadItems(column, order); } }
 ```
 
-**select:item**: When an item or all items are selected. Array of selected items will be passed.
+**onItemSelect**: When an item or all items are selected. Array of selected items will be passed.
 
 ```html
-<!-- template -->
-<data-table @select:item="onItemSelect"> </data-table>
+<!-- jsx -->
+<ShaplaTable onItemSelect={onItemSelect"> </ShaplaTable>
 
 <!-- method -->
 methods: { onItemSelect(ids) { this.selectedItems = ids; } }
@@ -165,18 +165,17 @@ methods: { onItemSelect(ids) { this.selectedItems = ids; } }
 <details>
 <summary>Pagination</summary>
 
-```js
-import { Pagination } from "@shapla/vue-table";
+```jsx 
+import { Pagination } from "@shapla/react-table";
 
-export default {
-  components: {
-    Pagination,
-  },
-  methods: {
-    paginate(nextPage) {
+export default () => {
+    const paginate = (nextPage) => {
       // Handle pagination event
-    },
-  },
+    }
+    return(
+        <pagination paginate={paginate}></pagination>        
+    )
+    
 };
 ```
 
@@ -186,20 +185,21 @@ export default {
 
 #### Props
 
-| Property           | Type   | Required | Default         | Description                                                                |
-| ------------------ | ------ | -------- | --------------- | -------------------------------------------------------------------------- |
-| `totalItems`       | Number | **Yes**  | `0`             | Total number of items.                                                     |
-| `perPage`          | Number | **Yes**  | `20`            | Number of items to show per page.                                          |
-| `currentPage`      | Number | **Yes**  | `1`             | Current page number.                                                       |
-| `size`             | String | **No**   | `default`       | Pagination button size. Value can be `default`, `small`, `medium`, `large` |
-| `textName`         | String | **No**   | `items`         | Plural name of item.                                                       |
-| `textNameSingular` | String | **No**   | `item`          | Singular name of item.                                                     |
-| `textCurrentPage`  | String | **No**   | `Current Page`  | Screen reader text for current page.                                       |
-| `textFirstPage`    | String | **No**   | `First Page`    | Screen reader text for first page.                                         |
-| `textPreviousPage` | String | **No**   | `Previous Page` | Screen reader text for previous page.                                      |
-| `textNextPage`     | String | **No**   | `Next Page`     | Screen reader text for next page.                                          |
-| `textLastPage`     | String | **No**   | `Last Page`     | Screen reader text for last page.                                          |
-| `textOf`           | String | **No**   | `of`            | Screen reader text for 'of' text.                                          |
+| Property           | Type     | Required | Default         | Description                                                                |
+|--------------------|----------|----------|-----------------|----------------------------------------------------------------------------|
+| `totalItems`       | Number   | **Yes**  | `0`             | Total number of items.                                                     |
+| `perPage`          | Number   | **Yes**  | `20`            | Number of items to show per page.                                          |
+| `currentPage`      | Number   | **Yes**  | `1`             | Current page number.                                                       |
+| `size`             | String   | **No**   | `default`       | Pagination button size. Value can be `default`, `small`, `medium`, `large` |
+| `textName`         | String   | **No**   | `items`         | Plural name of item.                                                       |
+| `textNameSingular` | String   | **No**   | `item`          | Singular name of item.                                                     |
+| `textCurrentPage`  | String   | **No**   | `Current Page`  | Screen reader text for current page.                                       |
+| `textFirstPage`    | String   | **No**   | `First Page`    | Screen reader text for first page.                                         |
+| `textPreviousPage` | String   | **No**   | `Previous Page` | Screen reader text for previous page.                                      |
+| `textNextPage`     | String   | **No**   | `Next Page`     | Screen reader text for next page.                                          |
+| `textLastPage`     | String   | **No**   | `Last Page`     | Screen reader text for last page.                                          |
+| `textOf`           | String   | **No**   | `of`            | Screen reader text for 'of' text.                                          |
+| `poaginate`        | Function | **yes**  | `()=>{}`        | Handle pagination event.                                                   | 
 
 #### Listeners
 
@@ -208,7 +208,7 @@ The pagination component fires the following events:
 **`paginate`**: When any navigation icon is clicked, it fires the event and it gives current page number.
 
 ```html
-<!-- template -->
+<!-- jsx -->
 <pagination @paginate="paginate"></pagination>
 
 <!-- method -->
@@ -220,21 +220,13 @@ methods: { paginate(NextPage){ // Handle click event } }
 <details>
 <summary>Status List</summary>
 
-```js
+```jsx
 import { StatusList } from "@shapla/vue-components";
 
-export default {
-  name: "Hello",
+export default () => <StatusList statuses ={statuses} / >
 
-  components: {
-    StatusList,
-  },
-};
 ```
 
-```vue
-<status-list :statuses="statuses" />
-```
 
 #### Props
 

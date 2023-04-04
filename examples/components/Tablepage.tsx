@@ -5,7 +5,9 @@ import {
 } from "../../src";
 import DocTab from "./components/DocTab";
 import {ItemInterface} from "../../src/components/table/TableInterfaces";
-//
+import DataTable from "../../src/components/table/components/TableBody";
+import StatusList from "../../src/components/table/components/StatusList";
+import button from "../../src/components/button/Button";
 const ShaplaTableDoc = () => {
     const properties ={
         items: {type: Array, required: true, },
@@ -19,7 +21,6 @@ const ShaplaTableDoc = () => {
         mobileWidth: {type: Number, required: false, default: 768},
         areaLabel: {type: String, required: false, default: ""},
         showExpand: {type: Boolean, required: false, default: false},
-        children: {type: React, required: false, default: null},
         onActionClick: {type: Function, required: false, default: null},
         onItemSelect: {type: Function, required: false, default: null},
         onRowClick: {type: Function, required: false, default: null},
@@ -71,11 +72,14 @@ const ShaplaTableDoc = () => {
         setSortOrder(order);
         if ("asc" === order) {
             items.sort((a, b) => {
+
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 return a[column] - b[column];
             });
         } else {
             items.sort(function (a, b) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 return b[column] - a[column];
             });
@@ -91,7 +95,6 @@ const ShaplaTableDoc = () => {
     const onRowClick = (row: ItemInterface) => {
         console.log("Row clicked: ", row);
     }
-    // @ts-ignore
     return (
         <DocTab
             heading="Data Table"
@@ -101,29 +104,59 @@ const ShaplaTableDoc = () => {
             properties={properties}
             desc={description}
         >
-          <div>
-                 <h2>Demo Table One</h2>
+            <div>
+                <h2>Demo Table One</h2>
                 <ShaplaTable
                     items={items}
                     columns={columns}
                     actions={actions}
-                     selectedItems={selectedItems}
-                     onItemSelect={(Items) => setSelectedItems(Items)}
-                     onActionClick={onActionClick}
-                     onRowClick={onRowClick}
-                     sortBy={sortBy}
-                     sortOrder={sortOrder}
-                     onSortClick={sortData}
+                    selectedItems={selectedItems}
+                    onItemSelect={(Items) => setSelectedItems(Items)}
+                    onActionClick={onActionClick}
+                    onRowClick={onRowClick}
+                    sortBy={sortBy}
+                    sortOrder={sortOrder}
+                    onSortClick={sortData}
+                />
+                <h2>Demo Table Two (No items)</h2>
+                <ShaplaTable
+                    items={[]}
+                    columns={columns}
+                    sortBy={sortBy}
+                    sortOrder={sortOrder}
+                    onSortClick={sortData}
+                    selectedItems={selectedItems}
+                    onItemSelect={(Items) => setSelectedItems(Items)}
+                    actions={actions}
+                    onActionClick={onActionClick}
+                    onRowClick={onRowClick}
+                />
+                <h2>Demo Table One</h2>
+                <div style={{marginBottom:"1rem", display:"flex"}}>
+                    <StatusList statuses={statuses} onChange={changeStatus}/>
+                </div>
+                <ShaplaTable
+                    items={items}
+                    columns={columns}
+                    actions={actions}
+                    selectedItems={selectedItems}
+                    onItemSelect={(Items) => setSelectedItems(Items)}
+                    onActionClick={onActionClick}
+                    onRowClick={onRowClick}
+                    sortBy={sortBy}
+                    sortOrder={sortOrder}
+                    onSortClick={sortData}
                 >
                 </ShaplaTable>
-                   <Pagination
-                       currentPage={currentPage}
-                       perPage={perPage}
-                       totalItems={totalItems}
-                       // onChangePerPage={changePerPage}
 
-                    paginate={paginate}/>
-                                 </div>
+                <Pagination
+                    currentPage={currentPage}
+                    perPage={perPage}
+                    totalItems={totalItems}
+                    paginate={paginate}
+
+                />
+            </div>
           </DocTab>
     )
 }

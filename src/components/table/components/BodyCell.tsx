@@ -32,16 +32,6 @@ const [isNumeric, setIsNumeric] = useState(false);
   useEffect(() => {
     setIsNumeric(typeof column.numeric !== "undefined" && column.numeric);
   }, [column]);
-  // useEffect(() => {
-  //   const newBodyCellClass = [
-  //     "shapla-data-table__cell",
-  //     `shapla-data-table__cell-${column.key}`,
-  //     isNumeric ? "is-numeric-cell" : null,
-  //     isPrimary ? "column-primary" : "",
-  //   ].filter(Boolean);
-  
-  //   setBodyCellClass(newBodyCellClass);
-  // }, [column.key, isNumeric, isPrimary]);
     const bodyCellClass = [
       "shapla-data-table__cell",
       `shapla-data-table__cell-${column.key}`,
@@ -57,7 +47,7 @@ const [isNumeric, setIsNumeric] = useState(false);
           {actions.length > 0 && (
             <div className="row-actions">
               {
-                showText ?children :  
+                showText ?children :
               <span>
                 {actions.map((action) => (
                   <a

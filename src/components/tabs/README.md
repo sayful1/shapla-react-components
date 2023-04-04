@@ -38,11 +38,7 @@ export default ()=>{
 ```
 ```
 
-```html
-<shapla-tabs fullwidth>
-  <shapla-tab name="Tab 1" selected> Tab One Content </shapla-tab>
-  <shapla-tab name="Tab 2"> Tab Two Content </shapla-tab>
-</shapla-tabs>
+
 ```
 
 ### Props for `ShaplaTabs`

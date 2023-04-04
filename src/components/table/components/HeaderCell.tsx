@@ -12,6 +12,7 @@ interface TableHeaderCellProps {
   showText?: boolean;
   children?: ReactNode;
   onSort?: (key: string) => void;
+
 }
 
 const TableHeaderCell: FC<TableHeaderCellProps> = ({
@@ -27,19 +28,10 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
 }) => {
   const handleSort = () => onSort && onSort(column.key);
 
-  // const isNumeric = useMemo(
-  //   () => typeof column.numeric !== "undefined" && column.numeric === true,
-  //   [column]
-  // );
   const [isNumeric, setIsNumeric] = useState(false)
   useEffect(() => {
     setIsNumeric(typeof column.numeric !== "undefined" && column.numeric === true);
   }, [column]);
-  // const isSortable = useMemo(
-  //   () =>
-  //     typeof column.sortable !== "undefined" && column.sortable === true,
-  //   [column]
-  // );
   const [isSortable, setIsSortable] = useState(false);
 
   useEffect(() => {
@@ -65,33 +57,6 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
   }, [sortOrder]);
 
 
-  // const getHeadCellClass = useMemo(() => {
-  //   const classes = ["shapla-data-table__header-cell"];
-  //   if (column && column.key)
-  //     classes.push(`shapla-data-table__header-cell-${column.key}`);
-  //   if (isPrimary) classes.push("column-primary");
-  //   if (isCheckbox) classes.push("is-checkbox-cell");
-  //   if (isExpandToggle) classes.push("is-expand-toggle-cell");
-  //   if (isNumeric) classes.push("is-numeric-cell");
-  //   if (isSortable) {
-  //     classes.push("is-sortable");
-  //     if (isSorted) classes.push("is-sorted");
-  //     if (isSortedAsc) classes.push("is-sorted-ascending");
-  //     if (isSortedDesc) classes.push("is-sorted-descending");
-  //   }
-  //   return classes.join(" ");
-  // },
-  //  [
-  //   column,
-  //   isPrimary,
-  //   isCheckbox,
-  //   isExpandToggle,
-  //   isNumeric,
-  //   isSortable,
-  //   isSorted,
-  //   isSortedAsc,
-  //   isSortedDesc,
-  // ]);
   const [headCellClass, setHeadCellClass] = useState("shapla-data-table__header-cell");
 
   useEffect(() => {
@@ -112,7 +77,6 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
 
     setHeadCellClass(newClasses.join(" "));
   }, [column, isPrimary, isCheckbox, isExpandToggle, isNumeric, isSortable, isSorted, isSortedAsc, isSortedDesc]);
-
 
   return (
     <th className={headCellClass} role="columnheader" scope="col">

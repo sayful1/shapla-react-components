@@ -4,7 +4,7 @@ import hljs from "highlight.js";
 interface Props {
     children: React.ReactNode;
 }
-export default ({ children }:Props) => {
+const CodeHighlighter =  ({ children }:Props) => {
     const codeRef = useRef(null);
 
     useEffect(() => {
@@ -21,3 +21,4 @@ export default ({ children }:Props) => {
         </div>
     );
 };
+export default CodeHighlighter;

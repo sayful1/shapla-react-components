@@ -9,7 +9,7 @@ export interface TableColumnDataInterface {
     key: string;
     label: string;
     numeric?: boolean;
-    sortable?: boolean; 
+    sortable?: boolean;
 }
 
 export interface ItemInterface {
@@ -36,4 +36,3 @@ export interface TableProps {
     onItemSelect?: (selectedItems: number[]) => void;
     onRowClick?: (row: ItemInterface) => void;
 }
-// export default  { TableActionDataInterface, TableColumnDataInterface, ItemInterface };

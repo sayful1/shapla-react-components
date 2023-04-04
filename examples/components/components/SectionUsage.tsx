@@ -1,116 +1,6 @@
-// import React from "react";
-// import Codehighlights from "./Codehighlights";
-//
-// interface Props {
-//     name?: string;
-//     slug?: string;
-//     slug2?: string;
-//     scssMixin?: string;
-//     name2?: string;
-// }
-//
-// export default ({name = "", slug = "", slug2 = "", scssMixin = "", name2 = ""}: Props) => {
-//     return (
-//         <>
-//             <section className="section section-usage">
-//                 <h2 className="title">Usage</h2>
-//                 <p>
-//                     To use this component, you need to register it first. You can register
-//                     component <strong>globally</strong> and <strong>locally</strong>
-//                 </p>
-//                 <h3>Global registration:</h3>
-//                 {
-//                     name2 && (
-//                         <Codehighlights>
-//                             <pre>
-//                                 <code className="language-js">
-//
-//                                     {`import {${name},${name2}} from "shapla-react-components";
-//                                     const root = createRoot(document.getElementById('app'));
-//                                     root.render(
-//                                     <div> <a href="#">${name}</a> <${name2} /> </div>);
-//                                     `}
-//                                 </code>
-//                             </pre>
-//                         </Codehighlights>
-//                     )
-//                 }
-//                 {
-//                     !name2 && (
-//                         <Codehighlights>
-//                             <pre>
-//                                 <code className="language-js">
-//                                     {`import {${name}} from "shapla-react-components";`}
-//
-//                                     </code>
-//                                     <code className="language-jsx" >
-//                                     {`
-//                                     const root = createRoot(document.getElementById('app'));
-//                                     root.render(
-//                                     <${name} />  );
-//                                     `}
-//                                 </code>
-//                             </pre>
-//                         </Codehighlights>
-//                     )
-//                 }
-//                 <h3>Local registration:</h3>
-//                 {
-//                     name2 && (
-//                         <Codehighlights>
-//                             <pre>
-//                                 <code className="language-js">
-//                                     {`import {${name},${name2}} from "shapla-react-components";`}
-//                                     {`
-//                                     export default function App() {
-//                                         return (
-//                                             <div>
-//                                                 <a href="#">${name}</a>
-//                                                 <${name2} />
-//                                             </div>
-//                                         );
-//                                     }
-//                                     `}
-//                                 </code>
-//                             </pre>
-//                         </Codehighlights>
-//                     )
-//                 }
-//                 {
-//                     !name2 && (
-//                         <Codehighlights>
-//                             <pre>
-//                                 <code className="language-jsx">
-//                                     {`import {${name}} from "shapla-react-components";`}
-//                                     {`
-//                                     export default function App() {
-//                                         return (
-//                                             <${name} />
-//                                         );
-//                                     }
-//                                     `}
-//                                 </code>
-//                             </pre>
-//                         </Codehighlights>
-//                     )
-//                 }
-//                 <h3>Importing SCSS:</h3>
-//                 <Codehighlights>
-//                     <pre>
-//                         <code className="language-js">
-//                             {`import "shapla-react-components/src/components/${slug}/${slug2}/${scssMixin}";`}
-//                             {`
-//                             @include ${name}();
-//                             `}
-//                         </code>
-//                     </pre>
-//                 </Codehighlights>
-//             </section>
-//         </>
-//     )
-// }
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import Codehighlights from './Codehighlights';
+import "./style.scss"
 
 interface Props {
     slug?: string;
@@ -154,14 +44,14 @@ root.render(
             {
                 !name2 && (
                     <Codehighlights>
-                            <pre>
+                            {/*<pre>*/}
                                 <code className="language-js">
                                     {`import {${name}} from "shapla-react-components";
 const root = createRoot(document.getElementById('root'));
 root.render( <${name} /> );
                                     `}
                                 </code>
-                            </pre>
+                            {/*</pre>*/}
                     </Codehighlights>
                 )
             }
@@ -191,14 +81,13 @@ export default function App() {
                     <Codehighlights>
                             <pre>
                                 <code className="language-jsx">
-                                    {`import {${name}} from "shapla-react-components";`}
-                                    {`
-                                    export default function App() {
-                                        return (
-                                            <${name} />
-                                        );
-                                    }
-                                    `}
+                                    {`import {${name}} from "shapla-react-components";
+export default function App() {
+return (
+    <${name} />
+    );
+}
+`}
                                 </code>
                             </pre>
                     </Codehighlights>
@@ -212,8 +101,7 @@ export default function App() {
                         <pre>
                             <code className="language-js">
                             {`import "shapla-react-components/src/components/${slug}/${slug2}/${scssMixin}";
-@include ${name}();
-                             `}
+@include ${name}();`}
                              </code>
                         </pre>
                     </Codehighlights>

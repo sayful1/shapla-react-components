@@ -26,3 +26,4 @@ export { default as ShaplaTab } from "./components/tabs/ShaplaTab";
 export { default as ShaplaTablePagination } from "./components/table/components/ShaplaTablePagination";
 export { default as ShaplaTable } from "./components/table/ShaplaTable";
 export { default as ImageContainer } from "./components/image/Image";
+export { default as FileUploader } from "./components/fileUpload/FileUploader";

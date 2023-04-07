@@ -14,6 +14,8 @@ import DropdownPage from "./components/DropdownPage";
 import ProgressPage from "./components/ProgressPage";
 import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
+import TabsPage from "./components/TabsPage";
+import TablePage from "./components/Tablepage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -34,6 +36,8 @@ const routerLinks = [
   { path: "progress", label: "Progress", element: <ProgressPage /> },
   { path: "sidenav", label: "Sidenav", element: <SidenavPage /> },
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
+  { path: "table", label: "Table", element: <TablePage /> },
+  { path: "tabs", label: "Tabs", element: <TabsPage /> },
 ];
 
 const router = createBrowserRouter([

@@ -1,6 +1,6 @@
 import React, {FC, ReactNode, useEffect, useState} from 'react';
 import {FileObjectInterfaces} from "../helper/interfaces";
-import utils from "../helper/utils";
+import * as utils from "../helper/utils";
 
 interface Props {
     file: FileObjectInterfaces;
@@ -85,25 +85,21 @@ const FileUploadStatus: FC<Props> = ({file, showCancell = true, cancel, children
             </div>
 
             <div className="shapla-file-uploader-file__actions">
-                {/*                {children ?*/}
-                {/*                    children*/}
-                {/*                    : {canCancel && showCancel &&*/}
-                {/*                    <a*/}
-                {/*                        href="#"*/}
-                {/*                        className="shapla-file-uploader-file__action-cancel"*/}
-                {/*                        onClick={(e) => {*/}
-                {/*                            e.preventDefault();*/}
-                {/*                            cancel && cancel(file);*/}
-                {/*                        }}*/}
-                {/*                    >*/}
-                {/*                        Cancel*/}
-                {/*                    </a>*/}
-                {/*                }*/}
-                {/*}*/}
-                {/*                */}
+                                 {(!children && canCancel && showCancell) ?(
+                                    <a
+                                        href="#"
+                                        className="shapla-file-uploader-file__action-cancel"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            cancel && cancel(file);
+                                        }}
+                                    >
+                                        Cancel
+                                    </a>):<>{children}</>
+                                }
+
             </div>
         </div>
     );
 };
-// @ts-ignore
 export default FileUploadStatus

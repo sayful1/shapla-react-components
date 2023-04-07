@@ -335,7 +335,7 @@ const uploadChunk = (
     );
 };
 
-export default {
+export {
     pad,
     timeRemaining,
     generateFileObject,

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FileObjectInterfaces} from "../helper/interfaces";
-import utils from "../helper/utils";
+import * as utils from "../helper/utils";
 
 const FilesUploadStatus = ({files}: { files: FileObjectInterfaces[] }) => {
 

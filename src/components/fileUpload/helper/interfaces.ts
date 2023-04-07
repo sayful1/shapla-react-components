@@ -20,8 +20,8 @@ export interface ArgsInterface {
     url: string;
     method: string;
     paramName: string;
-    params: Record<string, string>;
-    headers: Record<string, string>;
+    params: any;
+    headers: any;
 }
 
 export interface SuccessResponseInterface {

@@ -4,12 +4,12 @@ import * as utils from "../helper/utils";
 
 interface Props {
     file: FileObjectInterfaces;
-    showCancell: boolean;
-    cancel?: (file: FileObjectInterfaces) => void;
+    showCancell?: boolean;
+    onCancel?: (file: FileObjectInterfaces) => void;
     children?: ReactNode;
 }
 
-const FileUploadStatus: FC<Props> = ({file, showCancell = true, cancel, children}) => {
+const FileUploadStatus: FC<Props> = ({file, showCancell = true, onCancel, children}) => {
     const [isInProgress, setIsInProgress] = useState<boolean>(false);
     const [isProcessing, setIsProcessing] = useState<boolean>(false);
     const [canCancel, setCanCancel] = useState<boolean>(false);
@@ -91,7 +91,7 @@ const FileUploadStatus: FC<Props> = ({file, showCancell = true, cancel, children
                                         className="shapla-file-uploader-file__action-cancel"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            cancel && cancel(file);
+                                            onCancel && onCancel(file);
                                         }}
                                     >
                                         Cancel

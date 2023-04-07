@@ -16,6 +16,7 @@ import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
 import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
+import ImageContainer from "./components/ImageContainerPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -38,6 +39,7 @@ const routerLinks = [
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
   { path: "table", label: "Table", element: <TablePage /> },
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
+    { path: "image", label: "Image", element: <ImageContainer /> },
 ];
 
 const router = createBrowserRouter([

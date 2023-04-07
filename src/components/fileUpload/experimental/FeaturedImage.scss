@@ -1,5 +1,4 @@
-
-@import "shapla-css/src/colors";
+@import "../../../../node_modules/shapla-css/src/colors";
 
 .shapla-featured-image {
   &__placeholder {
@@ -9,7 +8,7 @@
     justify-content: space-between;
     padding: 10px;
     width: 100%;
-}
+  }
 
   &__thumbnail {
     display: inline-flex;
@@ -22,6 +21,6 @@
       right: 5px;
       top: 5px;
       background-color: $error;
+    }
   }
-}
 }

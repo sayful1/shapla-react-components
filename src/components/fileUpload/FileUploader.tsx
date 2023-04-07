@@ -20,8 +20,8 @@ interface Props {
   chunking?: boolean;
   forceChunking?: boolean;
   chunkSize?: number;
-  onSuccess?: (response: any) => void;
-  onFail?: (response: any) => void;
+  onSuccess?: (response: unknown) => void;
+  onFail?: (response: unknown) => void;
 }
 
 const FileUploader: FC<Props> = ({
@@ -37,13 +37,25 @@ const FileUploader: FC<Props> = ({
   showFileUploadStatus = true,
   showFilesUploadStatus = true,
   chunking = false,
-  onSuccess = () => {},
-  onFail = () => {},
+  chunkSize,
+  onSuccess,
+  onFail,
 }) => {
   const input = useRef<HTMLInputElement>(null);
   const inputId = "shapla-file-uploader__input" + Date.now();
   const [files, setFiles] = useState<FileObjectInterfaces[]>([]);
   const [isDraggedOver, setIsDraggedOver] = useState(false);
+
+  const generateFileObject = (file: File) => {
+    const fileObject = utils.generateFileObject(
+      file,
+      chunking ? chunkSize : null
+    );
+    // const totalFiles = files.push(fileObject);
+    setFiles([...files, fileObject]);
+
+    return files[files.length - 1];
+  };
   const addFiles = (files: FileList) => {
     for (let i = 0; i < files.length; i++) {
       const file = files[i] as File;
@@ -58,20 +70,20 @@ const FileUploader: FC<Props> = ({
 
       if (chunking) {
         utils
-          .uploadChunk(utils.generateFileObject(file), 0, args)
-          .then((response: any) => {
+          .uploadChunk(generateFileObject(file), 0, args)
+          .then((response) => {
             onSuccess && onSuccess(response.data);
           })
-          .catch((response: any) => {
+          .catch((response) => {
             onFail && onFail(response.error);
           });
       } else {
         utils
-          .upload(utils.generateFileObject(file), args)
-          .then((response: any) => {
+          .upload(generateFileObject(file), args)
+          .then((response) => {
             onSuccess && onSuccess(response.data);
           })
-          .catch((response: any) => {
+          .catch((response) => {
             onFail && onFail(response.error);
           });
       }

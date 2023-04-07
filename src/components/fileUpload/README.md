@@ -52,38 +52,5 @@ export default () => {
 | `params`                | Object   | **no**   | `{}`                            | An object of additional parameters to transfer to the server |
 | `showFileUploadStatus`  | Boolean  | **no**   | `true`                          | If set `true`, individual file upload status will be shown   |
 | `showFilesUploadStatus` | Boolean  | **no**   | `true`                          | If set `true`, all files upload status will be shown         |
-| `onSuccess`             | Function | **no**   | `()=>{}`                        | Invock when file Successfully uploaded                       |
-| `onFail`                | Function | **no**   | `()=>{}`                        | Invock if file Crashed or cancelld                           |
-
-## Listeners
-
-The uploader component fires the following events:
-
-**`init`**: It fires the event when a file initiate to upload. `FormData` pass as parameter.
-
-**`before:send`**: It fires the event before sending data to server. `XMLHttpRequest` pass as first parameter
-and `FormData` pass as second parameter.
-
-**`progress`**: It fires the event when a file upload in progress. `fileObject` object pass as first parameter
-and `event` pass as second parameter.
-
-**`success`**: It fires the event when a file uploaded successfully. `fileObject` object pass as first parameter
-and `serverResponse` pass as second parameter.
-
-**`fail`**: It fires the event when a file uploaded failed on server. `fileObject` object pass as first parameter
-and `serverResponse` pass as second parameter.
-
-**`error`**: It fires the event when a file uploaded failed. `fileObject` object pass as first parameter.
-
-```vue
-<!-- template -->
-<shapla-file-uploader
-    @before:send="handleBeforeSendEvent"
-    @success="handleSuccess"
-/>
-
-<!-- method -->
-methods: { handleBeforeSendEvent(xhr,formData){ // You can add custom header to
-xhr xhr.setRequestHeader('Authorization', 'authorization code goes here'); },
-handleSuccess(fileObject,serverResponse){ // Handle click event } }
-```
+| `onSuccess`             | Function | **no**   | `()=>{}`                        | Invoke when file Successfully uploaded                       |
+| `onFail`                | Function | **no**   | `()=>{}`                        | Invoke if file Crashed or cancelled                          |

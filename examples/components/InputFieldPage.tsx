@@ -1,81 +1,126 @@
 import React from "react";
 import DocTab from "./components/DocTab";
-import Input from "../../src/components/input/Input";
+import InputField from "../../src/components/input/InputField";
 
 const InputFieldPage = () => {
+  const properties = {
+    type: {
+      type: String,
+      default: "text",
+    },
+    size: {
+      type: String,
+      default: "default",
+    },
+    modelValue: { type: [Number, String], default: null },
+    label: { type: String, default: null, required: false },
+    placeholder: { type: String, default: null },
+    autocomplete: { type: String, default: null },
+    name: { type: String, default: null, required: false },
+    id: { type: String, default: null, required: false },
+    helpText: { type: String, default: null, required: false },
+    validationText: { type: String, default: null, required: false },
+    hasError: { type: Boolean, default: false },
+    hasSuccess: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    required: { type: Boolean, default: false },
+    readonly: { type: Boolean, default: false },
+    rows: { type: [String, Number], default: null },
+    dir: { type: String, default: "ltr" },
+    onModalValue: { type: Function, default: null },
+    onFocus: { type: Function, default: null },
+    onBlur: { type: Function, default: null },
+    onChange: { type: Function, default: null },
+  };
+  const descriptions = {};
+  const [fieldOne, setFieldOne] = React.useState("");
+  const [fieldTwo, setFieldTwo] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [dateTimeField, setDateTimeField] = React.useState("");
+  const [dateField, setDateField] = React.useState("");
+  const [timeField, setTimeField] = React.useState("");
+  const [hasEmailError, setHasEmailError] = React.useState(false);
+  const [hasEmailSuccess, setHasEmailSuccess] = React.useState(false);
+  const emailValidationText = "Please enter a valid email address";
+  const handleBlurEvent = (value: string) => {
+    !validateEmail(value) ? setHasEmailError(true) : setHasEmailSuccess(true); // hasEmailError = true;
+  };
+  const handleInputEvent = () => {
+    setHasEmailError(false);
+    setHasEmailSuccess(false);
+  };
+  const validateEmail = (value: string) => {
+    return (
+      /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(value) !==
+      false
+    );
+  };
   return (
     <DocTab
-      heading="Input: Text"
-      slug="Input"
+      heading="InputField: Text"
+      slug="InputField"
       name="Input"
-      scssMixin="Input"
+      scssMixin="InputField"
       properties={properties}
       desc={descriptions}
     >
       <div className="test-Input">
         <div className="shapla-columns is-multiline">
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldOne(value)}
               label="Text field"
-              help-text="default size"
+              helpText="default size"
               size="default"
               name="text_field[one]"
             />
           </div>
 
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
-              help-text="small size"
+              helpText="small size"
               size="small"
             />
           </div>
 
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
-              help-text="medium size"
+              helpText="medium size"
               size="medium"
             />
           </div>
 
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
-              help-text="large size"
+              helpText="large size"
               size="large"
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
-              help-text="Some help text"
+              helpText="Some help text"
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               placeholder="Placeholder text"
-              help-text="No label"
+              helpText="No label"
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_one"
+            <InputField
               onChange={(value) => setFieldOne(value)}
               label="Full Name *"
               helpText="This field has success status."
@@ -85,16 +130,16 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
+            <InputField
               label="Full Name *"
-              help-text="This field has validation error status"
+              helpText="This field has validation error status"
               validation-text="Please enter a valid full name"
               hasError={true}
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
+            <InputField
               // v-model="email"
               onChange={(value) => setEmail(value)}
               label="Email *"
@@ -108,12 +153,15 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input v-model="field_two" label="Search field" type="search" />
+            <InputField
+              v-model="field_two"
+              label="Search field"
+              type="search"
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Password field"
               type="password"
@@ -121,8 +169,7 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Number field"
               type="number"
@@ -130,8 +177,7 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Telephone field"
               type="tel"
@@ -139,8 +185,7 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Url field"
               type="url"
@@ -148,7 +193,7 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
+            <InputField
               // v-model="date_field"
               onChange={(value) => setDateField(value)}
               label="Date field"
@@ -157,7 +202,7 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
+            <InputField
               // v-model="time_field"
               onChange={(value) => setTimeField(value)}
               label="Time field"
@@ -166,21 +211,19 @@ const InputFieldPage = () => {
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="datetime_field"
-              onChange={(value) => setDatetimeField(value)}
+            <InputField
+              onChange={(value) => setDateTimeField(value)}
               label="Date & Time field"
               type="datetime-local"
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
-            <Input
-              // v-model="field_one"
+            <InputField
               onChange={(value) => setFieldOne(value)}
               type="textarea"
               label="Textarea Field"
-              help-text="Some help text."
+              helpText="Some help text."
               validation-text="Please enter full address"
             />
           </div>
@@ -190,22 +233,20 @@ const InputFieldPage = () => {
             <h2>RTL support</h2>
           </div>
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
-              help-text="default size"
+              helpText="default size"
               size="default"
               dir="rtl"
             />
           </div>
           <div className="shapla-column is-3-tablet">
-            <Input
-              // v-model="field_two"
+            <InputField
               onChange={(value) => setFieldTwo(value)}
               type="textarea"
               label="Text field"
-              help-text="default size"
+              helpText="default size"
               size="default"
               dir="rtl"
             />

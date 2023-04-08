@@ -17,7 +17,7 @@ interface Props {
     | "date"
     | "time"
     | "datetime-local";
-  size?: "default" | "is-small" | "is-medium" | "is-large";
+  size?: "default" | "small" | "medium" | "large";
   modelValue?: string;
   placeholder?: string;
   autocomplete?: string;
@@ -40,7 +40,7 @@ interface Props {
   onChange?: (value: string) => void;
 }
 
-const Input: FC<Props> = ({
+const InputField: FC<Props> = ({
   id = "",
   name = "",
   label = "",
@@ -130,6 +130,8 @@ const Input: FC<Props> = ({
 
   const handleKeydownEvent = (
     event: React.KeyboardEvent<HTMLTextAreaElement | HTMLInputElement>
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
   ) => onKeyDown && onKeyDown((event.target as HTMLInputElement).value);
   const handleOnChange = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
@@ -254,4 +256,4 @@ const Input: FC<Props> = ({
     </div>
   );
 };
-export default Input;
+export default InputField;

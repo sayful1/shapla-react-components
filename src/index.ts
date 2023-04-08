@@ -27,3 +27,4 @@ export { default as ShaplaTablePagination } from "./components/table/components/
 export { default as ShaplaTable } from "./components/table/ShaplaTable";
 export { default as ImageContainer } from "./components/image/Image";
 export { default as IconContainer } from "./components/icon/IconContainer";
+export { default as Radio } from "./components/radio/Radio";

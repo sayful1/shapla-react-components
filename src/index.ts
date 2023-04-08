@@ -29,3 +29,4 @@ export { default as ImageContainer } from "./components/image/Image";
 export { default as IconContainer } from "./components/icon/IconContainer";
 export { default as Radio } from "./components/radio/Radio";
 export { default as RadioButton } from "./components/radioButton/RadioButton";
+export { default as SearchForm } from "././components/formSearch/FormSearch";

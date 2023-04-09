@@ -50,7 +50,8 @@
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.10.0",
     "react-transition-group": "^4.4.5",
-    "shapla-css": "^2.6.0"
+    "shapla-css": "^2.6.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -60,6 +61,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-transition-group": "^4.4.5",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-react": "^3.1.0",

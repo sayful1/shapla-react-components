@@ -32,3 +32,5 @@ export { default as RadioButton } from "./components/radioButton/RadioButton";
 export { default as SearchForm } from "././components/formSearch/FormSearch";
 export { default as InputField } from "./components/input/InputField";
 export { default as SelectField } from "./components/select/Select";
+export { default as Toggles } from "./components/toggles/Toggles";
+export { default as Toggle } from "./components/toggles/Toggle";

@@ -19,6 +19,7 @@ import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
 import ImageContainer from "./components/ImageContainerPage";
 import IconPage from "./components/IconPage";
+import FileUploadPage from "./components/FileUploadPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -43,6 +44,8 @@ const routerLinks = [
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
   { path: "image", label: "Image", element: <ImageContainer /> },
   { path: "icon", label: "Icon", element: <IconPage /> },
+  { path: "image", label: "Image", element: <ImageContainer /> },
+  { path: "file", label: "File", element: <FileUploadPage />}
 ];
 
 const router = createBrowserRouter([

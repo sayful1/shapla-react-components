@@ -14,9 +14,11 @@ import DropdownPage from "./components/DropdownPage";
 import ProgressPage from "./components/ProgressPage";
 import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
+// Edits
 import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
 import ImageContainer from "./components/ImageContainerPage";
+import IconPage from "./components/IconPage";
 import FileUploadPage from "./components/FileUploadPage";
 import HomePage from "./HomePage";
 
@@ -40,7 +42,9 @@ const routerLinks = [
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
   { path: "table", label: "Table", element: <TablePage /> },
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
-    { path: "image", label: "Image", element: <ImageContainer /> },
+  { path: "image", label: "Image", element: <ImageContainer /> },
+  { path: "icon", label: "Icon", element: <IconPage /> },
+  { path: "image", label: "Image", element: <ImageContainer /> },
   { path: "file", label: "File", element: <FileUploadPage />}
 ];
 

@@ -8,7 +8,18 @@ import SectionProps from "./components/SectionProps";
 const TogglesPage = () => {
   const [range] = useState([...Array(5).keys()]);
 
-  const properties =  {}
+  const properties =  {accordion: { type: Boolean, default: true },
+    iconPosition: {
+      type: String,
+      default: "left",
+    },
+    boxedMode: { type: Boolean, default: true },
+    showDivider: { type: Boolean, default: true },
+    titleColor: {
+      type: String,
+      default: "default",
+
+    },}
   const properties2 = {
     name: { type: String, default: null, required: true },
     subtext: { type: String, default: null, required: false },
@@ -28,8 +39,8 @@ const TogglesPage = () => {
       name="Toggles"
       slug2="shapla-toggle"
       name2="Toggle"
-      scss-mixin="toggles"
-      props-heading="Props for `Toggles`"
+      scssMixin="toggles"
+      propsHeading="Props for `Toggles`"
       properties={properties}
       desc={descriptions}
     >
@@ -39,7 +50,7 @@ const TogglesPage = () => {
           icon-position="left"
           boxed-mode={false}
           show-divider={true}
-          title-color="primary"
+          titleColor="primary"
         >
 
           <Toggle name="Nested Toggle">

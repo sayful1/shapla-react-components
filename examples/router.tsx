@@ -26,6 +26,7 @@ import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TogglePage from "./components/tooglePage";
 import  Switch from "./components/SwitchPage"
+import StarRatingPage from "./components/StarRatingPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -56,7 +57,8 @@ const routerLinks = [
   { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
   { path: "select", label: "Select", element: <SelectPage /> },
   { path: "toggle", label: "Toggle", element: <TogglePage /> },
-  {path: "switch", label: "Switch", element: <Switch />}
+  { path: "switch", label: "Switch", element: <Switch />},
+  { path: "starRating", label: "StarRating", element: <StarRatingPage />}
 ];
 
 const router = createBrowserRouter([

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Switch } from "../../src";
 import DocTab from "./components/DocTab";
-// import "../scss/inputs.scss";
 
 const ExampleSwitch: React.FC = () => {
   const [singleSwitch, setSingleSwitch] = useState<boolean>(false);

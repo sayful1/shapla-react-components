@@ -29,7 +29,7 @@ const Switch: FC<Props> = ({
   const [isFocus, setIsFocus] = useState(false);
 
   const shouldBeChecked = (() => {
-    if (inputValue instanceof Array) {
+    if (Array.isArray(inputValue) ) {
       return inputValue.includes(value);
     }
     return inputValue === trueValue;
@@ -47,7 +47,7 @@ const Switch: FC<Props> = ({
   const getValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
 
-    if (inputValue instanceof Array) {
+    if (  Array.isArray(inputValue)) {
       const newValue = [...inputValue];
 
       if (isChecked) {
@@ -55,7 +55,6 @@ const Switch: FC<Props> = ({
       } else {
         newValue.splice(newValue.indexOf(value), 1);
       }
-
       return newValue;
     }
 

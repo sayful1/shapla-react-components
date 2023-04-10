@@ -34,3 +34,4 @@ export { default as InputField } from "./components/input/InputField";
 export { default as SelectField } from "./components/select/Select";
 export { default as Toggles } from "./components/toggles/Toggles";
 export { default as Toggle } from "./components/toggles/Toggle";
+export {default as Switch} from "./components/switch/Switch"

@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, useState } from 'react';
+import './style/Stepper.scss';
 
 type StepperProps = {
     type?: 'horizontal' | 'vertical',

@@ -1,38 +1,38 @@
 import React, { FC, useState } from 'react';
 import "./Switch.scss"
 
-interface Props {
-  modelValue?: boolean | string | string[];
+export interface Props {
+  inputValue?: boolean | string | string[];
   value?: string;
   trueValue?: boolean | string;
   falseValue?: boolean | string;
   disabled?: boolean;
   readonly?: boolean;
   label?: string;
-  onUpdateModelValue?: (value: boolean | string | string[]) => void;
+  onUpdateInputValue?: (value: boolean | string | string[]) => void;
   onFocus?: (value: boolean | string | string[]) => void;
   onBlur?: (value: boolean | string | string[]) => void;
 }
 
 const Switch: FC<Props> = ({
-  modelValue = false,
-  value = 'on',
+  inputValue = false,
+  value = 'off',
   trueValue = true,
   falseValue = false,
   disabled = false,
   readonly = false,
   label = '',
-  onUpdateModelValue = () => {},
+  onUpdateInputValue = () => {},
   onFocus = () => {},
   onBlur = () => {},
 }) => {
   const [isFocus, setIsFocus] = useState(false);
 
   const shouldBeChecked = (() => {
-    if (modelValue instanceof Array) {
-      return modelValue.includes(value);
+    if (inputValue instanceof Array) {
+      return inputValue.includes(value);
     }
-    return modelValue === trueValue;
+    return inputValue === trueValue;
   })();
 
   const switchClasses = (() => {
@@ -47,8 +47,8 @@ const Switch: FC<Props> = ({
   const getValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
 
-    if (modelValue instanceof Array) {
-      const newValue = [...modelValue];
+    if (inputValue instanceof Array) {
+      const newValue = [...inputValue];
 
       if (isChecked) {
         newValue.push(value);
@@ -63,7 +63,7 @@ const Switch: FC<Props> = ({
   };
 
   const updateInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!readonly) onUpdateModelValue(getValue(event));
+    if (!readonly) onUpdateInputValue(getValue(event));
   };
 
   const handleFocusEvent = (event: React.FocusEvent<HTMLInputElement>) => {

@@ -16,7 +16,7 @@
     "noEmit": false,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src","./examples/components/testData.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

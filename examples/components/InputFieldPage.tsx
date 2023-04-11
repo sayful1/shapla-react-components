@@ -86,7 +86,6 @@ const InputFieldPage = () => {
               helpText="medium size"
               size="medium"
             />
-
           </div>
 
           <div className="shapla-column is-3-tablet">

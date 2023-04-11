@@ -29,3 +29,6 @@ export { default as ImageContainer } from "./components/image/Image";
 export { default as IconContainer } from "./components/icon/IconContainer";
 export { default as Radio } from "./components/radio/Radio";
 export { default as RadioButton } from "./components/radioButton/RadioButton";
+export { default as FileUploader } from "./components/fileUpload/FileUploader";
+export { default as MediaModal } from "./components/fileUpload/experimental/MediaModal";
+export { default as FeaturedImage } from "./components/fileUpload/experimental/FeaturedImage";

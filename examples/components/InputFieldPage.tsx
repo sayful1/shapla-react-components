@@ -50,7 +50,8 @@ const InputFieldPage = () => {
   };
   const validateEmail = (value: string) => {
     return (
-      /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(value) !== false
+      /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(value) !==
+      false
     );
   };
   return (
@@ -198,7 +199,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={dateField}
+              value={dateField}
               onChange={(value) => setDateField(value)}
               label="Date field"
               type="date"

@@ -1,6 +1,6 @@
 import React from "react";
 import DocTab from "./components/DocTab";
-import { InputField } from "../../src";
+import InputField from "../../src/components/input/InputField";
 
 const InputFieldPage = () => {
   const properties = {

@@ -19,7 +19,8 @@ import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
 import ImageContainer from "./components/ImageContainerPage";
 import IconPage from "./components/IconPage";
-import InputFieldPage from "./components/InputFieldPage"
+import InputFieldPage from "./components/InputFieldPage";
+import RadioPage from "./components/RadioPage";
 import FileUploadPage from "./components/FileUploadPage";
 import HomePage from "./HomePage";
 
@@ -46,7 +47,7 @@ const routerLinks = [
   { path: "image", label: "Image", element: <ImageContainer /> },
   { path: "icon", label: "Icon", element: <IconPage /> },
   { path: "input", label: "Input", element: <InputFieldPage /> },
-  { path: "image", label: "Image", element: <ImageContainer /> },
+  { path: "radio", label: "Radio", element: <RadioPage /> },
   { path: "file", label: "File", element: <FileUploadPage />}
 ];
 

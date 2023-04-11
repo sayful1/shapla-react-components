@@ -1,0 +1,12 @@
+.shapla-stepper {
+  display: flex;
+  width: 100%;
+
+  &.is-horizontal {
+    justify-content: space-between;
+  }
+
+  &.is-vertical {
+    flex-direction: column;
+  }
+}

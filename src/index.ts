@@ -37,3 +37,6 @@ export { default as Toggle } from "./components/toggles/Toggle";
 export { default as RangeSlider } from "./components/slider/RangeSlider";
 export { default as Stepper } from "./components/stepper/Stepper";
 export { default as StepperStep } from "./components/stepper/SteppwrSteps";
+export { default as FileUploader } from "./components/fileUpload/FileUploader";
+export { default as MediaModal } from "./components/fileUpload/experimental/MediaModal";
+export { default as FeaturedImage } from "./components/fileUpload/experimental/FeaturedImage";

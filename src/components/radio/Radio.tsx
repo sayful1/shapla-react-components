@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import "./Radio.scss";
+import "./radio.scss";
 
 interface Props {
   label?: string;

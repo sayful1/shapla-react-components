@@ -26,7 +26,7 @@ import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TogglePage from "./components/tooglePage";
 import RangeSliderPage from "./components/RangeSliderPage"
-
+import FileUploadPage from "./components/FileUploadPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -57,7 +57,8 @@ const routerLinks = [
   { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
   { path: "select", label: "Select", element: <SelectPage /> },
   { path: "toggle", label: "Toggle", element: <TogglePage /> },
-    { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
+  { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
+  { path: "file", label: "File", element: <FileUploadPage />}
 ];
 
 const router = createBrowserRouter([

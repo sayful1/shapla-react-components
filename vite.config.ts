@@ -13,7 +13,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
-    target: "esnext",
     lib: {
       entry: "src/index.ts",
       name: "ShaplaComponent",

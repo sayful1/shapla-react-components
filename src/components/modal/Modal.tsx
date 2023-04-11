@@ -13,7 +13,7 @@ interface ModalPropsInterface {
   backgroundTheme: "dark" | "light";
   contentSize: "small" | "medium" | "large" | "full";
   children: ReactNode;
-  footer: string;
+  footer: ReactNode;
   onClose: () => void;
 }
 

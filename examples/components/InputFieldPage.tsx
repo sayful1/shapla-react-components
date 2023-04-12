@@ -1,6 +1,6 @@
 import React from "react";
 import DocTab from "./components/DocTab";
-import InputField from "../../src/components/input/InputField";
+import { InputField } from "../../src";
 
 const InputFieldPage = () => {
   const properties = {
@@ -50,7 +50,8 @@ const InputFieldPage = () => {
   };
   const validateEmail = (value: string) => {
     return (
-      /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(value) !==false
+      /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(value) !==
+      false
     );
   };
   return (
@@ -66,88 +67,80 @@ const InputFieldPage = () => {
         <div className="shapla-columns is-multiline">
           <div className="shapla-column is-3-tablet">
             <InputField
-                value={fieldTwo}
+              value={fieldTwo}
               onChange={(value) => setFieldTwo(value)}
               label="Text field"
               helpText="default size"
               size="default"
               name="text_field[one]"
-              />
+            />
+          </div>
+
+           
+
+          <div className="shapla-column is-3-tablet">
+            <InputField
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              label="Text field"
+              helpText="medium size"
+              size="medium"
+            />
           </div>
 
           <div className="shapla-column is-3-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Text field"
-                helpText="small size"
-                size="small"
-                />
-          </div>
-
-          <div className="shapla-column is-3-tablet">
-            <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Text field"
-                helpText="medium size"
-                size="medium"
-                />
-          </div>
-
-          <div className="shapla-column is-3-tablet">
-            <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Text field"
-                helpText="large size"
-                size="large"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              label="Text field"
+              helpText="large size"
+              size="large"
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Text field"
-                helpText="Some help text"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              label="Text field"
+              helpText="Some help text"
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                placeholder="Placeholder text"
-                helpText="No label"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              placeholder="Placeholder text"
+              helpText="No label"
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Full Name *"
-                helpText="This field has success status."
-                hasSuccess={true}
-                validationText="Please enter a valid full name"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              label="Full Name *"
+              helpText="This field has success status."
+              hasSuccess={true}
+              validationText="Please enter a valid full name"
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldOne}
-                onChange={(value) => setFieldOne(value)}
-                label="Full Name *"
-                helpText="This field has validation error status"
-                validation-text="Please enter a valid full name"
-                hasError={true}
-                />
+              value={fieldOne}
+              onChange={(value) => setFieldOne(value)}
+              label="Full Name *"
+              helpText="This field has validation error status"
+              validation-text="Please enter a valid full name"
+              hasError={true}
+            />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={email}
+              value={email}
               onChange={(value) => setEmail(value)}
               label="Email *"
               hasError={hasEmailError}
@@ -159,9 +152,9 @@ const InputFieldPage = () => {
             />
           </div>
 
-           <div className="shapla-column is-4-tablet">
+          <div className="shapla-column is-4-tablet">
             <InputField
-                onChange={(value) => setFieldTwo(value)}
+              onChange={(value) => setFieldTwo(value)}
               value={fieldTwo}
               label="Search field"
               type="search"
@@ -170,7 +163,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
+              value={fieldTwo}
               onChange={(value) => setFieldTwo(value)}
               label="Password field"
               type="password"
@@ -179,7 +172,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
+              value={fieldTwo}
               onChange={(value) => setFieldTwo(value)}
               label="Number field"
               type="number"
@@ -188,7 +181,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
+              value={fieldTwo}
               onChange={(value) => setFieldTwo(value)}
               label="Telephone field"
               type="tel"
@@ -197,7 +190,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldTwo}
+              value={fieldTwo}
               onChange={(value) => setFieldTwo(value)}
               label="Url field"
               type="url"
@@ -206,7 +199,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={dateField}
+              value={dateField}
               onChange={(value) => setDateField(value)}
               label="Date field"
               type="date"
@@ -215,7 +208,7 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={timeField}
+              value={timeField}
               onChange={(value) => setTimeField(value)}
               label="Time field"
               type="time"
@@ -224,22 +217,22 @@ const InputFieldPage = () => {
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={dateTimeField}
-                onChange={(value) => setDateTimeField(value)}
-                label="Date & Time field"
-                type="datetime-local"
+              value={dateTimeField}
+              onChange={(value) => setDateTimeField(value)}
+              label="Date & Time field"
+              type="datetime-local"
             />
           </div>
 
           <div className="shapla-column is-4-tablet">
             <InputField
-                value={fieldOne}
-                onChange={(value) => setFieldOne(value)}
-                type="textarea"
-                label="Textarea Field"
-                helpText="Some help text."
-                validationText="Please enter full address"
-                />
+              value={fieldOne}
+              onChange={(value) => setFieldOne(value)}
+              type="textarea"
+              label="Textarea Field"
+              helpText="Some help text."
+              validationText="Please enter full address"
+            />
           </div>
         </div>
         <div className="shapla-columns is-multiline">
@@ -248,24 +241,24 @@ const InputFieldPage = () => {
           </div>
           <div className="shapla-column is-3-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                label="Text field"
-                helpText="default size"
-                size="default"
-                dir="rtl"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              label="Text field"
+              helpText="default size"
+              size="default"
+              dir="rtl"
+            />
           </div>
           <div className="shapla-column is-3-tablet">
             <InputField
-                value={fieldTwo}
-                onChange={(value) => setFieldTwo(value)}
-                type="textarea"
-                label="Text field"
-                helpText="default size"
-                size="default"
-                dir="rtl"
-                />
+              value={fieldTwo}
+              onChange={(value) => setFieldTwo(value)}
+              type="textarea"
+              label="Text field"
+              helpText="default size"
+              size="default"
+              dir="rtl"
+            />
           </div>
         </div>
       </div>

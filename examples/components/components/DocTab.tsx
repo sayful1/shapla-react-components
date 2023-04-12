@@ -34,6 +34,7 @@ const DocTab = ({
                     desc = () => {return {}}
                 }: Props) => {
     const [selectedTab,setSelectedTab] = useState('Implementation')
+
     return (
         <>
             <SectionHero heading={heading}>

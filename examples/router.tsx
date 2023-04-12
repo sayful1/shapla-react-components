@@ -14,10 +14,14 @@ import DropdownPage from "./components/DropdownPage";
 import ProgressPage from "./components/ProgressPage";
 import SidenavPage from "./components/SidenavPage";
 import SpinnerPage from "./components/SpinnerPage";
+// Edits
 import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
 import ImageContainer from "./components/ImageContainerPage";
 import FileUploadPage from "./components/FileUploadPage";
+import IconPage from "./components/IconPage";
+import InputFieldPage from "./components/InputFieldPage";
+import RadioPage from "./components/RadioPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -40,8 +44,12 @@ const routerLinks = [
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
   { path: "table", label: "Table", element: <TablePage /> },
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
-    { path: "image", label: "Image", element: <ImageContainer /> },
+
   { path: "file", label: "File", element: <FileUploadPage />}
+  { path: "image", label: "Image", element: <ImageContainer /> },
+  { path: "icon", label: "Icon", element: <IconPage /> },
+  { path: "input", label: "Input", element: <InputFieldPage /> },
+  { path: "radio", label: "Radio", element: <RadioPage /> },
 ];
 
 const router = createBrowserRouter([

@@ -71,6 +71,7 @@ const routerLinks = [
   { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
   { path: "stepper", label: "Stepper", element: <StepperPage /> },
   { path: "file", label: "File", element: <FileUploadPage /> }
+
 ];
 
 const router = createBrowserRouter([

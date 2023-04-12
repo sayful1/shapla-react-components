@@ -29,6 +29,7 @@ import RangeSliderPage from "./components/RangeSliderPage"
 import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage"
 
+
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -62,7 +63,6 @@ const routerLinks = [
   { path: "toggle", label: "Toggle", element: <TogglePage /> },
   { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
   { path: "stepper", label: "Stepper", element: <StepperPage /> },
-
 ];
 
 const router = createBrowserRouter([

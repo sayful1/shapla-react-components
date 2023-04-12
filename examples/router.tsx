@@ -26,6 +26,7 @@ import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TogglePage from "./components/tooglePage";
 import  Switch from "./components/SwitchPage"
+import StarRatingPage from "./components/StarRatingPage";
 import RangeSliderPage from "./components/RangeSliderPage"
 import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage";
@@ -59,7 +60,8 @@ const routerLinks = [
   { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
   { path: "select", label: "Select", element: <SelectPage /> },
   { path: "toggle", label: "Toggle", element: <TogglePage /> },
-  {path: "switch", label: "Switch", element: <Switch />}
+  { path: "switch", label: "Switch", element: <Switch />},
+  { path: "starRating", label: "StarRating", element: <StarRatingPage />}
     { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
     { path: "stepper", label: "Stepper", element: <StepperPage /> },
   { path: "file", label: "File", element: <FileUploadPage />}

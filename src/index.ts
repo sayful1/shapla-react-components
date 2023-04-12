@@ -35,6 +35,7 @@ export { default as SelectField } from "./components/select/Select";
 export { default as Toggles } from "./components/toggles/Toggles";
 export { default as Toggle } from "./components/toggles/Toggle";
 export {default as Switch} from "./components/switch/Switch"
+export {default as StarRating} from "./components/straRating/StarRating"
 export { default as RangeSlider } from "./components/slider/RangeSlider";
 export { default as Stepper } from "./components/stepper/Stepper";
 export { default as StepperStep } from "./components/stepper/SteppwrSteps";

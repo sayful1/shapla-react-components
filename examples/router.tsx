@@ -23,6 +23,7 @@ import IconPage from "./components/IconPage";
 import InputFieldPage from "./components/InputFieldPage";
 import RadioPage from "./components/RadioPage";
 import RadioButtonPage from "./components/RadioButtonPage";
+import SearchFormPage from "./components/SearchFormPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -52,6 +53,7 @@ const routerLinks = [
   { path: "input", label: "Input", element: <InputFieldPage /> },
   { path: "radio", label: "Radio", element: <RadioPage /> },
   { path: "radioButton", label: "RadioButton", element: <RadioButtonPage /> },
+  { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
 ];
 
 const router = createBrowserRouter([

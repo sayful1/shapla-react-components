@@ -26,7 +26,6 @@ export { default as ShaplaTab } from "./components/tabs/ShaplaTab";
 export { default as ShaplaTablePagination } from "./components/table/components/ShaplaTablePagination";
 export { default as ShaplaTable } from "./components/table/ShaplaTable";
 export { default as ImageContainer } from "./components/image/Image";
-
 export { default as IconContainer } from "./components/icon/IconContainer";
 export { default as Radio } from "./components/radio/Radio";
 export { default as RadioButton } from "./components/radioButton/RadioButton";
@@ -36,3 +35,7 @@ export { default as SelectField } from "./components/select/Select";
 export { default as FileUploader } from "./components/fileUpload/FileUploader";
 export { default as MediaModal } from "./components/fileUpload/experimental/MediaModal";
 export { default as FeaturedImage } from "./components/fileUpload/experimental/FeaturedImage";
+export { default as Toggle } from "./components/toggles/Toggle";
+export { default as RangeSlider } from "./components/slider/RangeSlider";
+export { default as Stepper } from "./components/stepper/Stepper";
+export { default as StepperStep } from "./components/stepper/SteppwrSteps";

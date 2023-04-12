@@ -18,7 +18,6 @@ import SpinnerPage from "./components/SpinnerPage";
 import TabsPage from "./components/TabsPage";
 import TablePage from "./components/Tablepage";
 import ImageContainer from "./components/ImageContainerPage";
-import FileUploadPage from "./components/FileUploadPage";
 import IconPage from "./components/IconPage";
 import InputFieldPage from "./components/InputFieldPage";
 import RadioPage from "./components/RadioPage";
@@ -26,6 +25,7 @@ import RadioButtonPage from "./components/RadioButtonPage";
 import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TooglePage from "./components/tooglePage";
+import FileUploadPage from "./components/FileUploadPage";
 import HomePage from "./HomePage";
 
 const routerLinks = [
@@ -48,8 +48,7 @@ const routerLinks = [
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
   { path: "table", label: "Table", element: <TablePage /> },
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
-
-  { path: "file", label: "File", element: <FileUploadPage />}
+  { path: "file", label: "File", element: <FileUploadPage />},
   { path: "image", label: "Image", element: <ImageContainer /> },
   { path: "icon", label: "Icon", element: <IconPage /> },
   { path: "input", label: "Input", element: <InputFieldPage /> },
@@ -58,6 +57,7 @@ const routerLinks = [
   { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
   { path: "select", label: "Select", element: <SelectPage /> },
   { path: "toggle", label: "Toggle", element: <TooglePage /> },
+  { path: "file", label: "File", element: <FileUploadPage />}
 ];
 
 const router = createBrowserRouter([

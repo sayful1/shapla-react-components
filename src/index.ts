@@ -26,6 +26,13 @@ export { default as ShaplaTab } from "./components/tabs/ShaplaTab";
 export { default as ShaplaTablePagination } from "./components/table/components/ShaplaTablePagination";
 export { default as ShaplaTable } from "./components/table/ShaplaTable";
 export { default as ImageContainer } from "./components/image/Image";
+
+export { default as IconContainer } from "./components/icon/IconContainer";
+export { default as Radio } from "./components/radio/Radio";
+export { default as RadioButton } from "./components/radioButton/RadioButton";
+export { default as SearchForm } from "././components/formSearch/FormSearch";
+export { default as InputField } from "./components/input/InputField";
+export { default as SelectField } from "./components/select/Select";
 export { default as FileUploader } from "./components/fileUpload/FileUploader";
 export { default as MediaModal } from "./components/fileUpload/experimental/MediaModal";
 export { default as FeaturedImage } from "./components/fileUpload/experimental/FeaturedImage";

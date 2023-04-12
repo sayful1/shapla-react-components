@@ -1,6 +1,6 @@
 import React from "react";
 import DocTab from "./components/DocTab";
-import { InputField } from "../../src";
+import InputField from "../../src/components/input/InputField";
 
 const InputFieldPage = () => {
   const properties = {
@@ -86,6 +86,7 @@ const InputFieldPage = () => {
               helpText="medium size"
               size="medium"
             />
+
           </div>
 
           <div className="shapla-column is-3-tablet">

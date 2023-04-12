@@ -29,7 +29,7 @@ import RangeSliderPage from "./components/RangeSliderPage"
 import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage"
 
-import  Switch from "./components/SwitchPage"
+import Switch from "./components/SwitchPage"
 import StarRatingPage from "./components/StarRatingPage";
 import HomePage from "./HomePage";
 
@@ -65,11 +65,12 @@ const routerLinks = [
   { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
   { path: "stepper", label: "Stepper", element: <StepperPage /> },
   { path: "file", label: "File", element: <FileUploadPage /> },
-  { path: "switch", label: "Switch", element: <Switch />},
-  { path: "starRating", label: "StarRating", element: <StarRatingPage />},
-    { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
-    { path: "stepper", label: "Stepper", element: <StepperPage /> },
-  { path: "file", label: "File", element: <FileUploadPage />}
+  { path: "switch", label: "Switch", element: <Switch /> },
+  { path: "starRating", label: "StarRating", element: <StarRatingPage /> },
+  { path: "switch", label: "Switch", element: <Switch /> },
+  { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
+  { path: "stepper", label: "Stepper", element: <StepperPage /> },
+  { path: "file", label: "File", element: <FileUploadPage /> }
 ];
 
 const router = createBrowserRouter([

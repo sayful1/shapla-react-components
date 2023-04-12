@@ -51,7 +51,7 @@ const routerLinks = [
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },
   { path: "table", label: "Table", element: <TablePage /> },
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
-  { path: "file", label: "File", element: <FileUploadPage />},
+  { path: "file", label: "File", element: <FileUploadPage /> },
   { path: "image", label: "Image", element: <ImageContainer /> },
   { path: "icon", label: "Icon", element: <IconPage /> },
   { path: "input", label: "Input", element: <InputFieldPage /> },
@@ -59,10 +59,10 @@ const routerLinks = [
   { path: "radioButton", label: "RadioButton", element: <RadioButtonPage /> },
   { path: "searchForm", label: "SearchForm", element: <SearchFormPage /> },
   { path: "select", label: "Select", element: <SelectPage /> },
-  { path: "file", label: "File", element: <FileUploadPage />}
   { path: "toggle", label: "Toggle", element: <TogglePage /> },
-    { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
-    { path: "stepper", label: "Stepper", element: <StepperPage /> },
+  { path: "rangeSlider", label: "RangeSlider", element: <RangeSliderPage /> },
+  { path: "stepper", label: "Stepper", element: <StepperPage /> },
+
 ];
 
 const router = createBrowserRouter([

@@ -26,22 +26,20 @@ npm install --save @shapla/react-components
 ### Javascript Instantiation
 
 ```jsx
-import {ShaplaFileUploader} from "@shapla/react-components";
+import { ShaplaFileUploader } from "@shapla/react-components";
 
 export default () => {
-    const handleSuccess = (fileObject, serverResponse) => {
-        // Handle click event
-    };
-    return (
-        <shapla-file-uploader onSuccess="handleSuccess"/>
-    )
+  const handleSuccess = (fileObject, serverResponse) => {
+    // Handle click event
+  };
+  return <shapla-file-uploader onSuccess="handleSuccess" />;
 };
 ```
 
 ### Props
 
 | Property                | Type     | Required | Default                         | Description                                                  |
-|-------------------------|----------|----------|---------------------------------|--------------------------------------------------------------|
+| ----------------------- | -------- | -------- | ------------------------------- | ------------------------------------------------------------ |
 | `url`                   | String   | **yes**  | `null`                          | File upload url                                              |
 | `method`                | String   | **no**   | `POST`                          | File upload method                                           |
 | `paramName`             | String   | **no**   | `file`                          | File upload parameter name                                   |

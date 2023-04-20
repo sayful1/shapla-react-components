@@ -1,4 +1,4 @@
-import React, {Component, HTMLAttributes} from "react";
+import React, { Component, HTMLAttributes } from "react";
 
 interface CrossPropsInterface extends HTMLAttributes<HTMLSpanElement> {
   size?: "normal" | "small" | "medium" | "large";
@@ -20,13 +20,9 @@ class Cross extends Component<CrossPropsInterface> {
    * Render component UI
    */
   render() {
-    const {size, fixed, ariaLabel, className, ...others} = this.props;
+    const { size, fixed, ariaLabel, className, ...others } = this.props;
     return (
-      <span
-        className={this.classes()}
-        aria-label={ariaLabel}
-        {...others}
-      />
+      <span className={this.classes()} aria-label={ariaLabel} {...others} />
     );
   }
 

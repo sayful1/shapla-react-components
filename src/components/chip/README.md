@@ -30,7 +30,7 @@ with SCSS:
 
 ```js
 import React from "react";
-import {Chip} from "@shapla/react-components";
+import { Chip } from "@shapla/react-components";
 
 class MyApp extends React.Component {
   render() {
@@ -48,7 +48,7 @@ class MyApp extends React.Component {
 ### Props
 
 | Property            | Type    | Required | Default | Description                              |
-|---------------------|---------|----------|---------|------------------------------------------|
+| ------------------- | ------- | -------- | ------- | ---------------------------------------- |
 | `text`              | String  | **no**   | ``      | Chip text                                |
 | `imageSrc`          | String  | **no**   | ``      | Chip contact image url                   |
 | `deletable`         | Boolean | **no**   | `false` | If set `true`, Delete icon will appear   |

@@ -14,9 +14,9 @@ const ExampleSwitch: React.FC = () => {
     disabled: { type: Boolean, default: false },
     readonly: { type: Boolean, default: false },
     label: { type: String, default: "" },
-    onUpdateInputValue: {type: Function, default: ""},
-  onFocus: {type : Function,default: ""},
-  onBlur: {type: Function, default: ""}
+    onUpdateInputValue: { type: Function, default: "" },
+    onFocus: { type: Function, default: "" },
+    onBlur: { type: Function, default: "" },
   };
   const descriptions: any = {};
 
@@ -47,9 +47,7 @@ const ExampleSwitch: React.FC = () => {
             label="Enable this"
           />
 
-
           <Switch inputValue={singleSwitch} disabled label="Disabled Switch" />
-
 
           <pre>
             <code>{JSON.stringify(singleSwitch)}</code>

@@ -28,24 +28,22 @@ npm install --save @shapla/react-components
 ```jsx
 import { ShaplaToggles, ShaplaToggle } from "@shapla/vue-components";
 
-export default ()=> {
- return (
-   <Toggles>
-     <Toggle name="Toggle 1" subtext="Toggle 1 subtitle">
-       <p>Toggle 1 content</p>
-     </Toggle>
-     <Toggle name="Toggle 2" subtext="Toggle 2 subtitle">
-       <p>Toggle 2 content</p>
-     </Toggle>
-     <Toggle name="Toggle 3" subtext="Toggle 3 subtitle">
-       <p>Toggle 3 content</p>
-     </Toggle>
-   </Toggles>
- )
+export default () => {
+  return (
+    <Toggles>
+      <Toggle name="Toggle 1" subtext="Toggle 1 subtitle">
+        <p>Toggle 1 content</p>
+      </Toggle>
+      <Toggle name="Toggle 2" subtext="Toggle 2 subtitle">
+        <p>Toggle 2 content</p>
+      </Toggle>
+      <Toggle name="Toggle 3" subtext="Toggle 3 subtitle">
+        <p>Toggle 3 content</p>
+      </Toggle>
+    </Toggles>
+  );
 };
 ```
-
-
 
 ### Props for `ShaplaToggles`
 

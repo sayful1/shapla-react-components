@@ -25,13 +25,13 @@ import RadioButtonPage from "./components/RadioButtonPage";
 import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TogglePage from "./components/tooglePage";
-import  Switch from "./components/SwitchPage"
+import Switch from "./components/SwitchPage";
 import StarRatingPage from "./components/StarRatingPage";
-import RangeSliderPage from "./components/RangeSliderPage"
-import StepperPage from "./components/StepperPage"
-import FileUploadPage from "./components/FileUploadPage"
+import RangeSliderPage from "./components/RangeSliderPage";
+import StepperPage from "./components/StepperPage";
+import FileUploadPage from "./components/FileUploadPage";
 
-import Switch from "./components/SwitchPage"
+import Switch from "./components/SwitchPage";
 import StarRatingPage from "./components/StarRatingPage";
 import HomePage from "./HomePage";
 
@@ -49,13 +49,29 @@ const routerLinks = [
   { path: "input", label: "Input: Text Field", element: <InputFieldPage /> },
   { path: "file", label: "Input: File Uploader", element: <FileUploadPage /> },
   { path: "radio", label: "Input: Radio", element: <RadioPage /> },
-  { path: "radioButton", label: "Input: Radio Button", element: <RadioButtonPage /> },
-  { path: "rangeSlider", label: "Input: Range Slider", element: <RangeSliderPage /> },
-  { path: "searchForm", label: "Input: SearchForm", element: <SearchFormPage /> },
+  {
+    path: "radioButton",
+    label: "Input: Radio Button",
+    element: <RadioButtonPage />,
+  },
+  {
+    path: "rangeSlider",
+    label: "Input: Range Slider",
+    element: <RangeSliderPage />,
+  },
+  {
+    path: "searchForm",
+    label: "Input: SearchForm",
+    element: <SearchFormPage />,
+  },
   { path: "select", label: "Input: Select", element: <SelectPage /> },
   { path: "switch", label: "Input: Switch", element: <Switch /> },
   { path: "modal", label: "Modal", element: <ModalPage /> },
-  { path: "notification", label: "Notification", element: <NotificationPage />, },
+  {
+    path: "notification",
+    label: "Notification",
+    element: <NotificationPage />,
+  },
   { path: "progress", label: "Progress", element: <ProgressPage /> },
   { path: "sidenav", label: "Sidenav", element: <SidenavPage /> },
   { path: "spinner", label: "Spinner", element: <SpinnerPage /> },

@@ -24,13 +24,13 @@ export const ShaplaTogglesContext = createContext<ShaplaTogglesContextProps>({
 });
 
 const ShaplaToggles: FC<Props> = ({
-                                                 accordion = true,
-                                                 iconPosition = "left",
-                                                 boxedMode = true,
-                                                 showDivider = true,
-                                                 titleColor = "default",
-                                                 children,
-                                               }) => {
+  accordion = true,
+  iconPosition = "left",
+  boxedMode = true,
+  showDivider = true,
+  titleColor = "default",
+  children,
+}) => {
   const uuid = useMemo(() => uuidv4(), []);
   const data = useMemo<ShaplaTogglesContextProps>(() => {
     return {

@@ -30,7 +30,7 @@ with SCSS:
 
 ```js
 import React from "react";
-import {Cross} from "@shapla/react-components";
+import { Cross } from "@shapla/react-components";
 
 class MyApp extends React.Component {
   render() {
@@ -49,6 +49,6 @@ class MyApp extends React.Component {
 ### Props
 
 | Property    | Type   | Required | Default  | Description                                              |
-|-------------|--------|----------|----------|----------------------------------------------------------|
+| ----------- | ------ | -------- | -------- | -------------------------------------------------------- |
 | `size`      | String | **no**   | `normal` | Value can be `normal` or `small` or `medium` or `large`. |
 | `ariaLabel` | String | **no**   | `close`  | Value for html `aria-label` attribute                    |

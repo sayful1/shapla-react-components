@@ -1,22 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface TableHeaderProps {
-    children: ReactNode,
-
+  children: ReactNode;
 }
 
 const TableHeader = ({ children }: TableHeaderProps) => {
-    return (
-        <thead>
-        <tr className="shapla-data-table__header-row">
-            {/*{children.map((child, index) => (*/}
-            {/*    <TableHeaderCell key={index} > {child}</TableHeaderCell>*/}
-            {/*))}*/}
-            {/*<div>{children}</div>*/}
-            {children}
-        </tr>
-        </thead>
-    );
+  return (
+    <thead>
+      <tr className="shapla-data-table__header-row">
+        {/*{children.map((child, index) => (*/}
+        {/*    <TableHeaderCell key={index} > {child}</TableHeaderCell>*/}
+        {/*))}*/}
+        {/*<div>{children}</div>*/}
+        {children}
+      </tr>
+    </thead>
+  );
 };
 
 export default TableHeader;

@@ -1,10 +1,10 @@
 # Shapla Data Table
 
-A simple responsive data table component for React 
+A simple responsive data table component for React
 
 Supports:
 
-- Row Actions with children 
+- Row Actions with children
 - Custom Column children Support
 - Sorting
 
@@ -35,40 +35,38 @@ npm install --save @shapla/react-components
 ```jsx
 import { ShaplaTable } from "@shapla/react-components";
 
-export default ()=> {
+export default () => {
+  const selectedItems = [];
+  const columns = [
+    { key: "title", label: "Title", sortable: true },
+    { key: "author", label: "Author" },
+  ];
+  const actions = [
+    { key: "edit", label: "Edit" },
+    { key: "trash", label: "Delete" },
+  ];
+  const items = [
+    {
+      id: 1,
+      title: "Wings of Fire: An Autobiography",
+      author: ["A.P.J. Abdul Kalam"],
+      image: "https://images.gr-assets.com/books/1295670969l/634583.jpg",
+    },
+    {
+      id: 2,
+      title: "Who Moved My Cheese?",
+      author: ["Spencer Johnson", "Kenneth H. Blanchard"],
+      image: "https://images.gr-assets.com/books/1388639717l/4894.jpg",
+    },
+    {
+      id: 3,
+      title: "Option B",
+      author: ["Sheryl Sandberg", "Adam Grant", "Adam M. Grant"],
+      image: "https://images.gr-assets.com/books/1493998427l/32938155.jpg",
+    },
+  ];
 
-
-    const selectedItems = [];
-    const columns = [
-        { key: "title", label: "Title", sortable: true },
-        { key: "author", label: "Author" },
-      ];
-    const actions = [
-        { key: "edit", label: "Edit" },
-        { key: "trash", label: "Delete" },
-      ];
-    const items = [
-        {
-          id: 1,
-          title: "Wings of Fire: An Autobiography",
-          author: ["A.P.J. Abdul Kalam"],
-          image: "https://images.gr-assets.com/books/1295670969l/634583.jpg",
-        },
-        {
-          id: 2,
-          title: "Who Moved My Cheese?",
-          author: ["Spencer Johnson", "Kenneth H. Blanchard"],
-          image: "https://images.gr-assets.com/books/1388639717l/4894.jpg",
-        },
-        {
-          id: 3,
-          title: "Option B",
-          author: ["Sheryl Sandberg", "Adam Grant", "Adam M. Grant"],
-          image: "https://images.gr-assets.com/books/1493998427l/32938155.jpg",
-        },
-      ];
-    
-return (
+  return (
     <ShaplaTable
       columns={columns}
       items={items}
@@ -84,13 +82,13 @@ return (
       mobileWidth={768}
     />
   );
-}
+};
 ```
 
 ### Props
 
 | Property        | Type     | Required | Default           | Description                                                             |
-|-----------------|----------| -------- |-------------------|-------------------------------------------------------------------------|
+| --------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
 | `items`         | Array    | **yes**  | `null`            | Pass an **Array** of **Objects** with key:value format.                 |
 | `columns`       | Array    | **yes**  | `null`            | Pass an **Array** of **Objects**. See _columns data object_             |
 | `selectedItems` | Array    | no       | `[]`              | Pass an **Array** of object id                                          |
@@ -110,12 +108,12 @@ return (
 
 ### columns data object
 
-| Property   | Type    | Required | Default | Description                                                           |
-| ---------- | ------- | -------- | ------- |-----------------------------------------------------------------------|
-| `key`      | String  | **yes**  | ``      | Column key.                                                           |
-| `label`    | String  | **yes**  | ``      | Column label                                                          |
-| `numeric`  | Boolean | no       | `false` | Set `true` if table column data type is numeric.                      |
-| `sortable` | Boolean | no       | `false` | Whether the column data can be sorted by `asc` or `desc` order.       |
+| Property   | Type    | Required | Default | Description                                                     |
+| ---------- | ------- | -------- | ------- | --------------------------------------------------------------- |
+| `key`      | String  | **yes**  | ``      | Column key.                                                     |
+| `label`    | String  | **yes**  | ``      | Column label                                                    |
+| `numeric`  | Boolean | no       | `false` | Set `true` if table column data type is numeric.                |
+| `sortable` | Boolean | no       | `false` | Whether the column data can be sorted by `asc` or `desc` order. |
 
 ### actions data object
 
@@ -132,7 +130,7 @@ The table component fires the following events:
 
 ```html
 <!-- jsx -->
-<ShaplaTable onActionClick={onActionClick}> </ShaplaTable>
+<ShaplaTable onActionClick="{onActionClick}"> </ShaplaTable>
 
 <!-- method -->
 methods: { onActionClick(action, row) { if ( 'trash' === action ) { if (
@@ -143,7 +141,7 @@ confirm('Are you sure to delete?') ) { alert('deleted: ' + row.title); } } } }
 
 ```html
 <!-- jsx -->
-<ShaplaTable onSortClickt={sortCallback}> </ShaplaTable>
+<ShaplaTable onSortClickt="{sortCallback}"> </ShaplaTable>
 
 <!-- method -->
 methods: { sortCallback(column, order) { this.sortBy = column; this.sortOrder =
@@ -165,17 +163,14 @@ methods: { onItemSelect(ids) { this.selectedItems = ids; } }
 <details>
 <summary>Pagination</summary>
 
-```jsx 
+```jsx
 import { Pagination } from "@shapla/react-table";
 
 export default () => {
-    const paginate = (nextPage) => {
-      // Handle pagination event
-    }
-    return(
-        <pagination paginate={paginate}></pagination>        
-    )
-    
+  const paginate = (nextPage) => {
+    // Handle pagination event
+  };
+  return <pagination paginate={paginate}></pagination>;
 };
 ```
 
@@ -186,7 +181,7 @@ export default () => {
 #### Props
 
 | Property           | Type     | Required | Default         | Description                                                                |
-|--------------------|----------|----------|-----------------|----------------------------------------------------------------------------|
+| ------------------ | -------- | -------- | --------------- | -------------------------------------------------------------------------- |
 | `totalItems`       | Number   | **Yes**  | `0`             | Total number of items.                                                     |
 | `perPage`          | Number   | **Yes**  | `20`            | Number of items to show per page.                                          |
 | `currentPage`      | Number   | **Yes**  | `1`             | Current page number.                                                       |
@@ -199,7 +194,7 @@ export default () => {
 | `textNextPage`     | String   | **No**   | `Next Page`     | Screen reader text for next page.                                          |
 | `textLastPage`     | String   | **No**   | `Last Page`     | Screen reader text for last page.                                          |
 | `textOf`           | String   | **No**   | `of`            | Screen reader text for 'of' text.                                          |
-| `poaginate`        | Function | **yes**  | `()=>{}`        | Handle pagination event.                                                   | 
+| `poaginate`        | Function | **yes**  | `()=>{}`        | Handle pagination event.                                                   |
 
 #### Listeners
 
@@ -223,10 +218,8 @@ methods: { paginate(NextPage){ // Handle click event } }
 ```jsx
 import { StatusList } from "@shapla/vue-components";
 
-export default () => <StatusList statuses ={statuses} / >
-
+export default () => <StatusList statuses={statuses} />;
 ```
-
 
 #### Props
 

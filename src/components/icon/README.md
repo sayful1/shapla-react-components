@@ -28,20 +28,20 @@ npm install --save @shapla/react-components
 ### Javascript Instantiation
 
 ```jsx
-import {IconContainer} from "@shapla/vue-components";
+import { IconContainer } from "@shapla/vue-components";
 
 export default () => {
-    return (
-        <IconContainer size="medium">
-            <i class="fas fa-fw"></i>
-        </IconContainer>
-    );
-}
+  return (
+    <IconContainer size="medium">
+      <i class="fas fa-fw"></i>
+    </IconContainer>
+  );
+};
 ```
 
 ### Props
 
 | Property    | Type    | Required | Default | Description                                                        |
-|-------------|---------|----------|---------|--------------------------------------------------------------------|
+| ----------- | ------- | -------- | ------- | ------------------------------------------------------------------ |
 | `size`      | String  | **no**   | ``      | Value can be `small` or `medium` or `large`                        |
 | `hoverable` | Boolean | **no**   | `false` | If set `true`, transparent background color will be added on hover |

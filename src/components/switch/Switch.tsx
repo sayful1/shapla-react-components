@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import "./Switch.scss"
+import React, { FC, useState } from "react";
+import "./Switch.scss";
 
 export interface Props {
   inputValue?: boolean | string | string[];
@@ -16,12 +16,12 @@ export interface Props {
 
 const Switch: FC<Props> = ({
   inputValue = false,
-  value = 'off',
+  value = "off",
   trueValue = true,
   falseValue = false,
   disabled = false,
   readonly = false,
-  label = '',
+  label = "",
   onUpdateInputValue = () => {},
   onFocus = () => {},
   onBlur = () => {},
@@ -29,7 +29,7 @@ const Switch: FC<Props> = ({
   const [isFocus, setIsFocus] = useState(false);
 
   const shouldBeChecked = (() => {
-    if (Array.isArray(inputValue) ) {
+    if (Array.isArray(inputValue)) {
       return inputValue.includes(value);
     }
     return inputValue === trueValue;
@@ -37,17 +37,17 @@ const Switch: FC<Props> = ({
 
   const switchClasses = (() => {
     const classes: string[] = [];
-    if (shouldBeChecked) classes.push('is-checked');
-    if (disabled) classes.push('is-disabled');
-    if (isFocus) classes.push('is-focused');
+    if (shouldBeChecked) classes.push("is-checked");
+    if (disabled) classes.push("is-disabled");
+    if (isFocus) classes.push("is-focused");
 
-    return classes.join(' ');
+    return classes.join(" ");
   })();
 
   const getValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
 
-    if (  Array.isArray(inputValue)) {
+    if (Array.isArray(inputValue)) {
       const newValue = [...inputValue];
 
       if (isChecked) {

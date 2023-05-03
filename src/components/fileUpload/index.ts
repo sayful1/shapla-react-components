@@ -6,12 +6,12 @@ import { pad, timeRemaining } from "./helper/utils";
 import ShaplaFileUploader from "./FileUploader";
 
 export {
-    pad,
-    timeRemaining,
-    ShaplaFileUploader,
-    ShaplaFilesUploadStatus,
-    ShaplaFileUploadStatus,
-    MediaModal,
-    FeaturedImage,
+  pad,
+  timeRemaining,
+  ShaplaFileUploader,
+  ShaplaFilesUploadStatus,
+  ShaplaFileUploadStatus,
+  MediaModal,
+  FeaturedImage,
 };
 export default ShaplaFileUploader;

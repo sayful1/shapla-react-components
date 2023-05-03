@@ -30,6 +30,7 @@ import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage"
 
 import Switch from "./components/SwitchPage"
+
 import StarRatingPage from "./components/StarRatingPage";
 import HomePage from "./HomePage";
 
@@ -62,7 +63,6 @@ const routerLinks = [
   { path: "tabs", label: "Tabs", element: <TabsPage /> },
   { path: "toggles", label: "Toggles", element: <TogglePage /> },
   { path: "stepper", label: "Stepper", element: <StepperPage /> },
-
 ];
 
 const router = createBrowserRouter([

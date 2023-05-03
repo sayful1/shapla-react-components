@@ -27,15 +27,19 @@ npm install --save @shapla/react-components
 
 ```jsx
 import { ShaplaTabs, ShaplaTab } from "@shapla/react-components";
-export default ()=>{
-    return (
-        <ShaplaTabs fullwidth>
-        <ShaplaTab name="Tab 1" selected> Tab One Content </ShaplaTab>
-        <ShaplaTab name="Tab 2"> Tab Two Content </ShaplaTab>
-        </ShaplaTabs>
-    )
-}
+export default () => {
+  return (
+    <ShaplaTabs fullwidth>
+      <ShaplaTab name="Tab 1" selected>
+        {" "}
+        Tab One Content{" "}
+      </ShaplaTab>
+      <ShaplaTab name="Tab 2"> Tab Two Content </ShaplaTab>
+    </ShaplaTabs>
+  );
+};
 ```
+
 ```
 
 

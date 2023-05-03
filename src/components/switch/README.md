@@ -33,7 +33,7 @@ export default () => {
      const  [singleSwitch,setSingleSwitch] = React.useState(false),
      return(
         <Switch inputValue ={singleSwitch} onUpdateInputValue={(v)=>setSingleSwitch(v as boolean)} label = "Enable this"></Switch>
-     )   
+     )
 };
 ```
 
@@ -43,15 +43,15 @@ export default () => {
 
 ### Props
 
-| Property     | Type                        | Required | Default | Description                                            |
-| ------------ | --------------------------- | -------- | ------- | ------------------------------------------------------ |
-| `label`      | String                      | **no**   | ``      | Switch label                                           |
-| `value`      | String                      | **no**   | `on`    | The default value for the switch                       |
-| `trueValue`  | String                      | **no**   | `true`  | The value when user checked the switch                 |
-| `falseValue` | String                      | **no**   | `false` | The value when user unchecked the switch               |
-| `disabled`   | Boolean                     | **no**   | `false` | If set `true`, box-shadow will be added around button. |
-| `readonly`   | Boolean                     | **no**   | `false` | If set `true`, you cannot change the value.            |
-| `inputValue` | boolean | string ! string[] | **no**   | `false` |
+| Property     | Type    | Required          | Default | Description                                            |
+| ------------ | ------- | ----------------- | ------- | ------------------------------------------------------ |
+| `label`      | String  | **no**            | ``      | Switch label                                           |
+| `value`      | String  | **no**            | `on`    | The default value for the switch                       |
+| `trueValue`  | String  | **no**            | `true`  | The value when user checked the switch                 |
+| `falseValue` | String  | **no**            | `false` | The value when user unchecked the switch               |
+| `disabled`   | Boolean | **no**            | `false` | If set `true`, box-shadow will be added around button. |
+| `readonly`   | Boolean | **no**            | `false` | If set `true`, you cannot change the value.            |
+| `inputValue` | boolean | string ! string[] | **no**  | `false`                                                |
 
 ## Listeners
 

@@ -18,26 +18,21 @@ npm install --save @shapla/react-components
 Add the component:
 
 ```jsx
-import {RangeSlider} from "@shapla/react-components";
+import { RangeSlider } from "@shapla/react-components";
 
 export default () => {
-    const [number, setNumber] = React.useState(10)
+  const [number, setNumber] = React.useState(10);
 
-    return (
-        <RangeSlider
-            value={number}
-            onUpdateValue={setNumber}
-            defaultValue={20}
-        />
-    );
+  return (
+    <RangeSlider value={number} onUpdateValue={setNumber} defaultValue={20} />
+  );
 };
 ```
-
 
 ### Props
 
 | Property    | Type    | Required | Default | Description                                    |
-|-------------|---------|----------|---------|------------------------------------------------|
+| ----------- | ------- | -------- | ------- | ---------------------------------------------- |
 | `value`     | Number  | **no**   | `10`    | Value of the input                             |
 | `default`   | Number  | **no**   | `0`     | The default value of the input                 |
 | `min`       | Number  | **no**   | `0`     | Min value of input                             |
@@ -55,9 +50,9 @@ The input slider component fires the following events:
 ```html
 <!-- jsx -->
 <Rangeslider
-  value={20}
-  default={10}
-  onUpdateValue={handleInput}
+  value="{20}"
+  default="{10}"
+  onUpdateValue="{handleInput}"
 ></Rangeslider>
 
 <!-- method -->

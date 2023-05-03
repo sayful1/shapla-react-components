@@ -77,7 +77,6 @@ const InputFieldPage = () => {
           </div>
 
 
-
           <div className="shapla-column is-3-tablet">
             <InputField
               value={fieldTwo}

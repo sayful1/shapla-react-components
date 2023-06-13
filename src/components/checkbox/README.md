@@ -50,9 +50,9 @@ class MyApp extends Component {
 
 ### Props
 
-| Property   | Type     | Required | Default | Description                                                                              |
-|------------|----------|----------|---------|------------------------------------------------------------------------------------------|
-| `value`    | String   | **no**   | `yes`   | The default value for the checkbox                                                       |
-| `label`    | String   | **no**   | ``      | Checkbox label                                                                           |
-| `disabled` | Boolean  | **no**   | `false` | If set `true`, Checkbox will be disabled to check.                                       |
-| `checked`  | Boolean  | **no**   | `false` | If set `true`, Checkbox will be checked.                                                 |
+| Property   | Type    | Required | Default | Description                                        |
+| ---------- | ------- | -------- | ------- | -------------------------------------------------- |
+| `value`    | String  | **no**   | `yes`   | The default value for the checkbox                 |
+| `label`    | String  | **no**   | ``      | Checkbox label                                     |
+| `disabled` | Boolean | **no**   | `false` | If set `true`, Checkbox will be disabled to check. |
+| `checked`  | Boolean | **no**   | `false` | If set `true`, Checkbox will be checked.           |

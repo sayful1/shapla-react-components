@@ -1,21 +1,18 @@
-import React, {ReactElement, useContext, useEffect, useState,} from "react";
-import {TabsDataInterface,TabsProps} from "./interfaces";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
+import { TabsDataInterface, TabsProps } from "./interfaces";
 import ShaplaTabsContext from "./ShaplaTabsContext";
 import ShaplaTab from "./ShaplaTab";
 
-
-
 const Shaplatab = ({
-                    alignment = "left",
-                    size = "default",
-                    tabStyle = "default",
-                    fullwidth = false,
-                    vertical = false,
-                    onChangeTab,
-                    children,
-                }: TabsProps) => {
-    const shaplaTab = useContext(ShaplaTabsContext) as TabsDataInterface
-
+  alignment = "left",
+  size = "default",
+  tabStyle = "default",
+  fullwidth = false,
+  vertical = false,
+  onChangeTab,
+  children,
+}: TabsProps) => {
+  const shaplaTab = useContext(ShaplaTabsContext) as TabsDataInterface;
     const [selectedIndex,setSelectedIndex ] = useState(shaplaTab.selectedIndex || 0);
     const [tabs, setTabs] = useState<TabsDataInterface[]>(shaplaTab.tabs || []);
     const selectTab = (tab: TabsDataInterface, index: number) => {
@@ -63,31 +60,32 @@ const Shaplatab = ({
                 }
             );
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    setTabs(newTabs);
+  }, [children]);
+  return (
+    <div className={tabsClasses}>
+      <div className={tabClasses}>
+        <ul className="shapla-tabs__nav">
+          {tabs.map((tab, index) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            setTabs(newTabs)
-        },
-        [children]);
-    return <div className={tabsClasses}>
-        <div className={tabClasses}>
-            <ul className="shapla-tabs__nav">
+            return (
+              <li key={index} className={navItemClass(tab, index).join(" ")}>
                 {
-                    tabs.map((tab, index) => {
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        return <li key={index} className={navItemClass(tab,index).join(" ")}>
-                            {
-                            <a href={tab.props.navTo} onClick={ ()=> selectTab(tab,index)}>
-                                {tab.props.name}
-                            </a>
-                            }
-                        </li>
-                    })
+                  <a
+                    href={tab.props.navTo}
+                    onClick={() => selectTab(tab, index)}
+                  >
+                    {tab.props.name}
+                  </a>
                 }
             </ul>
         </div>
         {selectedIndex > -1 && tabs[selectedIndex].props.children}
-    </div>
 
-}
-export default Shaplatab
+    </div>
+  );
+};
+export default Shaplatab;

@@ -27,14 +27,13 @@ npm install --save @shapla/react-components
 
 ```jsx
 import { ImageContainer } from "@shapla/react-components";
-export default () =>{
-    return (
-        <ImageContainer containerWidth="32px" containerHeight="32px" isRounded>
-        <img src="https://via.placeholder.com/48x48" />
-        </ImageContainer>
-    )
-}
-
+export default () => {
+  return (
+    <ImageContainer containerWidth="32px" containerHeight="32px" isRounded>
+      <img src="https://via.placeholder.com/48x48" />
+    </ImageContainer>
+  );
+};
 ```
 
 ```html
@@ -42,11 +41,11 @@ export default () =>{
   <img src="https://via.placeholder.com/48x48" />
 </ImageContainer>
 
-<ImageContainer widthRatio={3} heightRatio={4}>
+<ImageContainer widthRatio="{3}" heightRatio="{4}">
   <img src="https://via.placeholder.com/420x560" />
 </ImageContainer>
 
-<ImageContainer widthRatio={16} heightRatio={9}>
+<ImageContainer widthRatio="{16}" heightRatio="{9}">
   <iframe
     width="640"
     height="360"
@@ -59,10 +58,10 @@ export default () =>{
 
 ### Props
 
-| Property          | Type    | Required | Default | Description                                        |
-| ----------------- | ------- | -------- | ------- |----------------------------------------------------|
-| `heightRatio`     | Number  | **no**   | `1`     | Image height ratio. You can also put image height  |
-| `widthRatio`      | Number  | **no**   | `1`     | Image width ratio. You can also put image width    |
-| `containerWidth`  | String  | **no**   | ``      | Width of the container.                            |
-| `containerHeight` | String  | **no**   | ``      | Height of the container.                           |
-| `isRounded`       | Boolean | **no**   | `false` | If set `true`, inside item will be rounded         |
+| Property          | Type    | Required | Default | Description                                       |
+| ----------------- | ------- | -------- | ------- | ------------------------------------------------- |
+| `heightRatio`     | Number  | **no**   | `1`     | Image height ratio. You can also put image height |
+| `widthRatio`      | Number  | **no**   | `1`     | Image width ratio. You can also put image width   |
+| `containerWidth`  | String  | **no**   | ``      | Width of the container.                           |
+| `containerHeight` | String  | **no**   | ``      | Height of the container.                          |
+| `isRounded`       | Boolean | **no**   | `false` | If set `true`, inside item will be rounded        |

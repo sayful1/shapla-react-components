@@ -28,29 +28,33 @@ npm install --save @shapla/react-components
 ```jsx
 import { SelectField } from "@shapla/react-components";
 
-export default ()=> {
-
-      const options = ["Sayful Islam", 3, true, { label: "Bangladesh", value: "BD" }]
-      const option = "Sayful Islam"
-    const updateHandel = (value) => {
-        console.log(value)
-    }
-    return (
-        <SelectField
-          value={option}
-            options={options}
-            label="Choose a option"
-            helpText="Help text goes here"
-          onUpdateValue={updateHandel}
-        />
-    ) 
-  
+export default () => {
+  const options = [
+    "Sayful Islam",
+    3,
+    true,
+    { label: "Bangladesh", value: "BD" },
+  ];
+  const option = "Sayful Islam";
+  const updateHandel = (value) => {
+    console.log(value);
+  };
+  return (
+    <SelectField
+      value={option}
+      options={options}
+      label="Choose a option"
+      helpText="Help text goes here"
+      onUpdateValue={updateHandel}
+    />
+  );
 };
 ```
+
 ### Props
 
 | Property               | Type    | Required | Default                       | Description                                                      |
-|------------------------| ------- | -------- | ----------------------------- |------------------------------------------------------------------|
+| ---------------------- | ------- | -------- | ----------------------------- | ---------------------------------------------------------------- |
 | `options`              | Array   | **yes**  | ``                            | Array of value for select options.                               |
 | `label`                | String  | **yes**  | ``                            | Input field label                                                |
 | `Value`                | String  | **no**   | ``                            | Field value                                                      |

@@ -13,20 +13,20 @@ type Props = {
 };
 
 const ShaplaTogglePanel = ({
-                             name,
-                             subtext,
-                             selected = false,
-                             iconPosition,
-                             boxedMode,
-                             showDivider,
-                             titleColor,
-                              children
-                           }: Props) => {
+  name,
+  subtext,
+  selected = false,
+  iconPosition,
+  boxedMode,
+  showDivider,
+  titleColor,
+  children,
+}: Props) => {
   const [isSelected, setIsSelected] = useState(selected);
   const [isOverflowVisible, setIsOverflowVisible] = useState(false);
-  const [toggleIconPosition, setToggleIconPosition] = useState<"left" | "right">(
-    iconPosition || "left"
-  );
+  const [toggleIconPosition, setToggleIconPosition] = useState<
+    "left" | "right"
+  >(iconPosition || "left");
   const [toggleShowDivider, setToggleShowDivider] = useState<boolean>(
     showDivider ?? true
   );
@@ -97,7 +97,9 @@ const ShaplaTogglePanel = ({
         </div>
       </div>
       <div className={`shapla-toggle-panel__body ${panelBodyClass}`}>
-        <div className="shapla-toggle-panel__content">{isSelected && children}</div>
+        <div className="shapla-toggle-panel__content">
+          {isSelected && children}
+        </div>
       </div>
     </div>
   );

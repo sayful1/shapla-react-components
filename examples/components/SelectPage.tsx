@@ -7,7 +7,10 @@ const SelectPage = () => {
     label: { type: String, default: "" },
     value: { type: [String, Number, Boolean, Array], default: null },
     options: {
-      type: Array<(string | number | boolean | Record<string, string | number | boolean>)>},
+      type: Array<
+        string | number | boolean | Record<string, string | number | boolean>
+      >,
+    },
     labelKey: { type: String, default: "label" },
     valueKey: { type: String, default: "value" },
     clearable: { type: Boolean, default: true },
@@ -27,7 +30,7 @@ const SelectPage = () => {
     noOptionsText: { type: String, default: "Sorry, no matching options." },
     singularSelectedText: { type: String, default: "item selected" },
     pluralSelectedText: { type: String, default: "items selected" },
-  }
+  };
   const options = [
     "Sayful Islam",
     "Saif Al Araf",
@@ -38,19 +41,20 @@ const SelectPage = () => {
     0,
     1,
     { label: "Sayful", value: "SA" },
-  ]
-  const [option, setOption] = useState<string | string[]>("Aklima")
-  const [option2, setOption2] = useState<string | string[]>("SA")
-  const [country, setCountry] = useState<string[]>(["ST"])
-  const [students,setStudents] = useState<any[]>( [1])
-  const [countries, setCountries] = useState<{ code: string, name: string }[]>([])
-  const [, setStudentList] = useState<{ role: number, name: string }[]>([])
-  useEffect(
-    () => {
-      setCountries(countriesList)
-      setStudentList(studentsList)
-    }, [countriesList, studentsList])
-  
+  ];
+  const [option, setOption] = useState<string | string[]>("Aklima");
+  const [option2, setOption2] = useState<string | string[]>("SA");
+  const [country, setCountry] = useState<string[]>(["ST"]);
+  const [students, setStudents] = useState<any[]>([1]);
+  const [countries, setCountries] = useState<{ code: string; name: string }[]>(
+    []
+  );
+  const [, setStudentList] = useState<{ role: number; name: string }[]>([]);
+  useEffect(() => {
+    setCountries(countriesList);
+    setStudentList(studentsList);
+  }, [countriesList, studentsList]);
+
   return (
     <div>
       <DocTab
@@ -60,8 +64,6 @@ const SelectPage = () => {
         scssMixin="select"
         properties={properties}
         desc={{}}
-
-
       >
         <div className="p-8 container mx-auto">
           <div className="md:flex flex-wrap -m-4">
@@ -82,7 +84,6 @@ const SelectPage = () => {
                 options={options}
                 searchable={true}
                 onUpdateValue={(value) => setOption2(value)}
-
               />
             </div>
             {/* has err */}
@@ -127,20 +128,19 @@ const SelectPage = () => {
             </div>
             {/* multiple */}
             <div className="md:w-3/12 p-4">
-          <SelectField
-            value={students}
-            options={studentsList}
-            searchable={true}
-            multiple={true}
-            labelKey="name"
-            valueKey="role"
-            label="Choose a student"
-            onUpdateValue={(value) => setStudents([...value] )}
-          />
-        </div>
+              <SelectField
+                value={students}
+                options={studentsList}
+                searchable={true}
+                multiple={true}
+                labelKey="name"
+                valueKey="role"
+                label="Choose a student"
+                onUpdateValue={(value) => setStudents([...value])}
+              />
+            </div>
           </div>
         </div>
-
       </DocTab>
     </div>
   );

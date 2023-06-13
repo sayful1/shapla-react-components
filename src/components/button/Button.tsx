@@ -1,4 +1,4 @@
-import React, {Component, HTMLAttributes, ReactNode,} from "react";
+import React, { Component, HTMLAttributes, ReactNode } from "react";
 import PropTypes from "prop-types";
 
 interface ButtonPropsInterface
@@ -44,7 +44,14 @@ class Button extends Component<ButtonPropsInterface> {
    * Specifies props data type
    */
   static propTypes = {
-    theme: PropTypes.oneOf(["default", "primary", "secondary", "success", "error", 'warning']),
+    theme: PropTypes.oneOf([
+      "default",
+      "primary",
+      "secondary",
+      "success",
+      "error",
+      "warning",
+    ]),
     size: PropTypes.oneOf(["small", "normal", "medium", "large"]),
     fullwidth: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -92,11 +99,7 @@ class Button extends Component<ButtonPropsInterface> {
       );
     }
     return (
-      <button
-        className={this.classes()}
-        disabled={disabled}
-        {...others}
-      >
+      <button className={this.classes()} disabled={disabled} {...others}>
         {children}
       </button>
     );
@@ -108,7 +111,17 @@ class Button extends Component<ButtonPropsInterface> {
    * @returns {string}
    */
   classes() {
-    const {fullwidth, outline, rounded, fab, shadow, loading, theme, size, className} = this.props;
+    const {
+      fullwidth,
+      outline,
+      rounded,
+      fab,
+      shadow,
+      loading,
+      theme,
+      size,
+      className,
+    } = this.props;
     const classes = ["shapla-button"];
 
     if (fullwidth) classes.push("is-fullwidth");

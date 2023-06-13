@@ -1,6 +1,6 @@
 # Shapla TextField
 
-A simple customized input  field.
+A simple customized input field.
 
 ## Table of contents
 
@@ -29,21 +29,21 @@ npm install --save @shapla/react-components
 import { InputField } from "@shapla/react-components";
 
 export default () => {
-    return (
-        <InputField
-        label="Email"
-        helpText="Write your valid email address"
-        validationText="Please enter a valid email address"
-        hasError={true}
-        />
-    );
-    };
+  return (
+    <InputField
+      label="Email"
+      helpText="Write your valid email address"
+      validationText="Please enter a valid email address"
+      hasError={true}
+    />
+  );
+};
 ```
 
 ### Props
 
 | Property         | Type     | Required | Default | Description                                                              |
-|------------------|----------| -------- |---------|--------------------------------------------------------------------------|
+| ---------------- | -------- | -------- | ------- | ------------------------------------------------------------------------ |
 | `type`           | String   | **no**   | `text`  | Input field type. Supports all types that support for normal input field |
 | `label`          | String   | **yes**  | ``      | Input field label                                                        |
 | `Value`          | String   | **no**   | ``      | Field value                                                              |

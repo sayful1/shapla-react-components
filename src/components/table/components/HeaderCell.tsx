@@ -12,7 +12,6 @@ interface TableHeaderCellProps {
   showText?: boolean;
   children?: ReactNode;
   onSort?: (key: string) => void;
-
 }
 
 const TableHeaderCell: FC<TableHeaderCellProps> = ({
@@ -28,14 +27,18 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
 }) => {
   const handleSort = () => onSort && onSort(column.key);
 
-  const [isNumeric, setIsNumeric] = useState(false)
+  const [isNumeric, setIsNumeric] = useState(false);
   useEffect(() => {
-    setIsNumeric(typeof column.numeric !== "undefined" && column.numeric === true);
+    setIsNumeric(
+      typeof column.numeric !== "undefined" && column.numeric === true
+    );
   }, [column]);
   const [isSortable, setIsSortable] = useState(false);
 
   useEffect(() => {
-    setIsSortable(typeof column.sortable !== "undefined" && column.sortable === true);
+    setIsSortable(
+      typeof column.sortable !== "undefined" && column.sortable === true
+    );
   }, [column]);
 
   const [isSorted, setIsSorted] = useState(false);
@@ -43,7 +46,6 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
   useEffect(() => {
     setIsSorted(column.key === sortBy);
   }, [column.key, sortBy]);
-
 
   const [isSortedAsc, setIsSortedAsc] = useState(false);
   const [isSortedDesc, setIsSortedDesc] = useState(false);
@@ -56,8 +58,9 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
     setIsSortedDesc(sortOrder === "desc");
   }, [sortOrder]);
 
-
-  const [headCellClass, setHeadCellClass] = useState("shapla-data-table__header-cell");
+  const [headCellClass, setHeadCellClass] = useState(
+    "shapla-data-table__header-cell"
+  );
 
   useEffect(() => {
     const newClasses = [headCellClass];
@@ -76,33 +79,35 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
     }
 
     setHeadCellClass(newClasses.join(" "));
-  }, [column, isPrimary, isCheckbox, isExpandToggle, isNumeric, isSortable, isSorted, isSortedAsc, isSortedDesc]);
+  }, [
+    column,
+    isPrimary,
+    isCheckbox,
+    isExpandToggle,
+    isNumeric,
+    isSortable,
+    isSorted,
+    isSortedAsc,
+    isSortedDesc,
+  ]);
 
   return (
     <th className={headCellClass} role="columnheader" scope="col">
-      {showText ? children :
-        !isSortable ? (
-          <a href="#" onClick={handleSort}>
-            {
-              isSortedDesc &&
-              <DataTableIcon
-                icon="arrow-upward"
-                className="sort-icon"
-              />
-            }
-            {
-              isSortedAsc &&
-              <DataTableIcon
-                icon="arrow-downward"
-                className="sort-icon"
-              />
-            }
-            <span>{column.label}</span>
-          </a>
-        ) : (
+      {showText ? (
+        children
+      ) : !isSortable ? (
+        <a href="#" onClick={handleSort}>
+          {isSortedDesc && (
+            <DataTableIcon icon="arrow-upward" className="sort-icon" />
+          )}
+          {isSortedAsc && (
+            <DataTableIcon icon="arrow-downward" className="sort-icon" />
+          )}
           <span>{column.label}</span>
-        )}
-
+        </a>
+      ) : (
+        <span>{column.label}</span>
+      )}
     </th>
   );
 };

@@ -86,7 +86,7 @@ class MyApp extends React.Component {
 Both `alert` and `confirm` can accept String for the message or Object with following props.
 
 | Property        | Type            | Required | Default   | Description                                             |
-|-----------------|-----------------|----------|-----------|---------------------------------------------------------|
+| --------------- | --------------- | -------- | --------- | ------------------------------------------------------- |
 | `message`       | String          | **yes**  | ``        | Confirm dialog message                                  |
 | `title`         | String          | **no**   | ``        | Confirm dialog title                                    |
 | `icon`          | String          | **no**   | `primary` | Value can be `primary`, `success` or `error`.           |

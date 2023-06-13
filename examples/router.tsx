@@ -25,11 +25,12 @@ import RadioButtonPage from "./components/RadioButtonPage";
 import SearchFormPage from "./components/SearchFormPage";
 import SelectPage from "./components/SelectPage";
 import TogglePage from "./components/tooglePage";
-import  Switch from "./components/SwitchPage"
+import Switch from "./components/SwitchPage";
 import StarRatingPage from "./components/StarRatingPage";
 import RangeSliderPage from "./components/RangeSliderPage"
 import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage"
+
 import HomePage from "./HomePage";
 
 const routerLinks = [

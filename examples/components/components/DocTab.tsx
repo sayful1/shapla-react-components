@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import SectionHero from "./SectionHero";
 import {ShaplaTabs,ShaplaTab} from "../../../src/index";
 import SectionUsage from "./SectionUsage";
@@ -20,21 +20,25 @@ interface Props {
     desc?: {};
 }
 const DocTab = ({
-                    children,
-                    heading = "",
-                    subHeading = "",
-                    slug = "",
-                    name = "",
-                    slug2 = "",
-                    name2 = "",
-                     scssMixin = "",
-                    propsHeading = "",
-                    properties = ()=>{return {}},
-                    desc = () => {return {}}
-                }: Props) => {
-    const [selectedTab,setSelectedTab] = useState('Implementation')
+  children,
+  heading = "",
+  subHeading = "",
+  slug = "",
+  name = "",
+  slug2 = "",
+  name2 = "",
+  scssMixin = "",
+  propsHeading = "",
+  properties = () => {
+    return {};
+  },
+  desc = () => {
+    return {};
+  },
+}: Props) => {
+  const [selectedTab, setSelectedTab] = useState("Implementation");
 
-    return (
+return (
         <>
             <SectionHero heading={heading}>
                 <p>{subHeading} </p>

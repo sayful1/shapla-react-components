@@ -16,10 +16,10 @@ const Shaplatab = ({
                 }: TabsProps) => {
     const shaplaTab = useContext(ShaplaTabsContext) as TabsDataInterface
 
-    const [selectedIndex,setSelectedIndex ] = useState(-1);
+    const [selectedIndex,setSelectedIndex ] = useState(shaplaTab.selectedIndex || 0);
     const [tabs, setTabs] = useState<TabsDataInterface[]>(shaplaTab.tabs || []);
     const selectTab = (tab: TabsDataInterface, index: number) => {
-        const newTab = { ...tab, selectedIndex: index };
+       const newTab = { ...tab, selectedIndex: index };
         setSelectedIndex(index);
         onChangeTab && onChangeTab(newTab, index);
     };
@@ -53,9 +53,13 @@ const Shaplatab = ({
     }, [size, fullwidth, alignment, tabStyle]);
     useEffect(() => {
             const newTabs = React.Children.toArray(children).filter(
-                (child) => {
+                (child,index) => {
+                    if((child as ReactElement).props.selected){
+                        setSelectedIndex(index);
+                    }
+                    
                     if (React.isValidElement(child) && child.type === ShaplaTab)
-                        return child;
+                        return true;
                 }
             );
 
@@ -82,7 +86,7 @@ const Shaplatab = ({
                 }
             </ul>
         </div>
-        {children}
+        {selectedIndex > -1 && tabs[selectedIndex].props.children}
     </div>
 
 }

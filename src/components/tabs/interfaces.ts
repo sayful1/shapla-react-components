@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 
 export interface TabsDataInterface {
-    [x: string]: any;
+    [index: string]: any;
     tabs: TabsDataInterface[];
     selectedIndex: number;
     count: number;

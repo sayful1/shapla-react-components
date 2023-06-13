@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import SectionHero from "./SectionHero";
-import ShaplaTabs from "../../../src/components/tabs/ShaplaTabs";
-import ShaplaTab from "../../../src/components/tabs/ShaplaTab";
+import {ShaplaTabs,ShaplaTab} from "../../../src/index";
 import SectionUsage from "./SectionUsage";
 import SectionProps from "./SectionProps";
 
@@ -16,9 +15,9 @@ interface Props {
     scssMixin?: string;
     propsHeading?: string;
     // eslint-disable-next-line @typescript-eslint/ban-types
-    properties?: Object;
+    properties?: {};
     // eslint-disable-next-line @typescript-eslint/ban-types
-    desc?: Object;
+    desc?: {};
 }
 const DocTab = ({
                     children,
@@ -40,13 +39,10 @@ const DocTab = ({
             <SectionHero heading={heading}>
                 <p>{subHeading} </p>
             </SectionHero>
-            <ShaplaTabs onChangeTab={(e)=>{
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                setSelectedTab(e.props.name)
-
-            }}  alignment="center" size="large" fullwidth = {true}>
-                <ShaplaTab name="Implementation" selected={selectedTab === 'Implementation'}>
+            <ShaplaTabs
+           
+            alignment="center" size="large" fullwidth = {true}>
+                <ShaplaTab name="Implementation" selected>  
                     <div>
                     <SectionUsage
                         slug={slug}
@@ -62,8 +58,9 @@ const DocTab = ({
                     />
                     </div>
                 </ShaplaTab>
-                <ShaplaTab name="Demo and Example Code"    selected={selectedTab === 'Demo and Example Code'}>
+                <ShaplaTab name="Demo and Example Code" >
                     {children}
+                    Hello
 
                 </ShaplaTab>
             </ShaplaTabs>

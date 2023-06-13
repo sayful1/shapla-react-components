@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
 
 export interface TabsDataInterface {
-  [x: string]: any;
-  tabs: TabsDataInterface[];
-  selectedIndex: number;
-  count: number;
-  onChange?: (tab: TabsDataInterface, index: number) => void;
-  name?: string;
-  navTo?: string;
-  navItemClass?: string;
+    [index: string]: any;
+    tabs: TabsDataInterface[];
+    selectedIndex: number;
+    count: number;
+    onChange?: (tab:TabsDataInterface , index: number) => void;
+    name?: string;
+    navTo?: string;
+    navItemClass?: string;
+
 }
 
 export interface TabReactNodeTypeInterface {

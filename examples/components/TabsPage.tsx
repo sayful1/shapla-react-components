@@ -7,27 +7,27 @@ const ExampleTabs = () => {
   const properties = {
     alignment: {
       type: String,
-      default: "left",
+      default: "left"
     },
     size: {
       type: String,
-      default: "default",
+      default: "default"
     },
     tabStyle: {
       type: String,
-      default: "default",
+      default: "default"
     },
     fullwidth: { type: Boolean, default: false },
     vertical: { type: Boolean, default: false },
     onChangeTab: { type: Function, default: "" },
-    children: { type: Node, default: "" },
+    children: { type: Node, default: "" }
   };
   const properties2 = {
     name: { type: String, required: true },
     selected: { type: Boolean, required: false, default: false },
     navItemClass: { type: String, required: false, default: "" },
     navTo: { type: String, required: false, default: "" },
-    children: { type: Node, required: false, default: "" },
+    children: { type: Node, required: false, default: "" }
   };
 
   const descriptions = {};
@@ -70,14 +70,14 @@ const ExampleTabs = () => {
         </ShaplaTabs>
         <ShaplaTabs alignment="center" fullwidth>
           <ShaplaTab
-            name={`
-                            <>
+            name={
+              <>
                                 <span className="icon is-small">
                                     <i className="fas fa-image" aria-hidden="true"></i>
                                 </span>
-                                <span>Pictures</span>
-                            </>
-                        `}
+                <span>Pictures</span>
+              </>
+            }
             selected
           >
             <span className="icon is-small">

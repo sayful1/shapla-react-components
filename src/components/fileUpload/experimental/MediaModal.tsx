@@ -4,8 +4,8 @@ import {
   FileUploader,
   ImageContainer,
   Modal,
-  ShaplaTab,
-  ShaplaTabs,
+  Tab,
+  Tabs,
 } from "../../../index";
 import { ImageDataInterface } from "../helper/interfaces";
 
@@ -87,17 +87,17 @@ const MediaModal: FC<Props> = ({
         }
       >
         <div className="shapla-media-modal__inside">
-          <ShaplaTabs
+          <Tabs
             onChangeTab={(e) => setSelectedTab(e.props.name)}
             alignment="center"
           >
-            <ShaplaTab
+            <Tab
               name="Upload Images"
               selected={selectedTab == "Upload Images"}
             >
               <FileUploader url={url} onSuccess={onSuccess} onFail={onFail} />
-            </ShaplaTab>
-            <ShaplaTab
+            </Tab>
+            <Tab
               name="Media Library"
               selected={selectedTab == "Media Library"}
             >
@@ -128,8 +128,8 @@ const MediaModal: FC<Props> = ({
               ) : (
                 <div className="no-item-found">{notFoundText}</div>
               )}
-            </ShaplaTab>
-          </ShaplaTabs>
+            </Tab>
+          </Tabs>
         </div>
       </Modal>
     </div>

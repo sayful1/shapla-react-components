@@ -4,11 +4,12 @@ import ShaplaTabsContext from "./ShaplaTabsContext";
 interface Props {
   children: React.ReactNode;
   className?: string;
-  name: string;
+  name: string | React.ReactNode;
   active?: boolean;
   selected?: boolean;
   navTo?: string;
 }
+
 const ShaplaTab = ({ children, selected = false }: Props) => {
   const tabs = useContext(ShaplaTabsContext);
   const [isActive, setIsActive] = useState(false);

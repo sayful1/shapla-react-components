@@ -1,7 +1,7 @@
 {
   "name": "@shapla/react-components",
   "description": "A collection of React components.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "author": {
     "name": "Sayful Islam",

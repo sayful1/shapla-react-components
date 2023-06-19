@@ -26,20 +26,18 @@ npm install --save @shapla/react-components
 ### Javascript Instantiation
 
 ```jsx
-import { StarRating } from "@shapla/vue-components";
+import {StarRating} from "@shapla/vue-components";
 
 export default () => {
-  const [rating, setRating] = useState(4);
-  const staticRating = 4.6;
-  ret = (
-    <div>
-      <StarRating
-        modelValue={rating}
-        onUpdateModelValue={(v) => setRating(v)}
-      />
-      <StarRating modelValue={staticRating} isStatic={true} />
-    </div>
-  );
+    const [rating, setRating] = useState(4);
+    const staticRating = 4.6;
+    ret = (
+        <div>
+            <StarRating modelValue={rating} onUpdateModelValue={(v) => setRating(v)}/>
+            <StarRating modelValue={staticRating} isStatic={true}/>
+        </div>
+    )
+
 };
 ```
 

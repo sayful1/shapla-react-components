@@ -30,7 +30,6 @@ import StarRatingPage from "./components/StarRatingPage";
 import RangeSliderPage from "./components/RangeSliderPage"
 import StepperPage from "./components/StepperPage"
 import FileUploadPage from "./components/FileUploadPage"
-
 import HomePage from "./HomePage";
 
 const routerLinks = [

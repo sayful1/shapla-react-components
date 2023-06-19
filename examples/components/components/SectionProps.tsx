@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./style.scss";
-import { ShaplaTable } from "../../../src/index";
+import { Table } from "../../../src/index";
 import { ItemInterface } from "../../../src/components/table/TableInterfaces";
 
 interface Props {
@@ -49,7 +49,7 @@ const SectionProps = ({
   return (
     <section className="section section-properties">
       <h2 className="title">{heading}</h2>
-      <ShaplaTable showCb={false} columns={columns} items={tableRows} />
+      <Table showCb={false} columns={columns} items={tableRows} />
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SectionHero from "./SectionHero";
-import {ShaplaTabs,ShaplaTab} from "../../../src/index";
+import {Tabs,Tab} from "../../../src/index";
 import SectionUsage from "./SectionUsage";
 import SectionProps from "./SectionProps";
 
@@ -43,10 +43,10 @@ return (
             <SectionHero heading={heading}>
                 <p>{subHeading} </p>
             </SectionHero>
-            <ShaplaTabs
+            <Tabs
            
             alignment="center" size="large" fullwidth = {true}>
-                <ShaplaTab name="Implementation" selected>  
+                <Tab name="Implementation" selected>
                     <div>
                     <SectionUsage
                         slug={slug}
@@ -61,13 +61,13 @@ return (
                         desc={desc}
                     />
                     </div>
-                </ShaplaTab>
-                <ShaplaTab name="Demo and Example Code" >
+                </Tab>
+                <Tab name="Demo and Example Code" >
                     {children}
                     Hello
 
-                </ShaplaTab>
-            </ShaplaTabs>
+                </Tab>
+            </Tabs>
         </>
     )
 }

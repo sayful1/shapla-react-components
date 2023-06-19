@@ -1,5 +1,5 @@
 import React from "react";
-import { ShaplaTabs, ShaplaTab } from "../../src";
+import { Tabs, Tab } from "../../src";
 import DocTab from "./components/DocTab";
 import SectionProps from "./components/SectionProps";
 
@@ -37,39 +37,39 @@ const ExampleTabs = () => {
     <DocTab
       heading="Tabs"
       slug="shapla-tabs"
-      name="ShaplaTabs"
+      name="Tabs"
       slug2="shapla-tab"
-      name2="ShaplaTab"
+      name2="Tab"
       scss-mixin="tabs"
-      props-heading="Props for `ShaplaTabs`"
+      props-heading="Props for `Tabs`"
       properties={properties}
       desc={descriptions}
     >
       <div>
         <h2>Tabs</h2>
-        <ShaplaTabs alignment="center">
-          <ShaplaTab name="Tab 1">
+        <Tabs alignment="center">
+          <Tab name="Tab 1">
             <span>Custom name</span>
             Tab One Content
-          </ShaplaTab>
-          <ShaplaTab name="Tab 2 (Selected)" selected>
+          </Tab>
+          <Tab name="Tab 2 (Selected)" selected>
             Tab Two Content
-          </ShaplaTab>
-        </ShaplaTabs>
-        <ShaplaTabs alignment="center" tab-style="boxed">
-          <ShaplaTab name="Tab 1 (Selected)" selected>
+          </Tab>
+        </Tabs>
+        <Tabs alignment="center" tab-style="boxed">
+          <Tab name="Tab 1 (Selected)" selected>
             Tab One Content
-          </ShaplaTab>
-          <ShaplaTab name="Tab 2">Tab Two Content</ShaplaTab>
-        </ShaplaTabs>
-        <ShaplaTabs alignment="center" tab-style="toggle">
-          <ShaplaTab name="Tab 1" selected>
+          </Tab>
+          <Tab name="Tab 2">Tab Two Content</Tab>
+        </Tabs>
+        <Tabs alignment="center" tab-style="toggle">
+          <Tab name="Tab 1" selected>
             Tab One Content
-          </ShaplaTab>
-          <ShaplaTab name="Tab 2">Tab Two Content</ShaplaTab>
-        </ShaplaTabs>
-        <ShaplaTabs alignment="center" fullwidth>
-          <ShaplaTab
+          </Tab>
+          <Tab name="Tab 2">Tab Two Content</Tab>
+        </Tabs>
+        <Tabs alignment="center" fullwidth>
+          <Tab
             name={
               <>
                                 <span className="icon is-small">
@@ -85,12 +85,12 @@ const ExampleTabs = () => {
             </span>
             <span>Pictures</span>
             Tab One Content
-          </ShaplaTab>
-          <ShaplaTab name="Tab 2">Tab Two Content</ShaplaTab>
-        </ShaplaTabs>
+          </Tab>
+          <Tab name="Tab 2">Tab Two Content</Tab>
+        </Tabs>
       </div>
       <SectionProps
-        heading="Props for `ShaplaTab`"
+        heading="Props for `Tab`"
         properties={properties2}
         desc={descriptions2}
       />

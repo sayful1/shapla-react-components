@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { ShaplaTable, ShaplaTablePagination as Pagination } from "../../src";
+import { Table, TablePagination as Pagination } from "../../src";
 import DocTab from "./components/DocTab";
 import { ItemInterface } from "../../src/components/table/TableInterfaces";
 import StatusList from "../../src/components/table/components/StatusList";
-const ShaplaTableDoc = () => {
+const TableDoc = () => {
   const properties = {
     items: { type: Array, required: true },
     columns: { type: Array, required: true },
@@ -93,14 +93,14 @@ const ShaplaTableDoc = () => {
     <DocTab
       heading="Data Table"
       slug="shapla-table"
-      name="ShaplaTable"
+      name="Table"
       scssMixin="data-table"
       properties={properties}
       desc={description}
     >
       <div>
         <h2>Demo Table One</h2>
-        <ShaplaTable
+        <Table
           items={items}
           columns={columns}
           actions={actions}
@@ -113,7 +113,7 @@ const ShaplaTableDoc = () => {
           onSortClick={sortData}
         />
         <h2>Demo Table Two (No items)</h2>
-        <ShaplaTable
+        <Table
           items={[]}
           columns={columns}
           sortBy={sortBy}
@@ -129,7 +129,7 @@ const ShaplaTableDoc = () => {
         <div style={{ marginBottom: "1rem", display: "flex" }}>
           <StatusList statuses={statuses} onChange={changeStatus} />
         </div>
-        <ShaplaTable
+        <Table
           items={items}
           columns={columns}
           actions={actions}
@@ -140,7 +140,7 @@ const ShaplaTableDoc = () => {
           sortBy={sortBy}
           sortOrder={sortOrder}
           onSortClick={sortData}
-        ></ShaplaTable>
+        ></Table>
 
         <Pagination
           currentPage={currentPage}
@@ -152,4 +152,4 @@ const ShaplaTableDoc = () => {
     </DocTab>
   );
 };
-export default ShaplaTableDoc;
+export default TableDoc;

@@ -67,19 +67,20 @@ const Shaplatab = ({
   return (
     <div className={tabsClasses}>
       <div className={tabClasses}>
-        <ul className="shapla-tabs__nav">
-          {tabs.map((tab, index) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            return (
-              <li key={index} className={navItemClass(tab, index).join(" ")}>
+      <ul className="shapla-tabs__nav">
                 {
-                  <a
-                    href={tab.props.navTo}
-                    onClick={() => selectTab(tab, index)}
-                  >
-                    {tab.props.name}
-                  </a>
+                    tabs.map((tab, index) => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        return <li key={index} className={navItemClass(tab,index).join(" ")}>
+                            {
+                            <a href={tab.props.navTo} onClick={ ()=> selectTab(tab,index)}>
+                                {tab.props.name}
+                            </a>
+                            }
+                            
+                        </li>
+                    })
                 }
             </ul>
         </div>

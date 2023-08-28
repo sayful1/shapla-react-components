@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export interface TableActionDataInterface {
   key: string;
   label: string;
+  href?: string;
 }
 
 export interface TableColumnDataInterface {
@@ -15,6 +16,7 @@ export interface TableColumnDataInterface {
 export interface ItemInterface {
   [key: string | number]: string | number | boolean;
 }
+
 export interface TableProps {
   items: ItemInterface[];
   columns: TableColumnDataInterface[];

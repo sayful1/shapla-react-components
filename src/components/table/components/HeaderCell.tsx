@@ -14,17 +14,19 @@ interface TableHeaderCellProps {
   onSort?: (key: string) => void;
 }
 
-const TableHeaderCell: FC<TableHeaderCellProps> = ({
-  column = { key: "", label: "" },
-  isPrimary = false,
-  isCheckbox = false,
-  isExpandToggle = false,
-  sortBy = "id",
-  sortOrder = "desc",
-  showText = false,
-  children,
-  onSort,
-}) => {
+const TableHeaderCell: FC<TableHeaderCellProps> = (
+  {
+    column = { key: "", label: "" },
+    isPrimary = false,
+    isCheckbox = false,
+    isExpandToggle = false,
+    sortBy = "id",
+    sortOrder = "desc",
+    showText = false,
+    children,
+    onSort
+  }
+) => {
   const handleSort = () => onSort && onSort(column.key);
 
   const [isNumeric, setIsNumeric] = useState(false);
@@ -65,8 +67,7 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
   useEffect(() => {
     const newClasses = [headCellClass];
 
-    if (column && column.key)
-      newClasses.push(`shapla-data-table__header-cell-${column.key}`);
+    if (column && column.key) newClasses.push(`shapla-data-table__header-cell-${column.key}`);
     if (isPrimary) newClasses.push("column-primary");
     if (isCheckbox) newClasses.push("is-checkbox-cell");
     if (isExpandToggle) newClasses.push("is-expand-toggle-cell");
@@ -88,14 +89,14 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
     isSortable,
     isSorted,
     isSortedAsc,
-    isSortedDesc,
+    isSortedDesc
   ]);
 
   return (
     <th className={headCellClass} role="columnheader" scope="col">
       {showText ? (
         children
-      ) : !isSortable ? (
+      ) : isSortable ? (
         <a href="#" onClick={handleSort}>
           {isSortedDesc && (
             <DataTableIcon icon="arrow-upward" className="sort-icon" />
@@ -105,9 +106,8 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
           )}
           <span>{column.label}</span>
         </a>
-      ) : (
-        <span>{column.label}</span>
-      )}
+      ) : (<span>{column.label}</span>)
+      }
     </th>
   );
 };

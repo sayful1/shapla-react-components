@@ -1,9 +1,5 @@
 import React, { FC, ReactNode, useEffect, useState } from "react";
-import {
-  ItemInterface,
-  TableActionDataInterface,
-  TableColumnDataInterface,
-} from "../TableInterfaces";
+import { ItemInterface, TableActionDataInterface, TableColumnDataInterface } from "../TableInterfaces";
 import DataTableIcon from "./DataTableIcon";
 
 interface Props {
@@ -20,17 +16,19 @@ interface Props {
   onClickAction?: (key: string, item: ItemInterface) => void;
 }
 
-const DataTableCell: FC<Props> = ({
-  item,
-  column,
-  actions = [],
-  isPrimary = false,
-  isMobile = false,
-  showText,
-  children,
-  onClickToggle,
-  onClickAction,
-}) => {
+const DataTableCell: FC<Props> = (
+  {
+    item,
+    column,
+    actions = [],
+    isPrimary = false,
+    isMobile = false,
+    showText,
+    children,
+    onClickToggle,
+    onClickAction
+  }
+) => {
   const [isNumeric, setIsNumeric] = useState(false);
 
   useEffect(() => {
@@ -40,31 +38,22 @@ const DataTableCell: FC<Props> = ({
     "shapla-data-table__cell",
     `shapla-data-table__cell-${column.key}`,
     isNumeric ? "is-numeric-cell" : null,
-    isPrimary ? "column-primary" : null,
+    isPrimary ? "column-primary" : null
   ].filter(Boolean);
 
   return (
     <td data-colname={column.label} className={bodyCellClass.join(" ")}>
       {item[column.key]}
       {isPrimary && (
-        <React.Fragment>
+        <>
           {actions.length > 0 && (
             <div className="row-actions">
-              {showText ? (
-                children
-              ) : (
-                <span>
-                  {actions.map((action) => (
-                    <a
-                      key={action.key}
-                      className={action.key}
-                      href="#"
-                      onClick={() => onClickAction?.(action.key, item)}
-                    >
-                      {action.label}
-                    </a>
-                  ))}
-                </span>
+              {showText ? (children) : (
+                actions.map((action) => (
+                  <span key={action.key} className={action.key}>
+                    <a href={action.href ?? "#"} onClick={() => onClickAction?.(action.key, item)}>{action.label}</a>
+                  </span>
+                ))
               )}
             </div>
           )}
@@ -78,7 +67,7 @@ const DataTableCell: FC<Props> = ({
               <DataTableIcon icon="expand-more" className="triangle-down" />
             </button>
           )}
-        </React.Fragment>
+        </>
       )}
     </td>
   );

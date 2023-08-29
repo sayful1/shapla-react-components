@@ -1,13 +1,14 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import "./IconContainer.scss";
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLSpanElement> {
   size?: "small" | "medium" | "large";
   hoverable?: boolean;
   children: ReactNode;
 }
 
-const IconContainer: FC<Props> = ({ size, hoverable, children }) => {
+const IconContainer: FC<Props> = (props) => {
+  const { size, hoverable, children, ...others } = props;
   const [classes, setClasses] = useState<string>();
   useEffect(() => {
     const classes = ["shapla-icon"];
@@ -16,7 +17,7 @@ const IconContainer: FC<Props> = ({ size, hoverable, children }) => {
     setClasses(classes.join(" "));
   }, [size, hoverable]);
 
-  return <span className={classes}>{children}</span>;
+  return <span className={classes} {...others}>{children}</span>;
 };
 
 export default IconContainer;

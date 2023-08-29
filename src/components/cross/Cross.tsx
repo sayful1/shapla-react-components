@@ -13,8 +13,14 @@ class Cross extends Component<CrossPropsInterface> {
   static defaultProps = {
     size: "normal",
     ariaLabel: "close",
-    fixed: false,
+    fixed: false
   };
+
+  constructor(props: CrossPropsInterface) {
+    super(props);
+
+    this.classes = this.classes.bind(this);
+  }
 
   /**
    * Render component UI
@@ -31,7 +37,7 @@ class Cross extends Component<CrossPropsInterface> {
    *
    * @returns {string}
    */
-  classes() {
+  classes(): string {
     const classes = ["shapla-delete-icon"];
 
     if (this.props.className) classes.push(this.props.className);

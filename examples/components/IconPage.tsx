@@ -8,9 +8,9 @@ const ExampleIcon: React.FC = () => {
     size: {
       type: String,
       required: false,
-      default: null,
+      default: null
     },
-    hoverable: { type: Boolean, default: false },
+    hoverable: { type: Boolean, default: false }
   };
   const descriptions = {};
 
@@ -29,7 +29,7 @@ as a reliable square container that will prevent the page to <strong>jump</stron
       <CodeBlock
         heading="Font Awesome Icons"
         content={
-          <IconContainer size="medium" hoverable>
+          <IconContainer size="medium" hoverable onClick={() => window.console.log("It support click action.")}>
             <i className={`far fa-address-book`} />
           </IconContainer>
         }
